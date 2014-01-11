@@ -7,8 +7,8 @@ namespace Locator.Entity.Entities
         public string Login { get; set; }
 
         [XmlIgnore]
-        public string Password;
-        
+        public string Password { get; set; }
+
         public string DisplayName { get; set; }
     }
 }
