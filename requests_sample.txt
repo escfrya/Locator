@@ -1,0 +1,14 @@
+GET
+
+
+
+POST
+Content-Type: application/json
+http://localhost.fiddler:12804/LocatorService.svc/users/
+
+http://motivator.apphb.com/LocatorService.svc/users/
+
+{"user" : {"DisplayName":"IGOR_S", "Login":"igor", "Password":"test"}}
+
+
+Auth: igor:test

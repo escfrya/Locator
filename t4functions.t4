@@ -1,0 +1,283 @@
+<#@ assembly name="EnvDTE80" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="EnvDTE" #>
+<#@ import namespace="EnvDTE80" #>
+<#@ import namespace="System.Linq" #>
+<#@ include file="EF.Utility.CS.ttinclude"#>
+
+<#+
+private bool ValidParamName(CodeParameter codeParam)
+{
+	return !codeParam.Type.AsFullName.Contains("Stream");
+}
+#>
+
+<#+
+private string GetRequestName(CodeFunction codeFunction)
+{
+	return codeFunction.Name + "Request";
+}
+#>
+
+<#+
+private bool HasAttribute(CodeFunction codeFunction, string attributeName)
+{
+	foreach(CodeElement element in codeFunction.Attributes)
+	{
+		if (element.Name == attributeName)
+		return true;
+	}
+	return false;
+}
+#>
+
+<#+
+private string GetFunctionReturnType(CodeTypeRef type)
+{
+	if(!string.IsNullOrEmpty(type.AsFullName))
+		return type.AsFullName;
+	else
+		return "BaseResponse";
+}
+#>
+
+<#+
+private Project GetProject(string name)
+{
+	var dte = (this.Host as IServiceProvider).GetService(typeof(EnvDTE.DTE)) as EnvDTE.DTE;
+	foreach (Project project in dte.Solution.Projects)
+		if (project.Name == name)
+			return project;	
+
+	return null;
+} 
+#>
+
+<#+
+private EnvDTE.CodeNamespace GetNamespace(CodeElements codeElements, string name)
+{
+	foreach (CodeElement codeElement in codeElements)
+	{
+		if (codeElement.Kind == vsCMElement.vsCMElementNamespace)
+		{
+			EnvDTE.CodeNamespace cNamespace = (EnvDTE.CodeNamespace)codeElement;
+			if (cNamespace.Name == name)
+				return cNamespace;
+		}
+	}
+	return null;
+}
+#>
+
+<#+
+	private string GetCommandMethodName(string eventName)
+	{
+		return string.Format("{0}Method", eventName);
+	}
+#>
+
+<#+
+	private string GetViewModelClassName(string viewName)
+	{
+		return viewName.Substring(1, viewName.Length - 5) + "ViewModel";
+	}
+#>
+<#+
+	private string GetPresenterName(string viewName)
+	{
+		return viewName.Substring(1, viewName.Length - 5) + "Presenter";
+	}
+#>
+<#+
+	private string GetEventArgsName(string EventHandlerTypeName)
+	{
+		int startIndex = EventHandlerTypeName.IndexOf('<');
+        return EventHandlerTypeName.Substring(startIndex + 1, EventHandlerTypeName.Length - startIndex - 2);
+	}
+#>
+<#+
+	private bool IsViewInterface(string className)
+	{
+		return className.StartsWith("I") && className.EndsWith("View") && className != "IBaseView";
+	}
+#>
+<#+
+	private string GetCommandName(string eventName)
+	{
+		return string.Format("{0}Command", eventName);
+	}
+#>
+
+
+<#+
+private bool HasStreamParam(CodeFunction codeFunction)
+{
+	foreach (CodeParameter codeElement in codeFunction.Parameters)
+		if (!ValidParamName(codeElement))
+			return true;
+	
+	return false;
+}
+#>
+
+<#+
+private string AddStreamParam(CodeFunction codeFunction)
+{
+	bool hasStream =  HasStreamParam(codeFunction);
+	if (hasStream)
+		return ", byte[] bytes";
+	else
+		return string.Empty;
+}
+#>
+
+<#+
+private string GetMethodHttpType(CodeFunction codeFunction)
+{
+	var templateStrintLength = "Method = \"".Length;
+	foreach(CodeElement element in codeFunction.Attributes)
+	{
+		if (element.Name == "WebGet")
+			return "HTTPType.GET";
+		else if (element.Name == "WebInvoke")
+		{
+			foreach(CodeElement el in element.Children)
+			{
+				if (el.Name == "Method")
+				{
+					var start = el.GetStartPoint();
+					var finish = el.GetEndPoint();
+					var elementText =  start.CreateEditPoint().GetText(finish);
+					var methodName = elementText.Substring(templateStrintLength, elementText.Length - templateStrintLength - 1);
+					if (methodName == "POST")
+						return "HTTPType.POST";
+					else if (methodName == "PUT")
+						return "HTTPType.PUT";
+				}
+			}
+		}
+	}
+	throw new Exception("service method " + codeFunction.Name + " without attribute WebGet or WebInvoke");
+}
+#>
+
+<#+
+private bool HasWebInvokeAttribute(CodeFunction codeFunction)
+{
+	foreach(CodeAttribute element in codeFunction.Attributes)
+	{
+		if (element.Name == "WebInvoke")
+		{
+			return true;
+		}	
+	}
+	return false;
+}
+#>
+
+<#+
+private string GetServiceRequest(CodeFunction codeFunction)
+{
+	if (HasWebInvokeAttribute(codeFunction))
+		return "request";
+	else
+		return "new BaseRequest()";
+}
+#>
+
+<#+
+private string GetFunctionParams(CodeFunction codeFunction)
+{
+	if (HasWebInvokeAttribute(codeFunction))
+	{
+		return GetRequestName(codeFunction) + " request" + AddStreamParam(codeFunction);
+	}
+	else
+	{
+		var parameters = string.Empty;
+		foreach (CodeParameter codeElement in codeFunction.Parameters)
+		{
+			if (!string.IsNullOrEmpty(parameters))
+				parameters += ", ";
+				
+			parameters += codeElement.Type.AsFullName + " "  + codeElement.Name;
+		}
+		return parameters;
+	}
+}
+#>
+
+<#+
+private string GetServiceAddress(CodeFunction codeFunction)
+{
+	var templateStrintLength = "\"UriTemplate = \"".Length;
+	foreach(CodeAttribute element in codeFunction.Attributes)
+	{
+		if (element.Name == "WebGet" || element.Name == "WebInvoke")
+		{
+			foreach(CodeElement el in element.Children)
+			{
+				if (el.Name == "UriTemplate")
+				{
+					var start = el.GetStartPoint();
+					var finish = el.GetEndPoint();
+					var elementText =  start.CreateEditPoint().GetText(finish);
+					var address = elementText.Substring(templateStrintLength, elementText.Length - templateStrintLength - 1);
+					return ProcessAddressParams(address, codeFunction);
+
+				}
+			}
+		}
+			
+	}
+	throw new Exception("service method " + codeFunction.Name + " without attribute WebGet or WebInvoke");
+}
+#>
+
+<#+
+private string ProcessAddressParams(string address, CodeFunction codeFunction)
+{
+	var prefix = string.Empty;
+	if (HasWebInvokeAttribute(codeFunction))
+		prefix = "request.";
+		
+	var parameters = new List<string>();
+    string res = address;
+    string tempRes = res;
+    int i = 0;
+    while (tempRes.Contains('{'))
+    {
+        int startIndex = tempRes.IndexOf('{');
+        int endIndex = tempRes.IndexOf('}');
+        var paramName = tempRes.Substring(startIndex + 1, endIndex - startIndex - 1);
+        parameters.Add(paramName);
+        tempRes = tempRes.Substring(endIndex + 1);
+        res = res.Replace("{" + paramName + "}", "{" + i + "}");
+        i++;
+    }
+    var result = "string.Format(\"" + res + "\"";
+    if (parameters.Any())
+    {
+        result = parameters.Aggregate(result, (current, param) => current + (", " + prefix + param));
+    }
+    result += ")";
+	return result;
+}
+#>
+
+<#+
+private string GetReturnStr(CodeTypeRef type)
+{
+	if(!string.IsNullOrEmpty(type.AsFullName))
+		return "return Process<" + type.AsFullName + ">";
+	else
+		return "Process";
+}
+#>
+
+<#+
+private bool IsEntityClass(string className)
+{
+	return className == "BaseAuthorEntity" || className == "BaseEntity";
+}
+#>

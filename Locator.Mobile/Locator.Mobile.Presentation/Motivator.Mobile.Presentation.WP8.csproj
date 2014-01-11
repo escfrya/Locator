@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BE38AB60-54E2-4DC1-A545-70736E4DC69E}</ProjectGuid>
+<ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+<TargetFrameworkIdentifier>WindowsPhone</TargetFrameworkIdentifier>
+<TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Motivator.Mobile.Presentation</RootNamespace>
+    <AssemblyName>Motivator.Mobile.Presentation</AssemblyName>
+    
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    
+    
+    
+    
+    
+    
+    
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MemoryTask\IMemoryTaskView.cs"></Compile>
+    <Compile Include="MemoryTask\MemoryTaskPresenter.cs"></Compile>
+    <Compile Include="AppController.cs"></Compile>
+    <Compile Include="BasePresenter.cs"></Compile>
+    <Compile Include="IBaseView.cs"></Compile>
+    <Compile Include="IDispatcher.cs"></Compile>
+    <Compile Include="INavigation.cs"></Compile>
+    <Compile Include="Memories\IMemoriesView.cs"></Compile>
+    <Compile Include="Memories\MemoriesPresenter.cs"></Compile>
+    <Compile Include="PageNames.cs"></Compile>
+    <Compile Include="Properties\AssemblyInfo.cs"></Compile>
+    <Compile Include="Service\ServiceRequest.cs"></Compile>
+    <Compile Include="Service\TaskQueue.cs"></Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Motivator.Entity\Motivator.Entity.WP8.csproj">
+      <Project>{8b5c2664-525d-40bf-b25f-bb3e27888c97}</Project>
+      <Name>Motivator.Entity.WP8</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Motivator.ServiceContract\Motivator.ServiceContract.WP8.csproj">
+      <Project>{bd5eb34d-1875-4e8c-867a-b18dd8bbd659}</Project>
+      <Name>Motivator.ServiceContract.WP8</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motivator.Mobile.BL\Motivator.Mobile.BL.WP8.csproj">
+      <Project>{a5007be4-6a3d-4159-9ac0-daf4037380f5}</Project>
+      <Name>Motivator.Mobile.BL.WP8</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motivator.Mobile.Client\Motivator.Mobile.Client.WP8.csproj">
+      <Project>{b085f057-5fcd-4595-a3bd-a64fdf062b09}</Project>
+      <Name>Motivator.Mobile.Client.WP8</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motivator.Mobile.DAL\Motivator.Mobile.DAL.WP8.csproj">
+      <Project>{0ae488fc-1a38-422f-9e68-bba72d784407}</Project>
+      <Name>Motivator.Mobile.DAL.WP8</Name>
+    </ProjectReference>
+  </ItemGroup>
+  
+  <PropertyGroup>
+    
+  </PropertyGroup>
+  
+<Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
+<Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
+</Project>

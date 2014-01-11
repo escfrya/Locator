@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')"></Import>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A5007BE4-6A3D-4159-9AC0-DAF4037380F5}</ProjectGuid>
+<ProjectTypeGuids>{6BC8ED88-2882-458C-8E55-DFD12B67127B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Motivator.Mobile.BL</RootNamespace>
+    <AssemblyName>Motivator.Mobile.BL</AssemblyName>
+    
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;IOS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;IOS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System"></Reference>
+    <Reference Include="System.Core"></Reference>
+    <Reference Include="System.Xml.Linq"></Reference>
+    <Reference Include="System.Data.DataSetExtensions"></Reference>
+    <Reference Include="Microsoft.CSharp"></Reference>
+    <Reference Include="System.Data"></Reference>
+    <Reference Include="System.Xml"></Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Client\ExecuteParams.cs"></Compile>
+    <Compile Include="Client\IExecuteParams.cs"></Compile>
+    <Compile Include="Client\IRequestClient.cs"></Compile>
+    <Compile Include="Client\ISerializer.cs"></Compile>
+    <Compile Include="Client\RequestClient.cs"></Compile>
+    <Compile Include="Exceptions\HttpCodeException.cs"></Compile>
+    <Compile Include="Exceptions\NetworkException.cs"></Compile>
+    <Compile Include="Exceptions\NotLoggedException.cs"></Compile>
+    <Compile Include="HTTPType.cs"></Compile>
+    <Compile Include="Properties\AssemblyInfo.cs"></Compile>
+    <Compile Include="Request\Requests1.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Requests.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Response\BaseResponse.cs"></Compile>
+    <Compile Include="Response\RequestResponse.cs"></Compile>
+    <Compile Include="ServiceClient\BaseClient.cs"></Compile>
+    <Compile Include="ServiceClient\IServiceCommandFactory1.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IServiceCommandFactory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceClient\ServiceCommandFactory1.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ServiceCommandFactory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserSettings.cs"></Compile>
+  </ItemGroup>
+  <ItemGroup></ItemGroup>
+  <ItemGroup>
+    <None Include="Request\Requests.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Requests1.g.cs</LastGenOutput>
+    </None>
+    <None Include="ServiceClient\IServiceCommandFactory.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>IServiceCommandFactory1.g.cs</LastGenOutput>
+    </None>
+    <None Include="ServiceClient\ServiceCommandFactory.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ServiceCommandFactory1.g.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}"></Service>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Motivator.Entity\Motivator.Entity.iOS.csproj">
+      <Project>{8b5c2664-525d-40bf-b25f-bb3e27888c97}</Project>
+      <Name>Motivator.Entity.iOS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Motivator.ServiceContract\Motivator.ServiceContract.iOS.csproj">
+      <Project>{bd5eb34d-1875-4e8c-867a-b18dd8bbd659}</Project>
+      <Name>Motivator.ServiceContract.iOS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motivator.Mobile.DAL\Motivator.Mobile.DAL.iOS.csproj">
+      <Project>{0ae488fc-1a38-422f-9e68-bba72d784407}</Project>
+      <Name>Motivator.Mobile.DAL.iOS</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"></Import>
+  <PropertyGroup>
+    <PostBuildEvent>$(ProjectDir)..\..\Interaction\msxsl.exe $(ProjectPath) $(ProjectDir)..\..\Interaction\WP8.xslt -o $(ProjectDir)$(ProjectName).WP8.csproj
+$(ProjectDir)..\..\Interaction\msxsl.exe $(ProjectPath) $(ProjectDir)..\..\Interaction\ios.xslt -o $(ProjectDir)$(ProjectName).iOS.csproj</PostBuildEvent>
+  </PropertyGroup>
+  
+</Project>

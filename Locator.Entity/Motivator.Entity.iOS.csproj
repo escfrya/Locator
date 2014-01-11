@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')"></Import>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8B5C2664-525D-40BF-B25F-BB3E27888C97}</ProjectGuid>
+<ProjectTypeGuids>{6BC8ED88-2882-458C-8E55-DFD12B67127B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Motivator.Entity</RootNamespace>
+    <AssemblyName>Motivator.Entity</AssemblyName>
+    
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;IOS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;IOS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System"></Reference>
+    <Reference Include="System.Core"></Reference>
+    <Reference Include="System.Runtime.Serialization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Xml.Linq"></Reference>
+    <Reference Include="System.Data.DataSetExtensions"></Reference>
+    <Reference Include="Microsoft.CSharp"></Reference>
+    <Reference Include="System.Data"></Reference>
+    <Reference Include="System.Xml"></Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseEntity.cs"></Compile>
+    <Compile Include="Entities\Memory.cs"></Compile>
+    <Compile Include="Entities\MemTask.cs"></Compile>
+    <Compile Include="Entities\User.cs"></Compile>
+    <Compile Include="Entities\UserFriends.cs"></Compile>
+    <Compile Include="Entities\UserPush.cs"></Compile>
+    <Compile Include="Properties\AssemblyInfo.cs"></Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"></Import>
+  <PropertyGroup>
+    <PostBuildEvent>$(ProjectDir)..\Interaction\msxsl.exe $(ProjectPath) $(ProjectDir)..\Interaction\WP8.xslt -o $(ProjectDir)$(ProjectName).WP8.csproj
+$(ProjectDir)..\Interaction\msxsl.exe $(ProjectPath) $(ProjectDir)..\Interaction\ios.xslt -o $(ProjectDir)$(ProjectName).iOS.csproj</PostBuildEvent>
+  </PropertyGroup>
+  
+</Project>

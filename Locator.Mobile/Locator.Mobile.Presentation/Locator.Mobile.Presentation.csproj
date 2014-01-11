@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BE38AB60-54E2-4DC1-A545-70736E4DC69E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Locator.Mobile.Presentation</RootNamespace>
+    <AssemblyName>Locator.Mobile.Presentation</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MemoryTask\IMemoryTaskView.cs" />
+    <Compile Include="MemoryTask\MemoryTaskPresenter.cs" />
+    <Compile Include="AppController.cs" />
+    <Compile Include="BasePresenter.cs" />
+    <Compile Include="IBaseView.cs" />
+    <Compile Include="IDispatcher.cs" />
+    <Compile Include="INavigation.cs" />
+    <Compile Include="Memories\IMemoriesView.cs" />
+    <Compile Include="Memories\MemoriesPresenter.cs" />
+    <Compile Include="PageNames.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\ServiceRequest.cs" />
+    <Compile Include="Service\TaskQueue.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Locator.Entity\Locator.Entity.csproj">
+      <Project>{8b5c2664-525d-40bf-b25f-bb3e27888c97}</Project>
+      <Name>Locator.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Locator.ServiceContract\Locator.ServiceContract.csproj">
+      <Project>{bd5eb34d-1875-4e8c-867a-b18dd8bbd659}</Project>
+      <Name>Locator.ServiceContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Locator.Mobile.BL\Locator.Mobile.BL.csproj">
+      <Project>{a5007be4-6a3d-4159-9ac0-daf4037380f5}</Project>
+      <Name>Locator.Mobile.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Locator.Mobile.Client\Locator.Mobile.Client.csproj">
+      <Project>{b085f057-5fcd-4595-a3bd-a64fdf062b09}</Project>
+      <Name>Locator.Mobile.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Locator.Mobile.DAL\Locator.Mobile.DAL.csproj">
+      <Project>{0ae488fc-1a38-422f-9e68-bba72d784407}</Project>
+      <Name>Locator.Mobile.DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>$(ProjectDir)..\..\Tools\msxsl.exe $(ProjectPath) $(ProjectDir)..\..\Tools\WP8.xslt -o $(ProjectDir)$(ProjectName).WP8.csproj
+$(ProjectDir)..\..\Tools\msxsl.exe $(ProjectPath) $(ProjectDir)..\..\Tools\ios.xslt -o $(ProjectDir)$(ProjectName).iOS.csproj</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

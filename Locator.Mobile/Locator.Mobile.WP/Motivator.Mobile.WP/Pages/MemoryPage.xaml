@@ -1,0 +1,105 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="Motivator.Mobile.WP.MemoryPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:telerikPrimitives="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Primitives"
+    xmlns:local="clr-namespace:Motivator.Mobile.WP.Styles"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True"
+    Loaded="PhoneApplicationPageLoaded" Unloaded="PhoneApplicationPageUnloaded">
+<!--shell:SystemTray.IsVisible="True"-->
+    <phone:PhoneApplicationPage.Resources>
+        <!--<local:ActionTemplateSelector x:Key="FutureTemplateSelector" 
+                            ItemTemplate="{StaticResource FutureMotivActionItemTemplate}" 
+                            EmptyTemplate ="{StaticResource EmptyActionItemTemplate}"/>
+        <local:ActionTemplateSelector x:Key="PastTemplateSelector" 
+                            ItemTemplate="{StaticResource PastMotivActionItemTemplate}" 
+                            EmptyTemplate ="{StaticResource EmptyActionItemTemplate}"/>-->
+    </phone:PhoneApplicationPage.Resources>
+	<Grid x:Name="LayoutRoot" Background="LightGray">
+        <!--<Grid.Background>
+            <ImageBrush ImageSource="/Images/background.png" />
+        </Grid.Background>-->
+        <Grid x:Name="ContentPanel" Margin="12,0,12,0">
+            <!--<phone:Pivot Style="{StaticResource PivotStyle}" 
+                         Foreground="{StaticResource Foreground}"
+                         Background="{StaticResource Background}">
+                <phone:PivotItem Header="FUTURE" Margin="0,-40,0,0">-->
+            <telerikPrimitives:RadDataBoundListBox Grid.Row="1"
+                                                   Foreground="{StaticResource Foreground}"
+                                                   ItemsSource="{Binding Memories}"
+                                                   SelectedItem="{Binding MemoryTask, Mode=TwoWay}" 
+                                                   Margin="12,150,12,0" SelectionChanged="OnSelectionChanged"
+                                                   EmptyContent="Пока пусто :-(">
+                <telerikPrimitives:RadDataBoundListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Text}" />
+                    </DataTemplate>
+                </telerikPrimitives:RadDataBoundListBox.ItemTemplate>
+            </telerikPrimitives:RadDataBoundListBox>
+                <!--</phone:PivotItem>
+                <phone:PivotItem Header="PAST" Margin="0,-70,0,0">
+                    <telerikPrimitives:RadDataBoundListBox Grid.Row="1"
+                                                   Foreground="{StaticResource Foreground}"
+                                                   ItemsSource="{Binding MotivActionsPast}"
+                                                   SelectedItem="{Binding SelectedAction, Mode=TwoWay}" 
+                                                   Margin="12,3,12,0"  
+                                                   EmptyContent="Пока пусто :-("
+                                                   ItemTemplateSelector="{ StaticResource PastTemplateSelector}">
+                    </telerikPrimitives:RadDataBoundListBox>
+                </phone:PivotItem>
+            </phone:Pivot>-->
+        </Grid>
+
+        <Border>
+            <Grid Margin="12,17,0,28" Height="180" VerticalAlignment="Top" IsHitTestVisible="False">
+                <Path Data="M2.375,183.375 L483,0.25 L0,0" Margin="-14.5,-17.25,-0.5,-77.125" UseLayoutRounding="False" RenderTransformOrigin="0.5,0.5" Fill="#E676E0F1" />
+                <TextBlock x:Name="ApplicationTitle" Text="MOTIVATOR" Style="{StaticResource PhoneTextNormalStyle}" Foreground="{StaticResource Foreground}"/>
+                <TextBlock x:Name="PageTitle" Text="memory" Margin="9,-2,0,0" Style="{StaticResource PhoneTextTitle1Style}" Foreground="{StaticResource Foreground}"/>
+            </Grid>
+        </Border>
+
+        <Grid Height="80" VerticalAlignment="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Border Grid.ColumnSpan="5" Background="#A476E0F1"/>
+            <telerikPrimitives:RadImageButton Grid.Column="1" HorizontalAlignment="Center"
+                                                ButtonShape="Ellipse" BorderThickness="3"
+                                                Command="{Binding AddTaskCommand}"
+                                                RestStateImageSource="/Images/appbar.add.png" />
+            <telerikPrimitives:RadImageButton Grid.Column="2" HorizontalAlignment="Center"
+                                                ButtonShape="Ellipse" BorderThickness="3"
+                                                Command="{Binding RefreshCommand}"
+                                                RestStateImageSource="/Images/appbar.refresh.png" />
+            <telerikPrimitives:RadImageButton Grid.Column="3" HorizontalAlignment="Center"
+                                                ButtonShape="Ellipse" BorderThickness="3"
+                                                Tap="GoToAbout"
+                                                RestStateImageSource="/Images/appbar.information.png" />
+        </Grid>
+	</Grid>
+
+	<!--<phone:PhoneApplicationPage.ApplicationBar>
+		<shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+			<shell:ApplicationBarIconButton IconUri="/Images/appbar.add.png" Text="add action" Click="AddActionOnClick"/>
+        </shell:ApplicationBar>
+	</phone:PhoneApplicationPage.ApplicationBar>-->
+    <shell:SystemTray.ProgressIndicator>
+        <shell:ProgressIndicator IsIndeterminate="{Binding IsBusy, Mode=TwoWay}" 
+                                 IsVisible="{Binding IsBusy, Mode=TwoWay}" 
+                                 Text="{Binding BusyText, Mode=TwoWay}" />
+    </shell:SystemTray.ProgressIndicator>
+</phone:PhoneApplicationPage>
+

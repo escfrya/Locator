@@ -1,0 +1,81 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Locator.Entity", "Locator.Entity\Locator.Entity.csproj", "{8B5C2664-525D-40BF-B25F-BB3E27888C97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Locator.DAL", "Locator.DAL\Locator.DAL.csproj", "{55D86A8B-EE02-42A7-9790-BFC65B776822}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Locator.DAL.EF", "Locator.DAL.EF\Locator.DAL.EF.csproj", "{CAB02826-F95B-42BE-BDC2-6F61FF2D514C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Locator.Mobile.Client", "Locator.Mobile\Locator.Mobile.Client\Locator.Mobile.Client.csproj", "{B085F057-5FCD-4595-A3BD-A64FDF062B09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Locator.Mobile.BL", "Locator.Mobile\Locator.Mobile.BL\Locator.Mobile.BL.csproj", "{A5007BE4-6A3D-4159-9AC0-DAF4037380F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Locator.Mobile.DAL", "Locator.Mobile\Locator.Mobile.DAL\Locator.Mobile.DAL.csproj", "{0AE488FC-1A38-422F-9E68-BBA72D784407}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Locator.Mobile.Presentation", "Locator.Mobile\Locator.Mobile.Presentation\Locator.Mobile.Presentation.csproj", "{BE38AB60-54E2-4DC1-A545-70736E4DC69E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocatorService", "LocatorService\LocatorService.csproj", "{97CFD10F-85C5-437D-8274-AB1D03F083BA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{44DA1423-DCF4-4AFA-B79D-6178821EC464}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PushNotifications", "PushNotifications\PushNotifications.csproj", "{2EAE1769-0D53-441B-A8A4-6D0C9C1FE91B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Locator.ServiceContract", "Locator.ServiceContract\Locator.ServiceContract.csproj", "{BD5EB34D-1875-4E8C-867A-B18DD8BBD659}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8B5C2664-525D-40BF-B25F-BB3E27888C97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B5C2664-525D-40BF-B25F-BB3E27888C97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B5C2664-525D-40BF-B25F-BB3E27888C97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B5C2664-525D-40BF-B25F-BB3E27888C97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55D86A8B-EE02-42A7-9790-BFC65B776822}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55D86A8B-EE02-42A7-9790-BFC65B776822}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55D86A8B-EE02-42A7-9790-BFC65B776822}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55D86A8B-EE02-42A7-9790-BFC65B776822}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAB02826-F95B-42BE-BDC2-6F61FF2D514C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAB02826-F95B-42BE-BDC2-6F61FF2D514C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAB02826-F95B-42BE-BDC2-6F61FF2D514C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAB02826-F95B-42BE-BDC2-6F61FF2D514C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B085F057-5FCD-4595-A3BD-A64FDF062B09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B085F057-5FCD-4595-A3BD-A64FDF062B09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B085F057-5FCD-4595-A3BD-A64FDF062B09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B085F057-5FCD-4595-A3BD-A64FDF062B09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5007BE4-6A3D-4159-9AC0-DAF4037380F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5007BE4-6A3D-4159-9AC0-DAF4037380F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5007BE4-6A3D-4159-9AC0-DAF4037380F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5007BE4-6A3D-4159-9AC0-DAF4037380F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AE488FC-1A38-422F-9E68-BBA72D784407}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AE488FC-1A38-422F-9E68-BBA72D784407}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AE488FC-1A38-422F-9E68-BBA72D784407}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AE488FC-1A38-422F-9E68-BBA72D784407}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE38AB60-54E2-4DC1-A545-70736E4DC69E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE38AB60-54E2-4DC1-A545-70736E4DC69E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE38AB60-54E2-4DC1-A545-70736E4DC69E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE38AB60-54E2-4DC1-A545-70736E4DC69E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97CFD10F-85C5-437D-8274-AB1D03F083BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97CFD10F-85C5-437D-8274-AB1D03F083BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97CFD10F-85C5-437D-8274-AB1D03F083BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97CFD10F-85C5-437D-8274-AB1D03F083BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EAE1769-0D53-441B-A8A4-6D0C9C1FE91B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EAE1769-0D53-441B-A8A4-6D0C9C1FE91B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EAE1769-0D53-441B-A8A4-6D0C9C1FE91B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EAE1769-0D53-441B-A8A4-6D0C9C1FE91B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD5EB34D-1875-4E8C-867A-B18DD8BBD659}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD5EB34D-1875-4E8C-867A-B18DD8BBD659}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD5EB34D-1875-4E8C-867A-B18DD8BBD659}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD5EB34D-1875-4E8C-867A-B18DD8BBD659}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
