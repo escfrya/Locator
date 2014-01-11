@@ -39,16 +39,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MemoryTask\IMemoryTaskView.cs" />
-    <Compile Include="MemoryTask\MemoryTaskPresenter.cs" />
+    <Compile Include="Friends\FriendsPresenter.cs" />
+    <Compile Include="Friends\IFriendsView.cs" />
+    <Compile Include="Locations\ILocationsView.cs" />
+    <Compile Include="Locations\LocationsPresenter.cs" />
     <Compile Include="AppController.cs" />
     <Compile Include="BasePresenter.cs" />
     <Compile Include="IBaseView.cs" />
     <Compile Include="IDispatcher.cs" />
     <Compile Include="INavigation.cs" />
-    <Compile Include="Memories\IMemoriesView.cs" />
-    <Compile Include="Memories\MemoriesPresenter.cs" />
-    <Compile Include="PageNames.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\ServiceRequest.cs" />
     <Compile Include="Service\TaskQueue.cs" />

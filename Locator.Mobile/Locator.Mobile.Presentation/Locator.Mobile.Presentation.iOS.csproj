@@ -40,46 +40,45 @@
     <Reference Include="System.Xml"></Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MemoryTask\IMemoryTaskView.cs"></Compile>
-    <Compile Include="MemoryTask\MemoryTaskPresenter.cs"></Compile>
+    <Compile Include="Friends\FriendsPresenter.cs"></Compile>
+    <Compile Include="Friends\IFriendsView.cs"></Compile>
+    <Compile Include="Locations\ILocationsView.cs"></Compile>
+    <Compile Include="Locations\LocationsPresenter.cs"></Compile>
     <Compile Include="AppController.cs"></Compile>
     <Compile Include="BasePresenter.cs"></Compile>
     <Compile Include="IBaseView.cs"></Compile>
     <Compile Include="IDispatcher.cs"></Compile>
     <Compile Include="INavigation.cs"></Compile>
-    <Compile Include="Memories\IMemoriesView.cs"></Compile>
-    <Compile Include="Memories\MemoriesPresenter.cs"></Compile>
-    <Compile Include="PageNames.cs"></Compile>
     <Compile Include="Properties\AssemblyInfo.cs"></Compile>
     <Compile Include="Service\ServiceRequest.cs"></Compile>
     <Compile Include="Service\TaskQueue.cs"></Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Motivator.Entity\Locator.Entity.iOS.csproj">
+    <ProjectReference Include="..\..\Locator.Entity\Locator.Entity.iOS.csproj">
       <Project>{8b5c2664-525d-40bf-b25f-bb3e27888c97}</Project>
       <Name>Locator.Entity.iOS</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Motivator.ServiceContract\Locator.ServiceContract.iOS.csproj">
+    <ProjectReference Include="..\..\Locator.ServiceContract\Locator.ServiceContract.iOS.csproj">
       <Project>{bd5eb34d-1875-4e8c-867a-b18dd8bbd659}</Project>
       <Name>Locator.ServiceContract.iOS</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Motivator.Mobile.BL\Locator.Mobile.BL.iOS.csproj">
+    <ProjectReference Include="..\Locator.Mobile.BL\Locator.Mobile.BL.iOS.csproj">
       <Project>{a5007be4-6a3d-4159-9ac0-daf4037380f5}</Project>
       <Name>Locator.Mobile.BL.iOS</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Motivator.Mobile.Client\Locator.Mobile.Client.iOS.csproj">
+    <ProjectReference Include="..\Locator.Mobile.Client\Locator.Mobile.Client.iOS.csproj">
       <Project>{b085f057-5fcd-4595-a3bd-a64fdf062b09}</Project>
       <Name>Locator.Mobile.Client.iOS</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Motivator.Mobile.DAL\Locator.Mobile.DAL.iOS.csproj">
+    <ProjectReference Include="..\Locator.Mobile.DAL\Locator.Mobile.DAL.iOS.csproj">
       <Project>{0ae488fc-1a38-422f-9e68-bba72d784407}</Project>
       <Name>Locator.Mobile.DAL.iOS</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"></Import>
   <PropertyGroup>
-    <PostBuildEvent>$(ProjectDir)..\..\Interaction\msxsl.exe $(ProjectPath) $(ProjectDir)..\..\Interaction\WP8.xslt -o $(ProjectDir)$(ProjectName).WP8.csproj
-$(ProjectDir)..\..\Interaction\msxsl.exe $(ProjectPath) $(ProjectDir)..\..\Interaction\ios.xslt -o $(ProjectDir)$(ProjectName).iOS.csproj</PostBuildEvent>
+    <PostBuildEvent>$(ProjectDir)..\..\Tools\msxsl.exe $(ProjectPath) $(ProjectDir)..\..\Tools\WP8.xslt -o $(ProjectDir)$(ProjectName).WP8.csproj
+$(ProjectDir)..\..\Tools\msxsl.exe $(ProjectPath) $(ProjectDir)..\..\Tools\ios.xslt -o $(ProjectDir)$(ProjectName).iOS.csproj</PostBuildEvent>
   </PropertyGroup>
   
 </Project>
