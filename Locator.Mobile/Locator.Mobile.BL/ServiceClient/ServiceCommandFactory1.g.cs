@@ -47,7 +47,7 @@ namespace Locator.Mobile.BL.ServiceClient
 		{
 			return new BaseServiceCommand<BaseResponse> (client, new ExecuteParams
             { 
-                Address = string.Format("tasks/"), 
+                Address = string.Format("location/"), 
                 Request = request,
 				Type = HTTPType.POST,
 				ByteArray = null

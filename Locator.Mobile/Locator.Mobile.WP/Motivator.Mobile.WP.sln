@@ -1,21 +1,21 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Motivator.Mobile.WP", "Motivator.Mobile.WP\Motivator.Mobile.WP.csproj", "{4D030356-4439-42DB-B8C1-85A0A7927928}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Locator.Mobile.WP", "Locator.Mobile.WP\Locator.Mobile.WP.csproj", "{4D030356-4439-42DB-B8C1-85A0A7927928}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Motivator.Entity.WP8", "..\..\Motivator.Entity\Motivator.Entity.WP8.csproj", "{8B5C2664-525D-40BF-B25F-BB3E27888C97}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Locator.Entity.WP8", "..\..\Locator.Entity\Locator.Entity.WP8.csproj", "{8B5C2664-525D-40BF-B25F-BB3E27888C97}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Motivator.Mobile.BL.WP8", "..\Motivator.Mobile.BL\Motivator.Mobile.BL.WP8.csproj", "{A5007BE4-6A3D-4159-9AC0-DAF4037380F5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Locator.Mobile.BL.WP8", "..\Locator.Mobile.BL\Locator.Mobile.BL.WP8.csproj", "{A5007BE4-6A3D-4159-9AC0-DAF4037380F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Motivator.Mobile.Client.WP8", "..\Motivator.Mobile.Client\Motivator.Mobile.Client.WP8.csproj", "{B085F057-5FCD-4595-A3BD-A64FDF062B09}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Locator.Mobile.Client.WP8", "..\Locator.Mobile.Client\Locator.Mobile.Client.WP8.csproj", "{B085F057-5FCD-4595-A3BD-A64FDF062B09}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Motivator.Mobile.DAL.WP8", "..\Motivator.Mobile.DAL\Motivator.Mobile.DAL.WP8.csproj", "{0AE488FC-1A38-422F-9E68-BBA72D784407}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Locator.Mobile.DAL.WP8", "..\Locator.Mobile.DAL\Locator.Mobile.DAL.WP8.csproj", "{0AE488FC-1A38-422F-9E68-BBA72D784407}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Motivator.Mobile.Presentation.WP8", "..\Motivator.Mobile.Presentation\Motivator.Mobile.Presentation.WP8.csproj", "{BE38AB60-54E2-4DC1-A545-70736E4DC69E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Locator.Mobile.Presentation.WP8", "..\Locator.Mobile.Presentation\Locator.Mobile.Presentation.WP8.csproj", "{BE38AB60-54E2-4DC1-A545-70736E4DC69E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Motivator.TaskAgent", "Motivator.TaskAgent\Motivator.TaskAgent.csproj", "{B0C4FBA1-CB82-4B18-ADAA-73A0A3CC1B37}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Locator.TaskAgent", "Locator.TaskAgent\Locator.TaskAgent.csproj", "{B0C4FBA1-CB82-4B18-ADAA-73A0A3CC1B37}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Motivator.ServiceContract.WP8", "..\..\Motivator.ServiceContract\Motivator.ServiceContract.WP8.csproj", "{BD5EB34D-1875-4E8C-867A-B18DD8BBD659}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Locator.ServiceContract.WP8", "..\..\Locator.ServiceContract\Locator.ServiceContract.WP8.csproj", "{BD5EB34D-1875-4E8C-867A-B18DD8BBD659}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

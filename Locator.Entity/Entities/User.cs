@@ -1,9 +1,14 @@
-﻿namespace Locator.Entity.Entities
+﻿using System.Xml.Serialization;
+
+namespace Locator.Entity.Entities
 {
     public class User : BaseEntity
     {
         public string Login { get; set; }
-        public string Password { get; set; }
+
+        [XmlIgnore]
+        public string Password;
+        
         public string DisplayName { get; set; }
     }
 }

@@ -17,7 +17,7 @@ namespace LocatorService
         FriendsModel GetFriends();
 
         [OperationContract]
-        [WebInvoke(Method = "POST", UriTemplate = "/tasks/", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.WrappedRequest)]
+        [WebInvoke(Method = "POST", UriTemplate = "/location/", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.WrappedRequest)]
         void SendLocation(Location location);
 
         [OperationContract]

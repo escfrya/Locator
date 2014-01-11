@@ -1,11 +1,13 @@
-﻿using System.Collections.Generic;
-
-namespace Locator.Mobile.Presentation
+﻿namespace Locator.Mobile.Presentation
 {
     public interface INavigation
     {
-        //void Navigate(string pageName, string param = null);
-		void Navigate (string pageName, Dictionary<string, int> parameters);
+        void Friends();
+
+        void Locations();
+
+        void OpenLocation(long locationId);
+
         void GoBack();
     }
 }

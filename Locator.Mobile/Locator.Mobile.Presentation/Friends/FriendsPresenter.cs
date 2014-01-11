@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Locator.Entity.Entities;
 using Locator.Mobile.BL.Client;
+using Locator.Mobile.BL.Request;
 using Locator.Mobile.BL.ServiceClient;
 
 namespace Locator.Mobile.Presentation
@@ -27,9 +24,18 @@ namespace Locator.Mobile.Presentation
             ExecuteRequest(Factory.GetFriends(), view.Update);
         }
 
-        private void ViewOnSendLocation(long location)
+        private void ViewOnSendLocation(long userId, double latitude, double longitude)
         {
-            
+            var request = new SendLocationRequest
+                {
+                    location = new Location
+                        {
+                            ToUserId = userId,
+                            Latitude = latitude,
+                            Longitude = longitude
+                        }
+                };
+            ExecuteRequest(Factory.SendLocation(request), model => { });
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Locator.Mobile.Client.ClientImpl
         private const int Timeout = 60000;
 
         //private const string serviceUrl = "http://localhost.fiddler:12804/LocatorService.svc";
-        private const string serviceUrl = "http://Locator.apphb.com/LocatorService.svc";
+        private const string serviceUrl = "http://motivator.apphb.com/LocationService.svc";
 
         public RestWebClient(ISerializer serializer)
             : base(serializer)

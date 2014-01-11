@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Locator.Mobile.BL.Client;
+﻿using Locator.Mobile.BL.Client;
 using Locator.Mobile.BL.ServiceClient;
 
 namespace Locator.Mobile.Presentation
@@ -22,9 +17,9 @@ namespace Locator.Mobile.Presentation
             view.OpenLocation += ViewOnOpenLocation;
         }
 
-        private void ViewOnOpenLocation(long l)
+        private void ViewOnOpenLocation(long locationId)
         {
-            
+            Navigation.OpenLocation(locationId);
         }
 
         private void ViewOnRefresh()
