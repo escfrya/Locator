@@ -26,7 +26,9 @@ namespace Locator.Mobile.WP.Pages
             var content = new Border
             {
                 BorderThickness = new Thickness(2),
-                BorderBrush = new SolidColorBrush(Colors.Magenta),
+                Height = 5,
+                Width = 5,
+                BorderBrush = new SolidColorBrush(Colors.Green),
                 //Child = new Image
                 //        {
                 //            Source = new BitmapImage(new Uri(commit.SmallImageUrl)),

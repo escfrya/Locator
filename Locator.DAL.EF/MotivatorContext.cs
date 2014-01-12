@@ -14,8 +14,8 @@ namespace Locator.DAL.EF
             modelBuilder.Entity<User>().Property(r => r.Password).IsRequired();
 
             modelBuilder.Entity<UserPush>().HasKey(r => r.ID);
-            modelBuilder.Entity<UserPush>().Property(r => r.PhoneID).IsRequired();
-            modelBuilder.Entity<UserPush>().HasRequired(r => r.User).WithMany().HasForeignKey(r => r.UserID).WillCascadeOnDelete(false);
+            modelBuilder.Entity<UserPush>().Property(r => r.DeviceAppId).IsRequired();
+            modelBuilder.Entity<UserPush>().HasRequired(r => r.User).WithMany().HasForeignKey(r => r.UserId).WillCascadeOnDelete(false);
 
             //modelBuilder.Entity<UserFriends>().HasKey(r => r.ID);
             //modelBuilder.Entity<UserFriends>().HasRequired(r => r.User).WithMany().HasForeignKey(r => r.UserId).WillCascadeOnDelete(false);

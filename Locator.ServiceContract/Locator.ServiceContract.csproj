@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Models\LocationsModel.cs" />
     <Compile Include="Models\FriendsModel.cs" />
+    <Compile Include="NotificationDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

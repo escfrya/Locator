@@ -25,8 +25,8 @@ namespace Locator.Mobile.BL.Request
 		public Locator.Entity.Entities.User user { get; set; }
 	}
 
-	public class UpdateUserPushRequest : BaseRequest
+	public class RegisterDeviceRequest : BaseRequest
 	{
-		public Locator.Entity.Entities.UserPush userPush { get; set; }
+		public PushNotifications.DeviceDto device { get; set; }
 	}
 }

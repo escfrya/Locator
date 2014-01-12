@@ -11,9 +11,9 @@ namespace Locator.Mobile.Presentation
         {
         }
 
-        public void UpdatePerson(UpdateUserPushRequest request)
+        public void RegisterDevice(RegisterDeviceRequest request)
         {
-            ExecuteRequest(Factory.UpdateUserPush(request), result => { });
+            ExecuteRequest(Factory.RegisterDevice(request), result => { });
         }
     }
 }

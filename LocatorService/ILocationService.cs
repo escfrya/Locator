@@ -2,6 +2,7 @@
 using System.ServiceModel.Web;
 using Locator.Entity.Entities;
 using Locator.ServiceContract.Models;
+using PushNotifications;
 
 namespace LocatorService
 {
@@ -30,7 +31,7 @@ namespace LocatorService
 
         [OperationContract]
         [WebInvoke(Method = "POST", UriTemplate = "/user_push/", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.WrappedRequest)]
-        void UpdateUserPush(UserPush userPush);
+        void RegisterDevice(DeviceDto device);
 
         //[OperationContract]
         //[WebInvoke(Method = "POST", UriTemplate = "/users/{userId}/friends/", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.WrappedRequest)]

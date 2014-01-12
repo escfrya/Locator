@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Navigation;
+using Locator.Entity.Entities;
+using Locator.Mobile.BL.Request;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Notification;
 using Microsoft.Phone.Shell;
 using Locator.Mobile.Client;
 using Locator.Mobile.Presentation;
 using Locator.Mobile.WP.ViewModels;
+using PushNotifications;
 using Telerik.Windows.Controls;
 using TinyIoC;
 
@@ -110,20 +113,21 @@ namespace Locator.Mobile.WP
             if (channelUri == null)
                 return;
 
-            //appController.UpdatePerson(new UpdateUserPushRequest
-            //{
-            //    userPush = new UserPush
-            //    {
-            //        //TODO: брать id устройства
-            //        PhoneID = "1",
-            //        PushUrl = channelUri.ToString()
-            //    }
-            //});
+            appController.RegisterDevice(new RegisterDeviceRequest
+            {
+                device = new DeviceDto()
+                {
+                    ClientVersion = new Version(1,0,0,0),
+                    OldDeviceAppId = null,
+                    PlatformType = PlatformType.WindowsPhone,
+                    DeviceAppId = channelUri.ToString()
+                }
+            });
         }
 
         private void ToastChannelOnShellToastNotificationReceived(object sender, NotificationEventArgs e)
         {
-            var result = string.Format("Задача {0} обновлена {1}", e.Collection["wp:Text1"], e.Collection["wp:Text2"]);
+            var result = string.Format("{0} {1}", e.Collection["wp:Text1"], e.Collection["wp:Text2"]);
             
             dispatcher.Invoke(() => MessageBox.Show(result));
 

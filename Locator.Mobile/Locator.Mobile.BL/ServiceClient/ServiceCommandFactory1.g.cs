@@ -76,7 +76,7 @@ namespace Locator.Mobile.BL.ServiceClient
             });
 		}
 
-		public BaseServiceCommand<BaseResponse> UpdateUserPush(UpdateUserPushRequest request)
+		public BaseServiceCommand<BaseResponse> RegisterDevice(RegisterDeviceRequest request)
 		{
 			return new BaseServiceCommand<BaseResponse> (client, new ExecuteParams
             { 

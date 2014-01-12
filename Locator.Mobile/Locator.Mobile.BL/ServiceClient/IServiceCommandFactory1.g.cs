@@ -20,6 +20,6 @@ namespace Locator.Mobile.BL.ServiceClient
 		BaseServiceCommand<Locator.ServiceContract.Models.FriendsModel> GetFriends();
 		BaseServiceCommand<BaseResponse> SendLocation(SendLocationRequest request);
 		BaseServiceCommand<Locator.Entity.Entities.User> AddUser(AddUserRequest request);
-		BaseServiceCommand<BaseResponse> UpdateUserPush(UpdateUserPushRequest request);
+		BaseServiceCommand<BaseResponse> RegisterDevice(RegisterDeviceRequest request);
 	}
 }

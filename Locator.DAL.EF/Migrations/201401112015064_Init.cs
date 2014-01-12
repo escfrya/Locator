@@ -56,10 +56,10 @@ namespace Locator.DAL.EF.Migrations
         {
             DropForeignKey("dbo.Locations", "ToUserId", "dbo.Users");
             DropForeignKey("dbo.Locations", "FromUserId", "dbo.Users");
-            DropForeignKey("dbo.UserPushes", "UserID", "dbo.Users");
+            DropForeignKey("dbo.UserPushes", "UserId", "dbo.Users");
             DropIndex("dbo.Locations", new[] { "ToUserId" });
             DropIndex("dbo.Locations", new[] { "FromUserId" });
-            DropIndex("dbo.UserPushes", new[] { "UserID" });
+            DropIndex("dbo.UserPushes", new[] { "UserId" });
             DropTable("dbo.Locations");
             DropTable("dbo.UserPushes");
             DropTable("dbo.Users");

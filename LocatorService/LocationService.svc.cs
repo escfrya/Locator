@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.ServiceModel;
 using System.ServiceModel.Activation;
 using System.Web;
@@ -8,6 +10,7 @@ using Locator.Entity.Entities;
 using Locator.ServiceContract.Models;
 using LocatorService.Authorization;
 using LocatorService.Cache;
+using PushNotifications;
 
 namespace LocatorService
 {
@@ -19,21 +22,22 @@ namespace LocatorService
     {
         private readonly IUserRepository userRepository;
         private readonly ILocationRepository locationRepository;
-        private readonly PushHelper pushHelper;
+        private readonly PushNotificationService pushService;
+        private readonly UserPushRepository userPushRepository;
 
         public LocatorService()
         {
             var context = new LocatorContext();
             userRepository = new UserRepository(context);
-            pushHelper = new PushHelper(context);
             locationRepository = new LocationRepository(context);
+            userPushRepository = new UserPushRepository(context);
+            pushService = new PushNotificationService(userPushRepository);
         }
 
         [Authorization]
-        public void UpdateUserPush(UserPush userPush)
+        public void RegisterDevice(DeviceDto device)
         {
-            var user = userRepository.Get(GetCurrentUserId());
-            pushHelper.UpdateUserPushUrl(user, userPush);
+            pushService.RegisterDevice(device);
         }
 
         //[Authorization]
@@ -88,6 +92,21 @@ namespace LocatorService
             location.FromUserId = userId;
             location.Description = "test desc";
             locationRepository.Add(location);
+
+            pushService.SendNotification(new NotificationPackage
+                {
+                    Notifications = new List<NotificationDto>
+                        {
+                            new NotificationDto
+                                {
+                                    NotificationType = NotificationType.Location,
+                                    Message = location.Message,
+                                    Count = 1,
+                                    UserId = userId,
+                                    ObjectId = location.ID.ToString()
+                                }
+                        }
+                });
         }
 
         [Cache(0)]
