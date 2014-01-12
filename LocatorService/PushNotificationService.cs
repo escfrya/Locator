@@ -16,7 +16,7 @@ namespace LocatorService
 {
     public class PushNotificationService
     {
-        private const string ObjectIdItemName = "objectId";
+        private const string ObjectIdItemName = "ObjectId";
         private readonly IUserPushRepository userPushRepository;
         private readonly IUserRepository userRepository;
 

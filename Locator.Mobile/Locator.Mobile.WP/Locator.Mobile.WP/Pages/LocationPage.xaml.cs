@@ -56,7 +56,7 @@ namespace Locator.Mobile.WP.Pages
                 firstLoad = false;
             }
 
-            viewModel.LocationId = long.Parse(NavigationContext.QueryString["LocationId"]);
+            viewModel.LocationId = long.Parse(NavigationContext.QueryString["ObjectId"]);
             viewModel.RefreshCommand.Execute(null);
         }
 

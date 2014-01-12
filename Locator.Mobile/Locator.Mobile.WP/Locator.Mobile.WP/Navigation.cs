@@ -17,7 +17,7 @@ namespace Locator.Mobile.WP
 
         public void OpenLocation(long locationId)
         {
-            App.RootFrame.Navigate(new Uri(string.Format("/Pages/LocationPage.xaml?LocationId={0}", locationId), UriKind.Relative));
+            App.RootFrame.Navigate(new Uri(string.Format("/Pages/LocationPage.xaml?ObjectId={0}", locationId), UriKind.Relative));
         }
 
         public void GoBack()

@@ -91,7 +91,7 @@ namespace LocatorService
         {
             var userId = GetCurrentUserId();
             location.FromUserId = userId;
-            location.Description = "test desc";
+            location.Description = DateTime.Now.ToString();
             locationRepository.Add(location);
 
             pushService.SendNotification(new NotificationPackage
