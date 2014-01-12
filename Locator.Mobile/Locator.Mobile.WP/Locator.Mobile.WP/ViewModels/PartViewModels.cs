@@ -1,8 +1,25 @@
-﻿using Locator.Mobile.WP.Helpers;
+﻿using System;
+using Locator.Entity.Entities;
+using Locator.Mobile.WP.Helpers;
 using Locator.ServiceContract.Models;
 
 namespace Locator.Mobile.WP.ViewModels
 {
+    partial class LocationViewModel
+    {
+        public event Action LocationUpdated;
+        partial void RefreshMethod(object o)
+        {
+            Refresh(LocationId);
+        }
+
+        public void Update(Location location)
+        {
+            Location = location;
+            LocationUpdated();
+        }
+    }
+
     partial class FriendsViewModel
     {
         partial void RefreshMethod(object o)

@@ -1,52 +1,62 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Navigation;
-using Locator.Mobile.Presentation;
 using Locator.Mobile.WP.ViewModels;
 using Microsoft.Phone.Controls;
-using Microsoft.Phone.Shell;
 
 namespace Locator.Mobile.WP.Pages
 {
+    public class FLViewModel
+    {
+        public FriendsViewModel FVM { get; set; }
+        public LocationsViewModel LVM { get; set; }
+    }
+
     public partial class FriendsPage : PhoneApplicationPage
     {
-        private readonly FriendsViewModel viewModel;
+        private readonly FLViewModel viewModel;
         private bool userClickToItem;
         private bool firstLoad = true;
 
         public FriendsPage()
         {
             InitializeComponent();
-            viewModel = App.Container.Resolve<FriendsViewModel>();
+            viewModel = new FLViewModel
+                {
+                    FVM = App.Container.Resolve<FriendsViewModel>(),
+                    LVM = App.Container.Resolve<LocationsViewModel>()
+                };
             DataContext = viewModel;
         }
 
-        private void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void OnFriendsSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (userClickToItem && viewModel.Friend != null)
-                viewModel.SendLocationCommand.Execute(null);
+            if (userClickToItem && viewModel.FVM.Friend != null)
+                viewModel.FVM.SendLocationCommand.Execute(null);
+        }
+
+        private void OnLocationSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (userClickToItem && viewModel.LVM.Location != null)
+                viewModel.LVM.OpenLocationCommand.Execute(null);
         }
 
         private void PhoneApplicationPageLoaded(object sender, RoutedEventArgs e)
         {
             if (firstLoad)
             {
-                viewModel.ViewLoad();
+                viewModel.FVM.ViewLoad();
+                viewModel.LVM.ViewLoad();
                 firstLoad = false;
             }
-            viewModel.ParseParams(NavigationContext.QueryString);
-            viewModel.RefreshCommand.Execute(null);
+            viewModel.FVM.ParseParams(NavigationContext.QueryString);
+            viewModel.FVM.RefreshCommand.Execute(null);
+            viewModel.LVM.RefreshCommand.Execute(null);
             userClickToItem = true;
         }
 
         private void PhoneApplicationPageUnloaded(object sender, RoutedEventArgs e)
         {
             userClickToItem = false;
-            //viewModel.ViewUnload();
         }
     }
 }

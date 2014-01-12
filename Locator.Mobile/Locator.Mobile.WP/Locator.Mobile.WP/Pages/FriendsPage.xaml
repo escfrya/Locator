@@ -25,22 +25,39 @@
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
             <TextBlock Text="Locator" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="Friends" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <telerikPrimitives:RadDataBoundListBox Grid.Row="1"
-                                                   ItemsSource="{Binding Friends.Friends}"
-                                                   SelectedItem="{Binding Friend, Mode=TwoWay}" 
-                                                   SelectionChanged="OnSelectionChanged"
-                                                   EmptyContent="Пока пусто :-(">
-                <telerikPrimitives:RadDataBoundListBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding DisplayName}" />
-                    </DataTemplate>
-                </telerikPrimitives:RadDataBoundListBox.ItemTemplate>
-            </telerikPrimitives:RadDataBoundListBox>
+            <phone:Pivot>
+                <phone:PivotItem Header="Friends">
+                    <telerikPrimitives:RadDataBoundListBox Grid.Row="1"
+                                                           ItemsSource="{Binding FVM.Friends.Friends}"
+                                                           SelectedItem="{Binding FVM.Friend, Mode=TwoWay}" 
+                                                           SelectionChanged="OnFriendsSelectionChanged"
+                                                           EmptyContent="Пока пусто :-(">
+                        <telerikPrimitives:RadDataBoundListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding DisplayName}" />
+                            </DataTemplate>
+                        </telerikPrimitives:RadDataBoundListBox.ItemTemplate>
+                    </telerikPrimitives:RadDataBoundListBox>
+                </phone:PivotItem>
+                <phone:PivotItem Header="Locations">
+                    <telerikPrimitives:RadDataBoundListBox Grid.Row="1"
+                                                           ItemsSource="{Binding LVM.Locations.Locations}"
+                                                           SelectedItem="{Binding LVM.Location, Mode=TwoWay}" 
+                                                           SelectionChanged="OnLocationSelectionChanged"
+                                                           EmptyContent="Пока пусто :-(">
+                        <telerikPrimitives:RadDataBoundListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Description}" />
+                            </DataTemplate>
+                        </telerikPrimitives:RadDataBoundListBox.ItemTemplate>
+                    </telerikPrimitives:RadDataBoundListBox>
+                </phone:PivotItem>
+            </phone:Pivot>
+            
         </Grid>
     </Grid>
 

@@ -49,6 +49,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\Libs\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp.WindowsPhone">
+      <HintPath>..\..\Libs\RestSharp.WindowsPhone.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\..\Locator.Entity\Locator.Entity.WP8.csproj">
       <Project>{8B5C2664-525D-40BF-B25F-BB3E27888C97}</Project>
       <Name>Locator.Entity.WP8</Name>
@@ -65,16 +73,6 @@
   <ItemGroup>
     <None Include="packages.config">
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Libs\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="RestSharp.WindowsPhone, Version=104.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Libs\RestSharp.WindowsPhone.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <PropertyGroup>
   </PropertyGroup>

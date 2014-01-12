@@ -52,6 +52,10 @@
     <Compile Include="Migrations\201401112015064_Init.Designer.cs">
       <DependentUpon>201401112015064_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201401120028014_DeleteDate.cs" />
+    <Compile Include="Migrations\201401120028014_DeleteDate.Designer.cs">
+      <DependentUpon>201401120028014_DeleteDate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MotivatorContext.cs" />
     <Compile Include="MotivatorInitializer.cs" />
@@ -101,6 +105,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201401112015064_Init.resx">
       <DependentUpon>201401112015064_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201401120028014_DeleteDate.resx">
+      <DependentUpon>201401120028014_DeleteDate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -49,8 +49,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Community.CsharpSqlite.WinPhone, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Community.CsharpSqlite.WinPhone">
       <HintPath>..\..\Libs\Community.CsharpSqlite.WinPhone.dll</HintPath>
     </Reference>
   </ItemGroup>

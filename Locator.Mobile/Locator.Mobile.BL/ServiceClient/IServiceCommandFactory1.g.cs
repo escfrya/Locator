@@ -16,6 +16,7 @@ namespace Locator.Mobile.BL.ServiceClient
 	public interface IServiceCommandFactory
 	{
 		BaseServiceCommand<Locator.ServiceContract.Models.LocationsModel> GetLocations();
+		BaseServiceCommand<Locator.Entity.Entities.Location> GetLocation(System.String locationId);
 		BaseServiceCommand<Locator.ServiceContract.Models.FriendsModel> GetFriends();
 		BaseServiceCommand<BaseResponse> SendLocation(SendLocationRequest request);
 		BaseServiceCommand<Locator.Entity.Entities.User> AddUser(AddUserRequest request);

@@ -58,6 +58,15 @@ namespace LocatorService
                 };
         }
 
+        public Location GetLocation(string locationId)
+        {
+            var userId = GetCurrentUserId();
+            var location = locationRepository.Get(long.Parse(locationId));
+            if (location != null && location.ToUserId == userId)
+                return location;
+            return null;
+        }
+
         [Authorization]
         [Cache(0)]
         public FriendsModel GetFriends()

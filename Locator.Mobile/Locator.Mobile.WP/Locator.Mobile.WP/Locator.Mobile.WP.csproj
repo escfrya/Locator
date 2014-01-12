@@ -106,8 +106,8 @@
     <Compile Include="Pages\FriendsPage.xaml.cs">
       <DependentUpon>FriendsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\LocationsPage.xaml.cs">
-      <DependentUpon>LocationsPage.xaml</DependentUpon>
+    <Compile Include="Pages\LocationPage.xaml.cs">
+      <DependentUpon>LocationPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Navigation.cs" />
     <Compile Include="Properties\Annotations.cs" />
@@ -123,6 +123,9 @@
       <DependentUpon>ViewModels.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\LocationsViewModel.g.cs">
+      <DependentUpon>ViewModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\LocationViewModel.g.cs">
       <DependentUpon>ViewModels.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\PartViewModels.cs" />
@@ -208,7 +211,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\LocationsPage.xaml">
+    <Page Include="Pages\LocationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

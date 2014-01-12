@@ -51,6 +51,8 @@
     <Compile Include="IBaseView.cs"></Compile>
     <Compile Include="IDispatcher.cs"></Compile>
     <Compile Include="INavigation.cs"></Compile>
+    <Compile Include="Location\ILocationView.cs"></Compile>
+    <Compile Include="Location\LocationPresenter.cs"></Compile>
     <Compile Include="Properties\AssemblyInfo.cs"></Compile>
     <Compile Include="Service\ServiceRequest.cs"></Compile>
     <Compile Include="Service\TaskQueue.cs"></Compile>

@@ -32,6 +32,17 @@ namespace Locator.Mobile.BL.ServiceClient
             });
 		}
 
+		public BaseServiceCommand<Locator.Entity.Entities.Location> GetLocation(System.String locationId)
+		{
+			return new BaseServiceCommand<Locator.Entity.Entities.Location> (client, new ExecuteParams
+            { 
+                Address = string.Format("locations/{0}", locationId), 
+                Request = new BaseRequest(),
+				Type = HTTPType.GET,
+				ByteArray = null
+            });
+		}
+
 		public BaseServiceCommand<Locator.ServiceContract.Models.FriendsModel> GetFriends()
 		{
 			return new BaseServiceCommand<Locator.ServiceContract.Models.FriendsModel> (client, new ExecuteParams
