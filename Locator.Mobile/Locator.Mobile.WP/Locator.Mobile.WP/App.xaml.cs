@@ -130,7 +130,6 @@ namespace Locator.Mobile.WP
             var result = string.Format("{0} {1}", e.Collection["wp:Text1"], e.Collection["wp:Text2"]);
             
             dispatcher.Invoke(() => MessageBox.Show(result));
-
         }
 
         void ToastChannelOnErrorOccurred(object sender, NotificationChannelErrorEventArgs e)

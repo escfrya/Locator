@@ -24,8 +24,8 @@ namespace PushNotifications.NotificationsProvider
                 .ForOSVersion(WindowsPhoneDeviceOSVersion.Eight)
                 .WithBatchingInterval(BatchingInterval.Immediate)
                 .WithNavigatePath("/Pages/LocationPage.xaml")
-                .WithText1(data.Message)
-                .WithText2(data.FromUserName);
+                .WithText1(data.FromUserName)
+                .WithText2(data.Message);
             foreach (var item in data.Items)
             {
                 notify.WithParameter(item.Key, item.Value);

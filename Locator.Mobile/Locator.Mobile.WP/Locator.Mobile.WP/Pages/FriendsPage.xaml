@@ -38,7 +38,7 @@
                                                            EmptyContent="Пока пусто :-(">
                         <telerikPrimitives:RadDataBoundListBox.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding DisplayName}" />
+                                <TextBlock Text="{Binding DisplayName}" FontSize="{StaticResource PhoneFontSizeLarge}" />
                             </DataTemplate>
                         </telerikPrimitives:RadDataBoundListBox.ItemTemplate>
                     </telerikPrimitives:RadDataBoundListBox>
@@ -51,7 +51,7 @@
                                                            EmptyContent="Пока пусто :-(">
                         <telerikPrimitives:RadDataBoundListBox.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Description}" />
+                                <TextBlock Text="{Binding Description}" FontSize="{StaticResource PhoneFontSizeLarge}" />
                             </DataTemplate>
                         </telerikPrimitives:RadDataBoundListBox.ItemTemplate>
                     </telerikPrimitives:RadDataBoundListBox>

@@ -90,8 +90,9 @@ namespace LocatorService
         public void SendLocation(Location location)
         {
             var userId = GetCurrentUserId();
+            var fromUser = userRepository.Get(userId);
             location.FromUserId = userId;
-            location.Description = DateTime.Now.ToString();
+            location.Description = string.Format("{0} - {1}", fromUser.DisplayName, DateTime.Now.ToString("d"));
             locationRepository.Add(location);
 
             pushService.SendNotification(new NotificationPackage
