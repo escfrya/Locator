@@ -1,18 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{B085F057-5FCD-4595-A3BD-A64FDF062B09}</ProjectGuid>
-<ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-<TargetFrameworkIdentifier>WindowsPhone</TargetFrameworkIdentifier>
-<TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkIdentifier>WindowsPhone</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Locator.Mobile.Client</RootNamespace>
     <AssemblyName>Locator.Mobile.Client</AssemblyName>
-    
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
@@ -37,25 +35,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    <Compile Include="Bootstrapper.cs">
+    </Compile>
+    <Compile Include="ClientImpl\JsonNetSerializer.cs">
+    </Compile>
+    <Compile Include="ClientImpl\RestSharpClient.cs">
+    </Compile>
+    <Compile Include="ClientImpl\RestWebClient.cs">
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+    </Compile>
+    <Compile Include="TinyIoC.cs">
+    </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Bootstrapper.cs"></Compile>
-    <Compile Include="ClientImpl\JsonNetSerializer.cs"></Compile>
-    <Compile Include="ClientImpl\RestSharpClient.cs"></Compile>
-    <Compile Include="ClientImpl\RestWebClient.cs"></Compile>
-    <Compile Include="Properties\AssemblyInfo.cs"></Compile>
-    <Compile Include="TinyIoC.cs"></Compile>
-  </ItemGroup>
-  <ItemGroup></ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Locator.Entity\Locator.Entity.WP8.csproj">
       <Project>{8B5C2664-525D-40BF-B25F-BB3E27888C97}</Project>
@@ -71,14 +63,21 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config"></None>
+    <None Include="packages.config">
+    </None>
   </ItemGroup>
-  
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp.WindowsPhone, Version=104.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\RestSharp.WindowsPhone.dll</HintPath>
+    </Reference>
+  </ItemGroup>
   <PropertyGroup>
-    
   </PropertyGroup>
-  
-  
-<Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
-<Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
 </Project>
