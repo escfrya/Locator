@@ -59,7 +59,7 @@ namespace LocatorService
             var userId = GetCurrentUserId();
             return new LocationsModel
                 {
-                    Locations = locationRepository.GetByFilter(f => f.ToUserId == userId).ToList()
+                    Locations = locationRepository.GetByFilter(f => f.ToUserId == userId).OrderByDescending(l => l.ID).ToList()
                 };
         }
 
