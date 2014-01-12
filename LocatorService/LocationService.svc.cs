@@ -58,6 +58,8 @@ namespace LocatorService
                 };
         }
 
+        [Authorization]
+        [Cache(0)]
         public Location GetLocation(string locationId)
         {
             var userId = GetCurrentUserId();
