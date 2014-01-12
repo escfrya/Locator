@@ -19,13 +19,18 @@ namespace PushNotifications.NotificationsProvider
 
         public void SendNotification(NotificationData data)
         {
-            broker.QueueNotification(new WindowsPhoneToastNotification()
-                                         .ForEndpointUri(new Uri(data.DeviceAppId))
-                                         //.ForOSVersion(WindowsPhoneDeviceOSVersion.Eight)
-                                         .WithBatchingInterval(BatchingInterval.Immediate)
-                                         .WithNavigatePath("~/Pages/LocationPage.xaml")
-                                         .WithText1(data.Message)
-                                         .WithText2(data.FromUserName));
+            var notify = new WindowsPhoneToastNotification()
+                .ForEndpointUri(new Uri(data.DeviceAppId))
+                .ForOSVersion(WindowsPhoneDeviceOSVersion.Eight)
+                .WithBatchingInterval(BatchingInterval.Immediate)
+                .WithNavigatePath("/Pages/LocationPage.xaml")
+                .WithText1(data.Message)
+                .WithText2(data.FromUserName);
+            foreach (var item in data.Items)
+            {
+                notify.WithParameter(item.Key, item.Value);
+            }
+            broker.QueueNotification(notify);
         }
     }
 }

@@ -103,7 +103,7 @@ namespace LocatorService
                                     NotificationType = NotificationType.Location,
                                     Message = location.Description,
                                     Count = 1,
-                                    UserId = userId,
+                                    UserId = location.ToUserId,
                                     ObjectId = location.ID.ToString()
                                 }
                         }
