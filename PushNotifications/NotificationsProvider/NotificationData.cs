@@ -6,6 +6,7 @@ namespace PushNotifications.NotificationsProvider
 {
     public class NotificationData
     {
+        public string FromUserName { get; set; }
         public PlatformType? PlatformType { get; set; }
         public string DeviceAppId { get; set; }
         public string Message { get; set; }

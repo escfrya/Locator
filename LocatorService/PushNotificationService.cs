@@ -18,10 +18,12 @@ namespace LocatorService
     {
         private const string ObjectIdItemName = "objectId";
         private readonly IUserPushRepository userPushRepository;
+        private readonly IUserRepository userRepository;
 
-        public PushNotificationService(IUserPushRepository userPushRepository)
+        public PushNotificationService(IUserPushRepository userPushRepository, IUserRepository userRepository)
         {
             this.userPushRepository = userPushRepository;
+            this.userRepository = userRepository;
         }
 
         public void SendNotification(NotificationPackage package)
@@ -32,8 +34,8 @@ namespace LocatorService
             {
                 foreach (var notification in package.Notifications)
                 {
-                    var userId = notification.UserId;
-                    var userDevices = userPushRepository.GetByFilter(up => up.UserId == userId);
+                    var user = userRepository.Get(notification.UserId);
+                    var userDevices = userPushRepository.GetByFilter(up => up.UserId == user.ID);
 
                     foreach (var device in userDevices)
                     {
@@ -43,7 +45,8 @@ namespace LocatorService
                             Message = notification.Message,
                             DeviceAppId = device.DeviceAppId,
                             NotificationType = notification.NotificationType,
-                            PlatformType = device.PlatformType
+                            PlatformType = device.PlatformType,
+                            FromUserName = user.DisplayName
                         };
 
                         if (!string.IsNullOrEmpty(notification.ObjectId))

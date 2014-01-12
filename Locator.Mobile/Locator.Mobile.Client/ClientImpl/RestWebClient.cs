@@ -13,8 +13,8 @@ namespace Locator.Mobile.Client.ClientImpl
     {
         private const int Timeout = 60000;
 
-        private const string serviceUrl = "http://localhost:12804/LocationService.svc";
-        //private const string serviceUrl = "http://motivator.apphb.com/LocationService.svc";
+        //private const string serviceUrl = "http://localhost:12804/LocationService.svc";
+        private const string serviceUrl = "http://motivator.apphb.com/LocationService.svc";
 
         public RestWebClient(ISerializer serializer)
             : base(serializer)

@@ -32,7 +32,7 @@ namespace LocatorService
             userRepository = new UserRepository(context);
             locationRepository = new LocationRepository(context);
             userPushRepository = new UserPushRepository(context);
-            pushService = new PushNotificationService(userPushRepository);
+            pushService = new PushNotificationService(userPushRepository, userRepository);
         }
 
         [Authorization]
@@ -101,7 +101,7 @@ namespace LocatorService
                             new NotificationDto
                                 {
                                     NotificationType = NotificationType.Location,
-                                    Message = location.Message,
+                                    Message = location.Description,
                                     Count = 1,
                                     UserId = userId,
                                     ObjectId = location.ID.ToString()

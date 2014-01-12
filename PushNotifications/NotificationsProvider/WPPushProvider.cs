@@ -24,7 +24,8 @@ namespace PushNotifications.NotificationsProvider
                                          //.ForOSVersion(WindowsPhoneDeviceOSVersion.Eight)
                                          .WithBatchingInterval(BatchingInterval.Immediate)
                                          .WithNavigatePath("~/Pages/LocationPage.xaml")
-                                         .WithText1(data.Message));
+                                         .WithText1(data.Message)
+                                         .WithText2(data.FromUserName));
         }
     }
 }
