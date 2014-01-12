@@ -73,7 +73,9 @@ namespace LocatorService
         [Authorization]
         public void SendLocation(Location location)
         {
-
+            var userId = GetCurrentUserId();
+            location.FromUserId = userId;
+            location.Description = "test desc";
             locationRepository.Add(location);
         }
 
