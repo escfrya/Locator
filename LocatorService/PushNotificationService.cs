@@ -7,6 +7,7 @@ using System.Text;
 using System.Web;
 using Locator.DAL.Repositories;
 using Locator.Entity.Entities;
+using Locator.ServiceContract;
 using LocatorService.Authorization;
 using PushNotifications;
 using PushNotifications.NotificationsProvider;
@@ -60,17 +61,23 @@ namespace LocatorService
                 throw new ArgumentException("Не указан идентификатор устройства");
 
             var deviceToken = device.OldDeviceAppId ?? device.DeviceAppId;
-            var userDeviceMap = userPushRepository.GetByFilter(up => up.DeviceAppId == deviceToken).FirstOrDefault() ??
-                new UserPush
+            var userDeviceMap = userPushRepository.GetByFilter(up => up.DeviceAppId == deviceToken).FirstOrDefault();
+            if (userDeviceMap == null)
+            {
+                userDeviceMap = new UserPush
                 {
                     PlatformType = device.PlatformType,
                     UserId = ((CustomUser)HttpContext.Current.User).CurrentUser.ID,
                     IsActive = true
                 };
+            }
             userDeviceMap.DeviceAppId = device.DeviceAppId;
-            userDeviceMap.ClientVersion = device.ClientVersion.ToString();
+            userDeviceMap.ClientVersion = device.ClientVersion;
 
-            userPushRepository.Update(userDeviceMap);
+            if (userDeviceMap.ID == 0)
+                userPushRepository.Add(userDeviceMap);
+            else
+                userPushRepository.Update(userDeviceMap);
         }
 
         public void SendPush(string pushUrl, string text, string date)

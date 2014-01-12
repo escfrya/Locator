@@ -7,6 +7,7 @@ using System.Web;
 using Locator.DAL.EF;
 using Locator.DAL.Repositories;
 using Locator.Entity.Entities;
+using Locator.ServiceContract;
 using Locator.ServiceContract.Models;
 using LocatorService.Authorization;
 using LocatorService.Cache;

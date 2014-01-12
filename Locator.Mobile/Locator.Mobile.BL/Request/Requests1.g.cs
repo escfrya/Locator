@@ -9,6 +9,9 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
+using Locator.ServiceContract;
+
 namespace Locator.Mobile.BL.Request
 {
 	public class BaseRequest
@@ -27,6 +30,6 @@ namespace Locator.Mobile.BL.Request
 
 	public class RegisterDeviceRequest : BaseRequest
 	{
-		public PushNotifications.DeviceDto device { get; set; }
+		public DeviceDto device { get; set; }
 	}
 }

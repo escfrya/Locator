@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Locator.Entity.Entities;
 
-namespace PushNotifications
+namespace Locator.ServiceContract
 {
     /// <summary>
     /// Сообщение для отправки пуш уведомлений
@@ -47,7 +46,7 @@ namespace PushNotifications
     }
 
     /// <summary>
-    ///     Тип уведомления
+    /// Тип уведомления
     /// </summary>
     public enum NotificationType
     {
@@ -68,38 +67,22 @@ namespace PushNotifications
     public class DeviceDto
     {
         /// <summary>
-        ///     Идентификатор устройства
+        /// Идентификатор устройства
         /// </summary>
         public string DeviceAppId { get; set; }
 
         /// <summary>
-        ///     Устаревший идентификатор устройства
+        /// Устаревший идентификатор устройства
         /// </summary>
         public string OldDeviceAppId { get; set; }
 
         /// <summary>
-        ///     Версия клиента
+        /// Версия клиента
         /// </summary>
-        public Version ClientVersion { get; set; }
+        public string ClientVersion { get; set; }
 
         /// <summary>
-        ///     Тип платформы
-        /// </summary>
-        public PlatformType PlatformType { get; set; }
-    }
-
-    /// <summary>
-    ///     Информация о версии приложения
-    /// </summary>
-    public class VersionDto
-    {
-        /// <summary>
-        ///     Версия
-        /// </summary>
-        public Version Version { get; set; }
-
-        /// <summary>
-        ///     Тип платформы
+        /// Тип платформы
         /// </summary>
         public PlatformType PlatformType { get; set; }
     }

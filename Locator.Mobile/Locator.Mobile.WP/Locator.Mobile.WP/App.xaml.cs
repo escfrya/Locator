@@ -3,13 +3,13 @@ using System.Windows;
 using System.Windows.Navigation;
 using Locator.Entity.Entities;
 using Locator.Mobile.BL.Request;
+using Locator.ServiceContract;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Notification;
 using Microsoft.Phone.Shell;
 using Locator.Mobile.Client;
 using Locator.Mobile.Presentation;
 using Locator.Mobile.WP.ViewModels;
-using PushNotifications;
 using Telerik.Windows.Controls;
 using TinyIoC;
 
@@ -117,7 +117,7 @@ namespace Locator.Mobile.WP
             {
                 device = new DeviceDto()
                 {
-                    ClientVersion = new Version(1,0,0,0),
+                    ClientVersion = (new Version(1,0,0,0)).ToString(),
                     OldDeviceAppId = null,
                     PlatformType = PlatformType.WindowsPhone,
                     DeviceAppId = channelUri.ToString()

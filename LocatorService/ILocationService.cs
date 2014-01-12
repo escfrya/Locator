@@ -1,6 +1,7 @@
 ﻿using System.ServiceModel;
 using System.ServiceModel.Web;
 using Locator.Entity.Entities;
+using Locator.ServiceContract;
 using Locator.ServiceContract.Models;
 using PushNotifications;
 

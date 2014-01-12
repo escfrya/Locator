@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Locator.Entity.Entities;
+using Locator.ServiceContract;
 
 namespace PushNotifications.NotificationsProvider
 {
