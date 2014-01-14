@@ -10,5 +10,14 @@
 	</array>
 	<key>MinimumOSVersion</key>
 	<string>6.0</string>
+	<key>UIDeviceFamily</key>
+	<array>
+		<integer>1</integer>
+		<integer>2</integer>
+	</array>
+	<key>CFBundleIdentifier</key>
+	<string>com.skovor.Locator</string>
+	<key>CFBundleDisplayName</key>
+	<string>Locator</string>
 </dict>
 </plist>

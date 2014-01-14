@@ -26,7 +26,7 @@ namespace Locator.Mobile.Presentation
             where TResponse : new()
         {
             if (View != null)
-                View.BusyText = busyText;
+				View.ShowLockMessage(busyText);
             var serviceRequest = new ServiceRequest<TResponse>(Dispatcher, View, command, callback, CacheHelper);
             serviceRequest.Request();
         }

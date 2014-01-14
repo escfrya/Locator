@@ -35,23 +35,23 @@ namespace Locator.Mobile.Presentation.Service
 
         protected void LockView()
         {
-            RunOnUI(() => { if (view != null) view.IsBusy = true; });
+			RunOnUI(() => { if (view != null) view.Progress = true; });
         }
 
         protected void UnLockView()
         {
-            RunOnUI(() => { if (view != null) view.IsBusy = false; });
+			RunOnUI(() => { if (view != null) view.Progress = false; });
         }
 
         protected void ProcessError()
         {
             ProcessError(error =>
             {
-                var message = error.Message + Environment.NewLine + "Повторить попытку?";
-                if (view != null && view.OkCancelDialog(message))
-                {
-                    Copy().Request();
-                }
+					//var message = error.Message + Environment.NewLine + "Повторить попытку?";
+					//if (view != null && view.ShowInfo(message))
+					//{
+					//    Copy().Request();
+					//}
             });
         }
 

@@ -1,6 +1,7 @@
 ﻿using Locator.Mobile.BL.Client;
 using Locator.Mobile.BL.Request;
 using Locator.Mobile.BL.ServiceClient;
+using Locator.ServiceContract;
 
 namespace Locator.Mobile.Presentation
 {
@@ -11,9 +12,9 @@ namespace Locator.Mobile.Presentation
         {
         }
 
-        public void RegisterDevice(RegisterDeviceRequest request)
+		public void RegisterDevice(DeviceDto device)
         {
-            ExecuteRequest(Factory.RegisterDevice(request), result => { });
+			ExecuteRequest(Factory.RegisterDevice(new RegisterDeviceRequest { device = device }), result => { });
         }
     }
 }

@@ -1,40 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone.7.0" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../Motivator.Mobile.Client/TinyIoC.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone.6.1" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Motivator.Mobile.iOS/Motivator_Mobile_iOSViewController.cs">
     <Files>
       <File FileName="Motivator.Mobile.iOS/Motivator_Mobile_iOSViewController.cs" Line="70" Column="4" />
-      <File FileName="../Motivator.Mobile.Presentation/Memories/IMemoriesView.cs" Line="1" Column="1" />
-      <File FileName="../Motivator.Mobile.BL/ServiceClient/IServiceCommandFactory1.g.cs" Line="1" Column="1" />
-      <File FileName="../Motivator.Mobile.Client/ClientImpl/RestWebClient.cs" Line="1" Column="1" />
-      <File FileName="../Motivator.Mobile.Presentation/MemoryTask/MemoryTaskPresenter.cs" Line="1" Column="1" />
       <File FileName="Motivator.Mobile.iOS/Info.plist" />
       <File FileName="Motivator.Mobile.iOS/Main.cs" Line="1" Column="1" />
-      <File FileName="../Motivator.Mobile.Client/TinyIoC.cs" Line="3500" Column="1" />
-      <File FileName="Motivator.Mobile.iOS/AppDelegate.cs" Line="34" Column="1" />
+      <File FileName="Motivator.Mobile.iOS/AppDelegate.cs" Line="1" Column="1" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State expanded="True">
-          <Node name="Motivator.Mobile.Client.iOS" expanded="True">
-            <Node name="TinyIoC.cs" selected="True" />
-          </Node>
-          <Node name="Motivator.Mobile.iOS" expanded="True" />
-          <Node name="Motivator.Mobile.Presentation.iOS" expanded="True">
-            <Node name="Memories" expanded="True" />
-            <Node name="MemoryTask" expanded="True" />
-          </Node>
-        </State>
-      </Pad>
-      <Pad Id="ClassPad">
-        <State expanded="True" selected="True" />
-      </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
-      </Pad>
-      <Pad Id="ConnectionManagerPad">
-        <State selected="True" />
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

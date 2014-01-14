@@ -1,0 +1,17 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.iPad Igor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Locator.Mobile.iOS/Controllers/RootController.cs">
+    <Files>
+      <File FileName="Locator.Mobile.iOS/Controllers/Location/LocationController.cs" Line="43" Column="1" />
+      <File FileName="../Locator.Mobile.Presentation/Locations/LocationsPresenter.cs" Line="22" Column="27" />
+      <File FileName="Locator.Mobile.iOS/Base/Navigations.cs" Line="37" Column="47" />
+      <File FileName="Locator.Mobile.iOS/Base/Controller/ViewController.cs" Line="62" Column="13" />
+      <File FileName="Locator.Mobile.iOS/AppDelegate.cs" Line="71" Column="42" />
+      <File FileName="Locator.Mobile.iOS/Controllers/RootController.cs" Line="50" Column="4" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
