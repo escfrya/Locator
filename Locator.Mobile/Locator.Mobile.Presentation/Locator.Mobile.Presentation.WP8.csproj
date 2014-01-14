@@ -42,15 +42,17 @@
     
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base\BasePresenter.cs"></Compile>
+    <Compile Include="Base\IBaseView.cs"></Compile>
+    <Compile Include="Base\IDispatcher.cs"></Compile>
+    <Compile Include="Base\IMessageView.cs"></Compile>
+    <Compile Include="Base\INavigation.cs"></Compile>
+    <Compile Include="Base\IProgressView.cs"></Compile>
     <Compile Include="Friends\FriendsPresenter.cs"></Compile>
     <Compile Include="Friends\IFriendsView.cs"></Compile>
     <Compile Include="Locations\ILocationsView.cs"></Compile>
     <Compile Include="Locations\LocationsPresenter.cs"></Compile>
     <Compile Include="AppController.cs"></Compile>
-    <Compile Include="BasePresenter.cs"></Compile>
-    <Compile Include="IBaseView.cs"></Compile>
-    <Compile Include="IDispatcher.cs"></Compile>
-    <Compile Include="INavigation.cs"></Compile>
     <Compile Include="Location\ILocationView.cs"></Compile>
     <Compile Include="Location\LocationPresenter.cs"></Compile>
     <Compile Include="Properties\AssemblyInfo.cs"></Compile>

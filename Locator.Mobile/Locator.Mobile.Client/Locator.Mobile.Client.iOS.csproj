@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')">
-  </Import>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')"></Import>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{B085F057-5FCD-4595-A3BD-A64FDF062B09}</ProjectGuid>
-    <ProjectTypeGuids>{6BC8ED88-2882-458C-8E55-DFD12B67127B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+<ProjectTypeGuids>{6BC8ED88-2882-458C-8E55-DFD12B67127B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Locator.Mobile.Client</RootNamespace>
     <AssemblyName>Locator.Mobile.Client</AssemblyName>
+    
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
@@ -35,43 +35,30 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="RestSharp.WindowsPhone">
       <HintPath>..\..\Libs\RestSharp.WindowsPhone.dll</HintPath>
     </Reference>
-    <Reference Include="System">
-    </Reference>
-    <Reference Include="System.Core">
-    </Reference>
-    <Reference Include="System.Xml.Linq">
-    </Reference>
-    <Reference Include="System.Data.DataSetExtensions">
-    </Reference>
-    <Reference Include="Microsoft.CSharp">
-    </Reference>
-    <Reference Include="System.Data">
-    </Reference>
-    <Reference Include="System.Xml">
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\Libs\Newtonsoft.Json.dll</HintPath>
-    </Reference>
+    <Reference Include="System"></Reference>
+    <Reference Include="System.Core"></Reference>
+    <Reference Include="System.Xml.Linq"></Reference>
+    <Reference Include="System.Data.DataSetExtensions"></Reference>
+    <Reference Include="Microsoft.CSharp"></Reference>
+    <Reference Include="System.Data"></Reference>
+    <Reference Include="System.Xml"></Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bootstrapper.cs">
-    </Compile>
-    <Compile Include="ClientImpl\JsonNetSerializer.cs">
-    </Compile>
-    <Compile Include="ClientImpl\RestSharpClient.cs">
-    </Compile>
-    <Compile Include="ClientImpl\RestWebClient.cs">
-    </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs">
-    </Compile>
-    <Compile Include="TinyIoC.cs">
-    </Compile>
+    <Compile Include="Bootstrapper.cs"></Compile>
+    <Compile Include="ClientImpl\JsonNetSerializer.cs"></Compile>
+    <Compile Include="ClientImpl\RestSharpClient.cs"></Compile>
+    <Compile Include="ClientImpl\RestWebClient.cs"></Compile>
+    <Compile Include="Properties\AssemblyInfo.cs"></Compile>
+    <Compile Include="TinyIoC.cs"></Compile>
   </ItemGroup>
-  <ItemGroup>
-  </ItemGroup>
+  <ItemGroup></ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Locator.Entity\Locator.Entity.iOS.csproj">
       <Project>{8B5C2664-525D-40BF-B25F-BB3E27888C97}</Project>
@@ -87,15 +74,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config">
-    </None>
+    <None Include="packages.config"></None>
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets">
-  </Import>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"></Import>
   <PropertyGroup>
     <PostBuildEvent>$(ProjectDir)..\..\Tools\msxsl.exe $(ProjectPath) $(ProjectDir)..\..\Tools\WP8.xslt -o $(ProjectDir)$(ProjectName).WP8.csproj
 $(ProjectDir)..\..\Tools\msxsl.exe $(ProjectPath) $(ProjectDir)..\..\Tools\ios.xslt -o $(ProjectDir)$(ProjectName).iOS.csproj</PostBuildEvent>
   </PropertyGroup>
-  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')">
-  </Import>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')"></Import>
+  
 </Project>

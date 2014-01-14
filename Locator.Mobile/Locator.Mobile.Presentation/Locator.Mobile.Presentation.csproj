@@ -39,15 +39,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base\BasePresenter.cs" />
+    <Compile Include="Base\IBaseView.cs" />
+    <Compile Include="Base\IDispatcher.cs" />
+    <Compile Include="Base\IMessageView.cs" />
+    <Compile Include="Base\INavigation.cs" />
+    <Compile Include="Base\IProgressView.cs" />
     <Compile Include="Friends\FriendsPresenter.cs" />
     <Compile Include="Friends\IFriendsView.cs" />
     <Compile Include="Locations\ILocationsView.cs" />
     <Compile Include="Locations\LocationsPresenter.cs" />
     <Compile Include="AppController.cs" />
-    <Compile Include="BasePresenter.cs" />
-    <Compile Include="IBaseView.cs" />
-    <Compile Include="IDispatcher.cs" />
-    <Compile Include="INavigation.cs" />
     <Compile Include="Location\ILocationView.cs" />
     <Compile Include="Location\LocationPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
