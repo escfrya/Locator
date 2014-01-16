@@ -50,6 +50,9 @@
     <Compile Include="Entities\UserPush.cs"></Compile>
     <Compile Include="Properties\AssemblyInfo.cs"></Compile>
   </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\"></WCFMetadata>
+  </ItemGroup>
   
   <PropertyGroup>
     

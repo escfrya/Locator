@@ -20,7 +20,9 @@ namespace PushNotifications.NotificationsProvider
         {
             var path = HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings["AppleCertPath"]);
             var appleCert = File.ReadAllBytes(path);
-            broker.RegisterAppleService(new ApplePushChannelSettings(IsProduction, appleCert, ConfigurationManager.AppSettings["AppleCertPassword"]));
+            var pass = ConfigurationManager.AppSettings["AppleCertPassword"];
+            var a = new ApplePushChannelSettings(IsProduction, appleCert, pass);
+            broker.RegisterAppleService(a);
         }
 
         public void SendNotification(NotificationData data)

@@ -50,6 +50,9 @@
     <Compile Include="Entities\UserPush.cs"></Compile>
     <Compile Include="Properties\AssemblyInfo.cs"></Compile>
   </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\"></WCFMetadata>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"></Import>
   <PropertyGroup>
     <PostBuildEvent>$(ProjectDir)..\Tools\msxsl.exe $(ProjectPath) $(ProjectDir)..\Tools\WP8.xslt -o $(ProjectDir)$(ProjectName).WP8.csproj

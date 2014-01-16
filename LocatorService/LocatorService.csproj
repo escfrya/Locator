@@ -87,9 +87,13 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
-    <Content Include="App_Data\apsLocator.p12">
+    <Content Include="App_Data\apn.p12">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="App_Data\iphone_dev.p12">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

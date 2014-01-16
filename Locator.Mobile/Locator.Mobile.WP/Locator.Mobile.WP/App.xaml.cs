@@ -113,16 +113,13 @@ namespace Locator.Mobile.WP
             if (channelUri == null)
                 return;
 
-            appController.RegisterDevice(new RegisterDeviceRequest
-            {
-                device = new DeviceDto()
+            appController.RegisterDevice(new DeviceDto()
                 {
                     ClientVersion = (new Version(1,0,0,0)).ToString(),
                     OldDeviceAppId = null,
                     PlatformType = PlatformType.WindowsPhone,
                     DeviceAppId = channelUri.ToString()
-                }
-            });
+                });
         }
 
         private void ToastChannelOnShellToastNotificationReceived(object sender, NotificationEventArgs e)

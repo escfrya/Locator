@@ -1,0 +1,5 @@
+openssl x509 -in C:\CERT\aps_development.cer -inform DER -out C:\CERT\aps_development.pem -outform PEM
+
+openssl pkcs12 -nocerts -in C:\CERT\apn.p12 -out C:\CERT\mykey.pem
+
+openssl pkcs12 -export -inkey C:\CERT\mykey.pem -in C:\CERT\aps_development.pem -out C:\CERT\iphone_dev.p12

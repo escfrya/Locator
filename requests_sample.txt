@@ -12,3 +12,7 @@ http://localhost:12804/LocationService.svc/users/
 
 
 Auth: igor:test
+
+
+http://localhost:12804/LocationService.svc/location/
+{"location":{"FromUserId":0,"FromUser":null,"ToUserId":1,"ToUser":null,"Message":null,"Description":null,"Latitude":47.669444,"Longitude":-122.123889,"ID":0}}

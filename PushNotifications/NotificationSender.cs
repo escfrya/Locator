@@ -27,11 +27,17 @@ namespace PushNotifications
 
         private void SubscribeEvents()
         {
+            pushBroker.OnNotificationSent += PushBrokerOnOnNotificationSent;
             pushBroker.OnChannelException += ChannelException;
             pushBroker.OnServiceException += ServiceException;
             pushBroker.OnNotificationFailed += NotificationFailed;
             pushBroker.OnDeviceSubscriptionExpired += DeviceSubscriptionExpired;
             pushBroker.OnDeviceSubscriptionChanged += DeviceSubscriptionChanged;
+        }
+
+        private void PushBrokerOnOnNotificationSent(object sender, INotification notification)
+        {
+            
         }
 
         private static IPushProvider RegisterPushService(IPushProvider provider)

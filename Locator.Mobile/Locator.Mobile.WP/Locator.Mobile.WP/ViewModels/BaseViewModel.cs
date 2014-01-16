@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
@@ -11,20 +12,6 @@ namespace Locator.Mobile.WP.ViewModels
     public class BaseViewModel<TPresenter> : INotifyPropertyChanged, IBaseView
         where TPresenter : class
     {
-        private bool isBusy;
-        public bool IsBusy
-        {
-            get { return isBusy; }
-            set { isBusy = value; OnPropertyChanged(); }
-        }
-
-        private string busyText;
-        public string BusyText
-        {
-            get { return busyText; }
-            set { busyText = value; OnPropertyChanged(); }
-        }
-
         protected TinyIoCContainer Container { get; private set; }
 
         public void ViewLoad()
@@ -50,16 +37,42 @@ namespace Locator.Mobile.WP.ViewModels
         }
         #endregion
 
-        public void MessageDialog(string message)
+
+
+        public bool Progress { set; private get; }
+        public bool Transfer { set; private get; }
+        public void ShowLockMessage(string message)
         {
-            MessageBox.Show(message);
+            
         }
 
-        public bool OkCancelDialog(string message)
+        public void HideLockMessage()
         {
-            return MessageBox.Show(message, string.Empty, MessageBoxButton.OKCancel) == MessageBoxResult.OK;
+            
         }
 
-        
+        public void ShowInfo(string message)
+        {
+            MessageBox.Show(message, "Info", MessageBoxButton.OK);
+        }
+
+        public void ShowError(string message)
+        {
+            MessageBox.Show(message, "Error", MessageBoxButton.OK);
+        }
+
+        public void Invoke(Action action)
+        {
+            Deployment.Current.Dispatcher.BeginInvoke(action);
+        }
+
+        public void Dispose()
+        {
+            
+        }
+
+        public bool WasRefreshed { set; private get; }
+        public bool IsFirstLoad { set; private get; }
+        public event Action Refresh;
     }
 }
