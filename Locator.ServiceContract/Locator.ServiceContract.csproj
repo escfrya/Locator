@@ -56,7 +56,8 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>$(ProjectDir)..\Tools\msxsl.exe $(ProjectPath) $(ProjectDir)..\Tools\WP8.xslt -o $(ProjectDir)$(ProjectName).WP8.csproj
-$(ProjectDir)..\Tools\msxsl.exe $(ProjectPath) $(ProjectDir)..\Tools\ios.xslt -o $(ProjectDir)$(ProjectName).iOS.csproj</PostBuildEvent>
+$(ProjectDir)..\Tools\msxsl.exe $(ProjectPath) $(ProjectDir)..\Tools\ios.xslt -o $(ProjectDir)$(ProjectName).iOS.csproj
+$(ProjectDir)..\Tools\msxsl.exe $(ProjectPath) $(ProjectDir)..\Tools\android.xslt -o $(ProjectDir)$(ProjectName).Android.csproj</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
