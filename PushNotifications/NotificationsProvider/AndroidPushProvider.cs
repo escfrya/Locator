@@ -22,7 +22,8 @@ namespace PushNotifications.NotificationsProvider
             //IMPORTANT: For Android you MUST use your own RegistrationId here that gets generated within your Android app itself!
             broker.QueueNotification(new GcmNotification()
                                           .ForDeviceRegistrationId(data.DeviceAppId)
-                                          .WithJson(string.Format("{{\"alert\":\"{0}\",\"badge\":{1},\"sound\":\"{2}\"}}", data.Message, data.Badge.HasValue ? data.Badge : 0, AndroidSound)));
+                                          .WithJson(string.Format("{{\"alert\":\"{0}\",\"badge\":{1},\"sound\":\"{2}\"}}", data.Message, data.Badge.HasValue ? data.Badge : 0, AndroidSound))
+                                          .WithData(data.Items));
         }
     }
 }
