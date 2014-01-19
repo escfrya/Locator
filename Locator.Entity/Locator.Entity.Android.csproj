@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{8B5C2664-525D-40BF-B25F-BB3E27888C97}</ProjectGuid>
-<ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-<OutputType>Library</OutputType>
-<GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Locator.Entity</RootNamespace>
     <AssemblyName>Locator.Entity</AssemblyName>
-    
     <FileAlignment>512</FileAlignment>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,8 +21,7 @@
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>TRACE;DEBUG;XAMARIN</DefineConstants>
-<AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
-<AndroidLinkMode>None</AndroidLinkMode>
+    <AndroidLinkMode>None</AndroidLinkMode>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -31,40 +30,42 @@
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE;XAMARIN</DefineConstants>
-<AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
-<AndroidLinkMode>SdkOnly</AndroidLinkMode>
+    <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System"></Reference>
-    <Reference Include="System.Core"></Reference>
-    <Reference Include="System.Runtime.Serialization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="System">
     </Reference>
-    <Reference Include="System.XML"></Reference>
-    <Reference Include="System.Xml.Linq"></Reference>
-    
-    
-    <Reference Include="System.Data"></Reference>
+    <Reference Include="System.Core">
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+    </Reference>
+    <Reference Include="System.Data">
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseEntity.cs"></Compile>
-    <Compile Include="Entities\Locations.cs"></Compile>
-    <Compile Include="Entities\User.cs"></Compile>
-    <Compile Include="Entities\UserFriends.cs"></Compile>
-    <Compile Include="Entities\UserPush.cs"></Compile>
-    <Compile Include="Properties\AssemblyInfo.cs"></Compile>
+    <Compile Include="BaseEntity.cs">
+    </Compile>
+    <Compile Include="Entities\Locations.cs">
+    </Compile>
+    <Compile Include="Entities\User.cs">
+    </Compile>
+    <Compile Include="Entities\UserFriends.cs">
+    </Compile>
+    <Compile Include="Entities\UserPush.cs">
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Service References\"></WCFMetadata>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
-  
   <PropertyGroup>
-    <PostBuildEvent>$(ProjectDir)..\Tools\msxsl.exe $(ProjectPath) $(ProjectDir)..\Tools\WP8.xslt -o $(ProjectDir)$(ProjectName).WP8.csproj
-$(ProjectDir)..\Tools\msxsl.exe $(ProjectPath) $(ProjectDir)..\Tools\ios.xslt -o $(ProjectDir)$(ProjectName).iOS.csproj
-$(ProjectDir)..\Tools\msxsl.exe $(ProjectPath) $(ProjectDir)..\Tools\android.xslt -o $(ProjectDir)$(ProjectName).Android.csproj</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
-  
-<Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

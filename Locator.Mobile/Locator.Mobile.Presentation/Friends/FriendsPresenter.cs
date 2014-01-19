@@ -21,7 +21,7 @@ namespace Locator.Mobile.Presentation
 
         private void ViewOnRefresh()
         {
-            ExecuteRequest(Factory.GetFriends(), view.Update);
+			ExecuteRequest(Factory.GetFriends(), view.Update);
         }
 
         private void ViewOnSendLocation(long userId, double latitude, double longitude)
@@ -32,7 +32,9 @@ namespace Locator.Mobile.Presentation
                         {
                             ToUserId = userId,
                             Latitude = latitude,
-                            Longitude = longitude
+							Longitude = longitude,
+							Message = "test",
+							Description = "test desc"
                         }
                 };
             ExecuteRequest(Factory.SendLocation(request), model => { });

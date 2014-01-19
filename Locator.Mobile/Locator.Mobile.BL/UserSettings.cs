@@ -2,6 +2,6 @@
 {
     public static class UserSettings
     {
-        public static string AuthStr = "igor:test";
+		public static string AuthStr = "egor:test";
     }
 }

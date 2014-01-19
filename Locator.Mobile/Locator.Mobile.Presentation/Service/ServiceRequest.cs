@@ -30,7 +30,7 @@ namespace Locator.Mobile.Presentation.Service
         }
         protected void ProcessResult()
         {
-            RunOnUI(() => { if (Response != null) result((TResponse) Response); });
+			RunOnUI(() => { if (Response != null) result((TResponse) Response); });
         }
 
         protected void LockView()

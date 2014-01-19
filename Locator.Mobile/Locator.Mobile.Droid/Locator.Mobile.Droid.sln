@@ -3,12 +3,48 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Locator.Mobile.Droid", "Locator.Mobile.Droid\Locator.Mobile.Droid.csproj", "{F0FF0D34-CF31-4208-9AED-4328E59D97D1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Locator.Mobile.BL.Android", "..\Locator.Mobile.BL\Locator.Mobile.BL.Android.csproj", "{A5007BE4-6A3D-4159-9AC0-DAF4037380F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Locator.Entity.Android", "..\..\Locator.Entity\Locator.Entity.Android.csproj", "{8B5C2664-525D-40BF-B25F-BB3E27888C97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Locator.ServiceContract.Android", "..\..\Locator.ServiceContract\Locator.ServiceContract.Android.csproj", "{BD5EB34D-1875-4E8C-867A-B18DD8BBD659}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Locator.Mobile.DAL.Android", "..\Locator.Mobile.DAL\Locator.Mobile.DAL.Android.csproj", "{0AE488FC-1A38-422F-9E68-BBA72D784407}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Locator.Mobile.Presentation.Android", "..\Locator.Mobile.Presentation\Locator.Mobile.Presentation.Android.csproj", "{BE38AB60-54E2-4DC1-A545-70736E4DC69E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Locator.Mobile.Client.Android", "..\Locator.Mobile.Client\Locator.Mobile.Client.Android.csproj", "{B085F057-5FCD-4595-A3BD-A64FDF062B09}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0AE488FC-1A38-422F-9E68-BBA72D784407}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AE488FC-1A38-422F-9E68-BBA72D784407}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AE488FC-1A38-422F-9E68-BBA72D784407}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AE488FC-1A38-422F-9E68-BBA72D784407}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B5C2664-525D-40BF-B25F-BB3E27888C97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B5C2664-525D-40BF-B25F-BB3E27888C97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B5C2664-525D-40BF-B25F-BB3E27888C97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B5C2664-525D-40BF-B25F-BB3E27888C97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5007BE4-6A3D-4159-9AC0-DAF4037380F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5007BE4-6A3D-4159-9AC0-DAF4037380F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5007BE4-6A3D-4159-9AC0-DAF4037380F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5007BE4-6A3D-4159-9AC0-DAF4037380F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B085F057-5FCD-4595-A3BD-A64FDF062B09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B085F057-5FCD-4595-A3BD-A64FDF062B09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B085F057-5FCD-4595-A3BD-A64FDF062B09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B085F057-5FCD-4595-A3BD-A64FDF062B09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD5EB34D-1875-4E8C-867A-B18DD8BBD659}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD5EB34D-1875-4E8C-867A-B18DD8BBD659}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD5EB34D-1875-4E8C-867A-B18DD8BBD659}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD5EB34D-1875-4E8C-867A-B18DD8BBD659}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE38AB60-54E2-4DC1-A545-70736E4DC69E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE38AB60-54E2-4DC1-A545-70736E4DC69E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE38AB60-54E2-4DC1-A545-70736E4DC69E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE38AB60-54E2-4DC1-A545-70736E4DC69E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F0FF0D34-CF31-4208-9AED-4328E59D97D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F0FF0D34-CF31-4208-9AED-4328E59D97D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F0FF0D34-CF31-4208-9AED-4328E59D97D1}.Release|Any CPU.ActiveCfg = Release|Any CPU

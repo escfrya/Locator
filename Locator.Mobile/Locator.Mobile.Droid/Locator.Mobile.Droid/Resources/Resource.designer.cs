@@ -41,6 +41,25 @@ namespace Locator.Mobile.Droid
 			}
 		}
 		
+		public partial class Color
+		{
+			
+			// aapt resource value: 0x7f040000
+			public const int background_color = 2130968576;
+			
+			// aapt resource value: 0x7f040001
+			public const int text_color = 2130968577;
+			
+			static Color()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Color()
+			{
+			}
+		}
+		
 		public partial class Drawable
 		{
 			
@@ -60,8 +79,20 @@ namespace Locator.Mobile.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f050000
-			public const int myButton = 2131034112;
+			// aapt resource value: 0x7f060000
+			public const int FriendName = 2131099648;
+			
+			// aapt resource value: 0x7f060001
+			public const int FriendsList = 2131099649;
+			
+			// aapt resource value: 0x7f060002
+			public const int LocationDesc = 2131099650;
+			
+			// aapt resource value: 0x7f060003
+			public const int LocationsList = 2131099651;
+			
+			// aapt resource value: 0x7f060004
+			public const int TabContent = 2131099652;
 			
 			static Id()
 			{
@@ -77,7 +108,22 @@ namespace Locator.Mobile.Droid
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int Main = 2130903040;
+			public const int FriendCell = 2130903040;
+			
+			// aapt resource value: 0x7f030001
+			public const int Friends = 2130903041;
+			
+			// aapt resource value: 0x7f030002
+			public const int Location = 2130903042;
+			
+			// aapt resource value: 0x7f030003
+			public const int LocationCell = 2130903043;
+			
+			// aapt resource value: 0x7f030004
+			public const int Locations = 2130903044;
+			
+			// aapt resource value: 0x7f030005
+			public const int TabsFragment = 2130903045;
 			
 			static Layout()
 			{
@@ -92,11 +138,11 @@ namespace Locator.Mobile.Droid
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f040001
-			public const int app_name = 2130968577;
+			// aapt resource value: 0x7f050001
+			public const int app_name = 2131034113;
 			
-			// aapt resource value: 0x7f040000
-			public const int hello = 2130968576;
+			// aapt resource value: 0x7f050000
+			public const int hello = 2131034112;
 			
 			static String()
 			{
