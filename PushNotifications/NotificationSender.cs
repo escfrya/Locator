@@ -84,7 +84,7 @@ namespace PushNotifications
 
         public void Dispose()
         {
-            pushBroker.StopAllServices();
+            //pushBroker.StopAllServices();
         }
     }
 
