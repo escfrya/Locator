@@ -60,8 +60,7 @@ namespace Locator.Mobile.iOS.Controllers.Friends
 					var item = n as FriendItem;
 					if (item != null)
 					{
-						//GetLocation(item.Friend.ID);
-						SendLocation(item.Friend.ID, 20, 20);
+						GetLocation(item.Friend.ID);
 					}
 				}
 			};
@@ -76,19 +75,26 @@ namespace Locator.Mobile.iOS.Controllers.Friends
 		{
 			var locationManager = new CLLocationManager ();
 			locationManager.StartUpdatingLocation();
+
 			if (UIDevice.CurrentDevice.CheckSystemVersion (6, 0)) {
-				locationManager.LocationsUpdated += (object sender, CLLocationsUpdatedEventArgs e) => {
+				EventHandler<CLLocationsUpdatedEventArgs> handler = null;
+				handler = (s, e) => {
+					locationManager.LocationsUpdated -= handler;
 					var location = e.Locations [e.Locations.Length - 1].Coordinate;
 					SendLocation(friendId, location.Latitude, location.Longitude);
 					locationManager.StopUpdatingLocation();
 				};
+				locationManager.LocationsUpdated += handler;
 			} else {
 				// this won't be called on iOS 6 (deprecated)
-				locationManager.UpdatedLocation += (object sender, CLLocationUpdatedEventArgs e) => {
+				EventHandler<CLLocationUpdatedEventArgs> handler = null;
+				handler = (s, e) => {
+					locationManager.UpdatedLocation -= handler;
 					var location = e.NewLocation.Coordinate;
 					SendLocation(friendId, location.Latitude, location.Longitude);
 					locationManager.StopUpdatingLocation();
 				};
+				locationManager.UpdatedLocation += handler;
 			}
 		}
 	}

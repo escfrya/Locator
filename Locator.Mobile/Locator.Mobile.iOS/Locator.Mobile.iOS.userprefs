@@ -1,16 +1,17 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.iPad Igor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Locator.Mobile.iOS/AppDelegate.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Locator.Mobile.iOS/Controllers/Friends/FriendsController.cs">
     <Files>
       <File FileName="Locator.Mobile.iOS/Controllers/Location/LocationController.cs" Line="1" Column="1" />
       <File FileName="../Locator.Mobile.Presentation/Locations/LocationsPresenter.cs" Line="1" Column="1" />
       <File FileName="Locator.Mobile.iOS/Base/Navigations.cs" Line="1" Column="1" />
       <File FileName="Locator.Mobile.iOS/Base/Controller/ViewController.cs" Line="1" Column="1" />
-      <File FileName="Locator.Mobile.iOS/AppDelegate.cs" Line="79" Column="1" />
+      <File FileName="Locator.Mobile.iOS/AppDelegate.cs" Line="1" Column="1" />
       <File FileName="Locator.Mobile.iOS/Controllers/RootController.cs" Line="1" Column="1" />
-      <File FileName="../Locator.Mobile.Client/ClientImpl/RestWebClient.cs" Line="29" Column="55" />
+      <File FileName="../Locator.Mobile.Client/ClientImpl/RestWebClient.cs" Line="1" Column="1" />
       <File FileName="../Locator.Mobile.Client/Bootstrapper.cs" Line="1" Column="1" />
-      <File FileName="../Locator.Mobile.BL/UserSettings.cs" Line="8" Column="1" />
+      <File FileName="../Locator.Mobile.BL/UserSettings.cs" Line="1" Column="1" />
+      <File FileName="Locator.Mobile.iOS/Controllers/Friends/FriendsController.cs" Line="54" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
