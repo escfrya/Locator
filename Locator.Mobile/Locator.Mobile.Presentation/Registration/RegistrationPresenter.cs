@@ -17,14 +17,19 @@ namespace Locator.Mobile.Presentation.Registration
             view.Register += OnRegister;
         }
 
-        private void OnRegister(long l)
+		private void OnRegister(Action<OAuth2Authenticator> callUI)
         {
             var auth = new OAuth2Authenticator(
                 clientId: "1383755311885740",
                 scope: "",
                 authorizeUrl: new Uri("https://m.facebook.com/dialog/oauth/"),
                 redirectUrl: new Uri("http://www.facebook.com/connect/login_success.html"));
-            auth.Completed += (sender, eventArgs) => view.Result(eventArgs.IsAuthenticated);
+			auth.Completed += (sender, eventArgs) => {
+				view.Result(eventArgs.IsAuthenticated);
+				if (eventArgs.IsAuthenticated)
+					Navigation.Friends();
+			};
+			callUI (auth);
         }
     }
 }

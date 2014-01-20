@@ -23,7 +23,9 @@ namespace Locator.Mobile.iOS.Base
 
 		public void Friends ()
 		{
-			throw new NotImplementedException ();
+			var friendsController = new RootController ();
+			controller.SetViewControllers (new UIViewController[]{ friendsController }, true);
+			//controller.PushViewController (friendsController, true);
 		}
 
 		public void Locations ()

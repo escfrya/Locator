@@ -105,6 +105,7 @@
     <Folder Include="Controllers\Tab\" />
     <Folder Include="Controllers\Locations\" />
     <Folder Include="Controllers\Location\" />
+    <Folder Include="Controllers\Registration\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -146,6 +147,7 @@
     <Compile Include="Controllers\Locations\LocationsCell.cs" />
     <Compile Include="Controllers\Location\LocationController.cs" />
     <Compile Include="Controllers\RootController.cs" />
+    <Compile Include="Controllers\Registration\RegistrationController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -172,6 +174,10 @@
     <ProjectReference Include="..\..\Locator.Mobile.Client\Locator.Mobile.Client.iOS.csproj">
       <Project>{B085F057-5FCD-4595-A3BD-A64FDF062B09}</Project>
       <Name>Locator.Mobile.Client.iOS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Xamarin.Auth\Xamarin.Auth.iOS\Xamarin.Auth.iOS.csproj">
+      <Project>{9309BCCC-AA7B-4195-A130-D4572FA9488D}</Project>
+      <Name>Xamarin.Auth.iOS</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

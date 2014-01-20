@@ -29,7 +29,7 @@ namespace Locator.Mobile.iOS
 		// class-level declarations
 		UIWindow window;
 		UINavigationController navigationController;
-		RootController rootController;
+		RegistrationController rootController;
 		Navigations navigations;
 		//
 		// This method is invoked when the application has loaded and is ready to run. In this 
@@ -49,7 +49,7 @@ namespace Locator.Mobile.iOS
 			AppDelegate.Container.Register<INavigation> (navigations);
 
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
-			rootController = new RootController ();
+			rootController = new RegistrationController ();
 			navigationController.PushViewController(rootController, false);
 
 			ProcessNotification (options);
@@ -68,7 +68,8 @@ namespace Locator.Mobile.iOS
 		public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
 		{
 			string token = deviceToken.Description.Replace("<", "").Replace(">", "").Replace(" ", "");
-			rootController.RegisterDevice (token);
+			//TODO: fix
+//rootController.RegisterDevice (token);
 		}
 
 		public override void ReceivedRemoteNotification(UIApplication application, NSDictionary userInfo)

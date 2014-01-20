@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')"></Import>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')">
+  </Import>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{0AE488FC-1A38-422F-9E68-BBA72D784407}</ProjectGuid>
-<ProjectTypeGuids>{6BC8ED88-2882-458C-8E55-DFD12B67127B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectTypeGuids>{6BC8ED88-2882-458C-8E55-DFD12B67127B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Locator.Mobile.DAL</RootNamespace>
     <AssemblyName>Locator.Mobile.DAL</AssemblyName>
-    
     <FileAlignment>512</FileAlignment>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,30 +33,46 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System"></Reference>
-    <Reference Include="System.Core"></Reference>
-    <Reference Include="System.Xml.Linq"></Reference>
-    <Reference Include="System.Data.DataSetExtensions"></Reference>
-    <Reference Include="Microsoft.CSharp"></Reference>
-    <Reference Include="System.Data"></Reference>
-    <Reference Include="System.Xml"></Reference>
+    <Reference Include="System">
+    </Reference>
+    <Reference Include="System.Core">
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+    </Reference>
+    <Reference Include="System.Data">
+    </Reference>
+    <Reference Include="System.Xml">
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActionRepository.cs"></Compile>
-    <Compile Include="IBaseRepository.cs"></Compile>
-    <Compile Include="LocalDbContext.cs"></Compile>
-    <Compile Include="Properties\AssemblyInfo.cs"></Compile>
-    <Compile Include="RequestsRepository.cs"></Compile>
-    <Compile Include="SQLite.cs"></Compile>
-    <Compile Include="Tables\MotivatorAction.cs"></Compile>
-    <Compile Include="Tables\Requests.cs"></Compile>
+    <Compile Include="ActionRepository.cs">
+    </Compile>
+    <Compile Include="IBaseRepository.cs">
+    </Compile>
+    <Compile Include="LocalDbContext.cs">
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+    </Compile>
+    <Compile Include="RequestsRepository.cs">
+    </Compile>
+    <Compile Include="SQLite.cs">
+    </Compile>
+    <Compile Include="Tables\MotivatorAction.cs">
+    </Compile>
+    <Compile Include="Tables\Requests.cs">
+    </Compile>
   </ItemGroup>
-  <ItemGroup></ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"></Import>
+  <ItemGroup>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets">
+  </Import>
   <PropertyGroup>
     <PostBuildEvent>$(ProjectDir)..\..\Tools\msxsl.exe $(ProjectPath) $(ProjectDir)..\..\Tools\WP8.xslt -o $(ProjectDir)$(ProjectName).WP8.csproj
 $(ProjectDir)..\..\Tools\msxsl.exe $(ProjectPath) $(ProjectDir)..\..\Tools\ios.xslt -o $(ProjectDir)$(ProjectName).iOS.csproj
 $(ProjectDir)..\..\Tools\msxsl.exe $(ProjectPath) $(ProjectDir)..\..\Tools\android.xslt -o $(ProjectDir)$(ProjectName).Android.csproj</PostBuildEvent>
   </PropertyGroup>
-  
 </Project>

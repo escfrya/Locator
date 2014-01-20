@@ -1,4 +1,5 @@
 ﻿using System;
+using Xamarin.Auth;
 
 namespace Locator.Mobile.Presentation.Registration
 {
@@ -6,7 +7,7 @@ namespace Locator.Mobile.Presentation.Registration
     {
         string Login { get; set; }
 
-        event Action<long> Register;
+		event Action<Action<OAuth2Authenticator>> Register;
 
         void Result(bool isAuthenticated);
     }
