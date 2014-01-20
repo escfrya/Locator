@@ -60,6 +60,8 @@
     <Compile Include="Location\ILocationView.cs"></Compile>
     <Compile Include="Location\LocationPresenter.cs"></Compile>
     <Compile Include="Properties\AssemblyInfo.cs"></Compile>
+    <Compile Include="Registration\IRegistrationView.cs"></Compile>
+    <Compile Include="Registration\RegistrationPresenter.cs"></Compile>
     <Compile Include="Service\ServiceRequest.cs"></Compile>
     <Compile Include="Service\TaskQueue.cs"></Compile>
   </ItemGroup>
@@ -71,6 +73,10 @@
     <ProjectReference Include="..\..\Locator.ServiceContract\Locator.ServiceContract.Android.csproj">
       <Project>{bd5eb34d-1875-4e8c-867a-b18dd8bbd659}</Project>
       <Name>Locator.ServiceContract.Android</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Xamarin.Auth\Xamarin.Auth\Xamarin.Auth.Android.csproj">
+      <Project>{c9ff1919-78dd-4084-976d-bdabc0a7e80b}</Project>
+      <Name>Xamarin.Auth.Android</Name>
     </ProjectReference>
     <ProjectReference Include="..\Locator.Mobile.BL\Locator.Mobile.BL.Android.csproj">
       <Project>{a5007be4-6a3d-4159-9ac0-daf4037380f5}</Project>
