@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F0FF0D34-CF31-4208-9AED-4328E59D97D1}</ProjectGuid>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Locator.Mobile.Droid</RootNamespace>
+    <AndroidApplication>True</AndroidApplication>
+    <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+    <AndroidResgenClass>Resource</AndroidResgenClass>
+    <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+    <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+    <AndroidUseLatestPlatformSdk>False</AndroidUseLatestPlatformSdk>
+    <AssemblyName>Locator.Mobile.Droid</AssemblyName>
+    <TargetFrameworkVersion>v4.2</TargetFrameworkVersion>
+    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;__MOBILE__;__ANDROID__;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidLinkMode>None</AndroidLinkMode>
+    <ConsolePause>false</ConsolePause>
+    <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <DefineConstants>__MOBILE__;__ANDROID__;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Mono.Android" />
+    <Reference Include="Mono.Android.GoogleMaps" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Resources\Resource.designer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Base\BaseListAdapter.cs" />
+    <Compile Include="Base\DeviceManager.cs" />
+    <Compile Include="Base\Navigations.cs" />
+    <Compile Include="Base\Activity\BaseActivity.cs" />
+    <Compile Include="Base\Activity\BaseFragment.cs" />
+    <Compile Include="Base\Activity\ViewController.cs" />
+    <Compile Include="Notifications\GCMIntentService.cs" />
+    <Compile Include="Butstrapper.cs" />
+    <Compile Include="GCMBroadcastReceiver.cs" />
+    <Compile Include="App.cs" />
+    <Compile Include="Activities\Location\LocationActivity.cs" />
+    <Compile Include="Activities\Friends\FriendsFragment.cs" />
+    <Compile Include="Activities\Friends\FriendsAdapter.cs" />
+    <Compile Include="Activities\Locations\LocationsFragment.cs" />
+    <Compile Include="Activities\Locations\LocationsAdapter.cs" />
+    <Compile Include="Activities\Home\FragmentTabs.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AboutResources.txt" />
+    <None Include="Assets\AboutAssets.txt" />
+    <None Include="Properties\AndroidManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values\Strings.xml" />
+    <AndroidResource Include="Resources\drawable\Icon.png" />
+    <AndroidResource Include="Resources\layout\Friends.axml" />
+    <AndroidResource Include="Resources\layout\FriendCell.axml" />
+    <AndroidResource Include="Resources\layout\LocationCell.axml" />
+    <AndroidResource Include="Resources\layout\Locations.axml" />
+    <AndroidResource Include="Resources\layout\TabsFragment.axml" />
+    <AndroidResource Include="Resources\values\Colors.xml" />
+    <AndroidResource Include="Resources\layout\Location.axml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Locator.Entity\Locator.Entity.Android.csproj">
+      <Project>{8B5C2664-525D-40BF-B25F-BB3E27888C97}</Project>
+      <Name>Locator.Entity.Android</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Locator.Mobile.BL\Locator.Mobile.BL.Android.csproj">
+      <Project>{A5007BE4-6A3D-4159-9AC0-DAF4037380F5}</Project>
+      <Name>Locator.Mobile.BL.Android</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Locator.Mobile.DAL\Locator.Mobile.DAL.Android.csproj">
+      <Project>{0AE488FC-1A38-422F-9E68-BBA72D784407}</Project>
+      <Name>Locator.Mobile.DAL.Android</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Locator.Mobile.Presentation\Locator.Mobile.Presentation.Android.csproj">
+      <Project>{BE38AB60-54E2-4DC1-A545-70736E4DC69E}</Project>
+      <Name>Locator.Mobile.Presentation.Android</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Locator.ServiceContract\Locator.ServiceContract.Android.csproj">
+      <Project>{BD5EB34D-1875-4E8C-867A-B18DD8BBD659}</Project>
+      <Name>Locator.ServiceContract.Android</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Locator.Mobile.Client\Locator.Mobile.Client.Android.csproj">
+      <Project>{B085F057-5FCD-4595-A3BD-A64FDF062B09}</Project>
+      <Name>Locator.Mobile.Client.Android</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Base\" />
+    <Folder Include="Notifications\" />
+    <Folder Include="Activities\" />
+    <Folder Include="Activities\Friends\" />
+    <Folder Include="Activities\Locations\" />
+    <Folder Include="Activities\Location\" />
+    <Folder Include="Activities\Home\" />
+  </ItemGroup>
+</Project>

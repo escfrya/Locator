@@ -25,7 +25,7 @@ namespace Locator.Mobile.BL.Client
             {
                 result = Execute(param);
             }
-            catch (Exception)
+			catch (Exception ex)
             {
             }
 
