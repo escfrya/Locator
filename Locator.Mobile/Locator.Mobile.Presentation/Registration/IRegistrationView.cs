@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Locator.Mobile.Presentation.Registration
+namespace Locator.Mobile.Presentation
 {
     public interface IRegistrationView : IBaseView
     {

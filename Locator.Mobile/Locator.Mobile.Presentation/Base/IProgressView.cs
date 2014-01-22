@@ -1,4 +1,4 @@
-namespace Locator.Mobile.Presentation
+namespace Locator.Mobile.Presentation.Base
 {
 	/// <summary>Отображение прогреса</summary>
 	public interface IProgressView

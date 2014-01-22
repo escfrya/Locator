@@ -36,5 +36,9 @@ namespace LocatorService
         //[OperationContract]
         //[WebInvoke(Method = "POST", UriTemplate = "/users/{userId}/friends/", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.WrappedRequest)]
         //void AddFriend(string userId, User user);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST", UriTemplate = "/registration/", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.WrappedRequest)]
+        RegistrationResponse Registration(RegistrationModel request);
     }
 }

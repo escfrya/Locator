@@ -87,6 +87,17 @@ namespace Locator.Mobile.BL.ServiceClient
             });
 		}
 
+		public BaseServiceCommand<Locator.ServiceContract.Models.RegistrationResponse> Registration(RegistrationRequest request)
+		{
+			return new BaseServiceCommand<Locator.ServiceContract.Models.RegistrationResponse> (client, new ExecuteParams
+            { 
+                Address = string.Format("registration/"), 
+                Request = request,
+				Type = HTTPType.POST,
+				ByteArray = null
+            });
+		}
+
 
 	}
 }

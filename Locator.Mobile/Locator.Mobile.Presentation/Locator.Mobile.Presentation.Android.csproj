@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{BE38AB60-54E2-4DC1-A545-70736E4DC69E}</ProjectGuid>
-    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <OutputType>Library</OutputType>
-    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+<ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+<OutputType>Library</OutputType>
+<GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Locator.Mobile.Presentation</RootNamespace>
     <AssemblyName>Locator.Mobile.Presentation</AssemblyName>
+    
     <FileAlignment>512</FileAlignment>
-    <ProductVersion>10.0.0</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,7 +21,8 @@
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>TRACE;DEBUG;XAMARIN</DefineConstants>
-    <AndroidLinkMode>None</AndroidLinkMode>
+<AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
+<AndroidLinkMode>None</AndroidLinkMode>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -30,21 +31,19 @@
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE;XAMARIN</DefineConstants>
-    <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
+<AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
+<AndroidLinkMode>SdkOnly</AndroidLinkMode>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System">
-    </Reference>
-    <Reference Include="System.Core">
-    </Reference>
-    <Reference Include="System.Xml.Linq">
-    </Reference>
-    <Reference Include="System.Data">
-    </Reference>
-    <Reference Include="System.Xml">
-    </Reference>
+    <Reference Include="System"></Reference>
+    <Reference Include="System.Core"></Reference>
+    <Reference Include="System.Xml.Linq"></Reference>
+    
+    
+    <Reference Include="System.Data"></Reference>
+    <Reference Include="System.Xml"></Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\BasePresenter.cs"></Compile>
@@ -68,11 +67,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Locator.Entity\Locator.Entity.Android.csproj">
-      <Project>{8B5C2664-525D-40BF-B25F-BB3E27888C97}</Project>
+      <Project>{8b5c2664-525d-40bf-b25f-bb3e27888c97}</Project>
       <Name>Locator.Entity.Android</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Locator.ServiceContract\Locator.ServiceContract.Android.csproj">
-      <Project>{BD5EB34D-1875-4E8C-867A-B18DD8BBD659}</Project>
+      <Project>{bd5eb34d-1875-4e8c-867a-b18dd8bbd659}</Project>
       <Name>Locator.ServiceContract.Android</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Xamarin.Auth\Xamarin.Auth\Xamarin.Auth.Android.csproj">
@@ -80,17 +79,24 @@
       <Name>Xamarin.Auth.Android</Name>
     </ProjectReference>
     <ProjectReference Include="..\Locator.Mobile.BL\Locator.Mobile.BL.Android.csproj">
-      <Project>{A5007BE4-6A3D-4159-9AC0-DAF4037380F5}</Project>
+      <Project>{a5007be4-6a3d-4159-9ac0-daf4037380f5}</Project>
       <Name>Locator.Mobile.BL.Android</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Locator.Mobile.Client\Locator.Mobile.Client.Android.csproj">
+      <Project>{b085f057-5fcd-4595-a3bd-a64fdf062b09}</Project>
+      <Name>Locator.Mobile.Client.Android</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Locator.Mobile.DAL\Locator.Mobile.DAL.Android.csproj">
-      <Project>{0AE488FC-1A38-422F-9E68-BBA72D784407}</Project>
+      <Project>{0ae488fc-1a38-422f-9e68-bba72d784407}</Project>
       <Name>Locator.Mobile.DAL.Android</Name>
     </ProjectReference>
   </ItemGroup>
+  
   <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>$(ProjectDir)..\..\Tools\msxsl.exe $(ProjectPath) $(ProjectDir)..\..\Tools\WP8.xslt -o $(ProjectDir)$(ProjectName).WP8.csproj
+$(ProjectDir)..\..\Tools\msxsl.exe $(ProjectPath) $(ProjectDir)..\..\Tools\ios.xslt -o $(ProjectDir)$(ProjectName).iOS.csproj
+$(ProjectDir)..\..\Tools\msxsl.exe $(ProjectPath) $(ProjectDir)..\..\Tools\android.xslt -o $(ProjectDir)$(ProjectName).Android.csproj</PostBuildEvent>
   </PropertyGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  
+<Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

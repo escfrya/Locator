@@ -47,6 +47,9 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.0.0-beta1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Facebook">
+      <HintPath>..\packages\Facebook.6.4.2\lib\net45\Facebook.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.6.0.1-beta1\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -79,6 +82,7 @@
   <ItemGroup>
     <Compile Include="Authorization\AuthorizationAttribute.cs" />
     <Compile Include="Authorization\CustomUser.cs" />
+    <Compile Include="AuthService.cs" />
     <Compile Include="Cache\CacheAttribute.cs" />
     <Compile Include="LocationService.svc.cs">
       <DependentUpon>LocationService.svc</DependentUpon>

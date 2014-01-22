@@ -110,6 +110,9 @@
       <DependentUpon>LocationPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Navigation.cs" />
+    <Compile Include="Pages\RegistrationPage.xaml.cs">
+      <DependentUpon>RegistrationPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\AppResources.Designer.cs">
@@ -129,6 +132,9 @@
       <DependentUpon>ViewModels.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\PartViewModels.cs" />
+    <Compile Include="ViewModels\RegistrationViewModel.g.cs">
+      <DependentUpon>ViewModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\ViewModels.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -212,6 +218,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\LocationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\RegistrationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -21,5 +21,6 @@ namespace Locator.Mobile.BL.ServiceClient
 		BaseServiceCommand<BaseResponse> SendLocation(SendLocationRequest request);
 		BaseServiceCommand<Locator.Entity.Entities.User> AddUser(AddUserRequest request);
 		BaseServiceCommand<BaseResponse> RegisterDevice(RegisterDeviceRequest request);
+		BaseServiceCommand<Locator.ServiceContract.Models.RegistrationResponse> Registration(RegistrationRequest request);
 	}
 }

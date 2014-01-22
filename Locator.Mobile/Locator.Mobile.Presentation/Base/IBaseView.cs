@@ -1,4 +1,5 @@
 ﻿using System;
+using Locator.Mobile.Presentation.Base;
 
 namespace Locator.Mobile.Presentation
 {

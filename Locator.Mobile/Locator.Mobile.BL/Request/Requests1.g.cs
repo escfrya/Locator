@@ -9,9 +9,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-using Locator.ServiceContract;
-
 namespace Locator.Mobile.BL.Request
 {
 	public class BaseRequest
@@ -30,6 +27,11 @@ namespace Locator.Mobile.BL.Request
 
 	public class RegisterDeviceRequest : BaseRequest
 	{
-		public DeviceDto device { get; set; }
+		public Locator.ServiceContract.DeviceDto device { get; set; }
+	}
+
+	public class RegistrationRequest : BaseRequest
+	{
+		public Locator.ServiceContract.Models.RegistrationModel request { get; set; }
 	}
 }

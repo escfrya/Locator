@@ -117,8 +117,8 @@ namespace Xamarin.Auth
 		{
 			var baseString = GetBaseString (method, uri, parameters);
 			var key = EncodeString (consumerSecret) + "&" + EncodeString (tokenSecret);
-			var hashAlgo = new HMACSHA1 (Encoding.ASCII.GetBytes (key));
-			var hash = hashAlgo.ComputeHash (Encoding.ASCII.GetBytes (baseString));
+			var hashAlgo = new HMACSHA1 (Encoding.UTF8.GetBytes (key));
+			var hash = hashAlgo.ComputeHash (Encoding.UTF8.GetBytes (baseString));
 			var sig = Convert.ToBase64String (hash);
 			return sig;
 		}
@@ -211,7 +211,6 @@ namespace Xamarin.Auth
 			ps = MixInOAuthParameters (method, uri, ps, consumerKey, consumerSecret, tokenSecret);
 
 			var sb = new StringBuilder ();
-			sb.Append ("OAuth ");
 
 			var head = "";
 			foreach (var p in ps) {

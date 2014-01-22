@@ -4,6 +4,7 @@ using System.Linq;
 using System.ServiceModel;
 using System.ServiceModel.Activation;
 using System.Web;
+using Facebook;
 using Locator.DAL.EF;
 using Locator.DAL.Repositories;
 using Locator.Entity.Entities;
@@ -11,7 +12,6 @@ using Locator.ServiceContract;
 using Locator.ServiceContract.Models;
 using LocatorService.Authorization;
 using LocatorService.Cache;
-using PushNotifications;
 
 namespace LocatorService
 {
@@ -114,12 +114,53 @@ namespace LocatorService
         [Cache(0)]
         public User AddUser(User user)
         {
+            
             return userRepository.Add(user);
         }
 
         private long GetCurrentUserId()
         {
             return ((CustomUser)HttpContext.Current.User).CurrentUser.ID;
+        }
+
+        public RegistrationResponse Registration(RegistrationModel request)
+        {
+            var response = new RegistrationResponse();
+            if (ValidateFacebookToken(request.Token))
+            {
+                response.Success = false;
+                return response;
+            }
+            var user = userRepository.GetByFilter(u => u.Login == request.User.Login).FirstOrDefault();
+            if (user == null)
+            {
+                user = userRepository.Add(new User
+                    {
+                        DisplayName = request.User.DisplayName,
+                        Login = request.User.Login,
+                        Password = request.User.Password
+                    });
+            }
+            AuthService.CreateToken(user);
+            response.Success = true;
+            return response;
+        }
+
+        private bool ValidateFacebookToken(string token)
+        {
+            bool isValid = true;
+            try
+            {
+                var client = new FacebookClient(token);
+                dynamic result = client.Get("me/friends");
+            }
+            catch (FacebookOAuthException)
+            {
+                // Our access token is invalid or expired
+                isValid = false;
+            }
+
+            return isValid;
         }
     }
 }

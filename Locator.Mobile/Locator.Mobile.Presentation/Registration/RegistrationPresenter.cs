@@ -3,7 +3,7 @@ using Locator.Mobile.BL.Client;
 using Locator.Mobile.BL.ServiceClient;
 using Xamarin.Auth;
 
-namespace Locator.Mobile.Presentation.Registration
+namespace Locator.Mobile.Presentation
 {
     public class RegistrationPresenter : BasePresenter
     {

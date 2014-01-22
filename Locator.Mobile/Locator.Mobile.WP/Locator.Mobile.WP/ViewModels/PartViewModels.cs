@@ -5,6 +5,19 @@ using Locator.ServiceContract.Models;
 
 namespace Locator.Mobile.WP.ViewModels
 {
+    partial class RegistrationViewModel
+    {
+        partial void RegisterMethod(object o)
+        {
+            Register(long.Parse(o.ToString()));
+        }
+
+        public void Result(bool isAuthenticated)
+        {
+            
+        }
+    }
+
     partial class LocationViewModel
     {
         public event Action LocationUpdated;

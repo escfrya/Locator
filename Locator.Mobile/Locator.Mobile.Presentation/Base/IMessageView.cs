@@ -1,4 +1,4 @@
-namespace Locator.Mobile.Presentation
+namespace Locator.Mobile.Presentation.Base
 {
 	/// <summary>Модальные сообщения.</summary>
 	public interface IMessageView
