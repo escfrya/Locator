@@ -11,7 +11,7 @@ namespace Locator.Mobile.Client.ClientImpl
     /// <summary>
     /// Сериализатор Newtonsoft.JsonNet
     /// </summary>
-    public class JsonNetSerializer : ISerializer/*, RestSharp.Serializers.ISerializer*/
+    public class JsonNetSerializer : ISerializer, RestSharp.Serializers.ISerializer
     {
         private readonly JsonConverter[] converters;
 

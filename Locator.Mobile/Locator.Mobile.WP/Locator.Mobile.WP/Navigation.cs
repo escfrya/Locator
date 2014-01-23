@@ -20,6 +20,11 @@ namespace Locator.Mobile.WP
             App.RootFrame.Navigate(new Uri(string.Format("/Pages/LocationPage.xaml?ObjectId={0}", locationId), UriKind.Relative));
         }
 
+        public void Registration()
+        {
+            App.RootFrame.Navigate(new Uri("/Pages/RegistrationPage.xaml", UriKind.Relative));
+        }
+
         public void GoBack()
         {
             if (App.RootFrame.CanGoBack)

@@ -1,6 +1,8 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using Locator.Mobile.WP.ViewModels;
 using Microsoft.Phone.Controls;
+using Xamarin.Auth;
 
 namespace Locator.Mobile.WP.Pages
 {
@@ -23,6 +25,16 @@ namespace Locator.Mobile.WP.Pages
                 viewModel.ViewLoad();
                 firstLoad = false;
             }
+        }
+
+        private void FacebookOnClick(object sender, RoutedEventArgs e)
+        {
+
+            Action<OAuth2Authenticator> callback = auth =>
+                {
+                    App.RootFrame.Navigate(auth.GetUI());
+                };
+            viewModel.RegisterCommand.Execute(callback);
         }
     }
 }

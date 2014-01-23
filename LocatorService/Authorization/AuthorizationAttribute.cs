@@ -60,11 +60,11 @@ namespace LocatorService.Authorization
         private bool AuthenticateUser()
         {
 
-            var ticket = AuthService.GetTicket();
-            if (ticket != null)
+            var userName = AuthService.GetUserFromCookie();
+            if (userName != null)
             {
                 var userRepository = new UserRepository(new LocatorContext());
-                var user = userRepository.GetByFilter(u => u.Login == ticket.Name).FirstOrDefault();
+                var user = userRepository.GetByFilter(u => u.Login == userName).FirstOrDefault();
                 if (user != null)
                 {
                     HttpContext.Current.User = new CustomUser(user);

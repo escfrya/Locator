@@ -45,7 +45,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Xamarin.Libraries\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="RestSharp.WindowsPhone">
+    <Reference Include="RestSharp.MonoTouch, Version=104.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Xamarin.Libraries\RestSharp.MonoTouch.dll</HintPath>
     </Reference>
     <Reference Include="System"></Reference>

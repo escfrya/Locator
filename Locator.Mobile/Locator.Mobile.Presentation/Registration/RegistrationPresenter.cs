@@ -1,6 +1,10 @@
 ﻿using System;
+using Locator.Entity.Entities;
 using Locator.Mobile.BL.Client;
+using Locator.Mobile.BL.Request;
 using Locator.Mobile.BL.ServiceClient;
+using Locator.Mobile.DAL;
+using Locator.ServiceContract.Models;
 using Xamarin.Auth;
 
 namespace Locator.Mobile.Presentation
@@ -9,9 +13,9 @@ namespace Locator.Mobile.Presentation
     {
         private readonly IRegistrationView view;
 
-        public RegistrationPresenter(IRegistrationView view, IServiceCommandFactory factory, 
-            IDispatcher dispatcher, INavigation navigation, ICacheHelper cacheHelper) 
-            : base(view, factory, dispatcher, navigation, cacheHelper)
+        public RegistrationPresenter(IRegistrationView view, IServiceCommandFactory factory,
+            IDispatcher dispatcher, INavigation navigation, ICacheHelper cacheHelper, ISettingsRepository settings) 
+            : base(view, factory, dispatcher, navigation, cacheHelper, settings)
         {
             this.view = view;
             view.Register += OnRegister;
@@ -27,7 +31,23 @@ namespace Locator.Mobile.Presentation
 			auth.Completed += (sender, eventArgs) => {
 				view.Result(eventArgs.IsAuthenticated);
 				if (eventArgs.IsAuthenticated)
-					Navigation.Friends();
+				{
+
+				    var request = new RegistrationRequest
+				        {
+				            request = new RegistrationModel
+				                {
+                                    Token = eventArgs.Account.Properties["access_token"],
+				                    User = new User { Login = "igor@igor.ru", Password = "test", DisplayName = "Test test" }
+				                }
+				        };
+                    ExecuteRequest(Factory.Registration(request), res =>
+                        {
+                            if (res.Success)
+                                Navigation.Friends();
+                        });
+				}
+					
 			};
 			callUI (auth);
         }

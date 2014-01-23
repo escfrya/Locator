@@ -1,7 +1,10 @@
-﻿/*using System.Threading;
+﻿using System.Threading;
+using System.Linq;
 using Locator.Mobile.BL;
 using Locator.Mobile.BL.Client;
 using Locator.Mobile.BL.Response;
+using Locator.Mobile.DAL;
+using Locator.Mobile.DAL.Tables;
 using RestSharp;
 using ISerializer = Locator.Mobile.BL.Client.ISerializer;
 
@@ -11,12 +14,14 @@ namespace Locator.Mobile.Client.ClientImpl
     {
         private const int Timeout = 60000;
         private readonly RestClient client;
-
-        public RestSharpClient(ISerializer serializer)
+        private readonly ISettingsRepository settingsRepository;
+        public RestSharpClient(ISerializer serializer, ISettingsRepository settingsRepository)
             : base(serializer)
         {
-            //client = new RestClient("http://localhost.fiddler:12804/LocatorService.svc");
-            client = new RestClient("http://Locator.apphb.com/LocatorService.svc");
+            this.settingsRepository = settingsRepository;
+
+            client = new RestClient("http://192.168.1.77/LocatorService/LocationService.svc");
+            //client = new RestClient("http://motivator.apphb.com/LocationService.svc");
             
             //client.CookieContainer = new CookieContainer();
         }
@@ -38,10 +43,9 @@ namespace Locator.Mobile.Client.ClientImpl
             }
 
             request.RequestFormat = DataFormat.Json;
-            request.AddHeader("Auth", UserSettings.AuthStr);
-            //request.AddHeader("Cache-Control", "no-cache");
             request.JsonSerializer = (RestSharp.Serializers.ISerializer)Serializer;
-
+            AddAuthCookie(request);
+            
             if (param.ByteArray != null)
             {
                 request.AddFile("stream",
@@ -64,6 +68,8 @@ namespace Locator.Mobile.Client.ClientImpl
             {
                 if (result.ResponseStatus == ResponseStatus.Completed)
                 {
+                    SaveAuthCookie(param.Address, result);
+
                     response = new RequestResponse
                     {
                         Content = result.Content,
@@ -78,6 +84,7 @@ namespace Locator.Mobile.Client.ClientImpl
 
 #else
             var response = client.Execute(request);
+            SaveAuthCookie(param.Address, response);
             return new RequestResponse
             {
                 StatusCode = response.StatusCode,
@@ -86,6 +93,25 @@ namespace Locator.Mobile.Client.ClientImpl
 #endif
 
         }
+
+        #region AuthCookie
+
+        private void SaveAuthCookie(string address, IRestResponse response)
+        {
+            if (address != "registration/")
+                return;
+
+            var authCookie = response.Cookies.FirstOrDefault(c => c.Name == AuthCookieName);
+            if (authCookie != null)
+                settingsRepository.Save(new Settings { Key = AuthCookieName, Value = authCookie.Value }, AuthCookieName);
+        }
+        private void AddAuthCookie(IRestRequest request)
+        {
+            var auth = settingsRepository.Get(AuthCookieName);
+            if (auth != null)
+                request.AddCookie(auth.Key, auth.Value);
+        }
+
+        #endregion
     }
 }
-*/

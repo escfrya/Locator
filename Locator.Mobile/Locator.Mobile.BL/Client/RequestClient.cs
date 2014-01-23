@@ -9,6 +9,8 @@ namespace Locator.Mobile.BL.Client
 {
     public abstract class RequestClient : IRequestClient
     {
+        public const string AuthCookieName = "_AUTH_LOCATOR";
+
         protected readonly ISerializer Serializer;
 
         protected RequestClient(ISerializer serializer)

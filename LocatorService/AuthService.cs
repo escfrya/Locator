@@ -14,7 +14,7 @@ namespace LocatorService
                 1,
                 user.Login,
                 DateTime.Now,
-                DateTime.MaxValue,
+                DateTime.Now.AddYears(50),
                 true,
                 string.Empty,
                 FormsAuthentication.FormsCookiePath);
@@ -26,18 +26,31 @@ namespace LocatorService
             var authCookie = new HttpCookie(CookieName)
                 {
                     Value = encTicket,
-                    Expires = DateTime.Now.Add(FormsAuthentication.Timeout)
+                    Expires = DateTime.Now.AddYears(50)
                 };
             HttpContext.Current.Response.Cookies.Set(authCookie);
+
+            //var userCookie = new HttpCookie(CookieName, user.Login);
+            //userCookie.Expires.AddYears(50);
+            //HttpContext.Current.Response.Cookies.Set(userCookie);
         }
 
-        public static FormsAuthenticationTicket GetTicket()
+        public static string GetUserFromCookie()
         {
             HttpCookie authCookie = HttpContext.Current.Request.Cookies.Get(CookieName);
             if (authCookie != null && !string.IsNullOrEmpty(authCookie.Value))
-                return FormsAuthentication.Decrypt(authCookie.Value);
+                return FormsAuthentication.Decrypt(authCookie.Value).Name;
             
             return null;
         }
+
+        //public static string GetUserFromCookie()
+        //{
+        //    HttpCookie authCookie = HttpContext.Current.Request.Cookies.Get(CookieName);
+        //    if (authCookie != null && !string.IsNullOrEmpty(authCookie.Value))
+        //        return authCookie.Value;
+
+        //    return null;
+        //}
     }
 }

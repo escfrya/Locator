@@ -32,9 +32,10 @@ namespace Locator.Mobile.Client
         {
             container.Register<IServiceCommandFactory, ServiceCommandFactory>().AsMultiInstance();
             container.Register<ISerializer, JsonNetSerializer>().AsSingleton();
-            //container.Register<IRequestClient, RestSharpClient>().AsMultiInstance();
-            container.Register<IRequestClient, RestWebClient>().AsMultiInstance();
+            container.Register<IRequestClient, RestSharpClient>().AsMultiInstance();
+            //container.Register<IRequestClient, RestWebClient>().AsMultiInstance();
             container.Register<IRequestsRepository, RequestsRepository>();
+            container.Register<ISettingsRepository, SettingsRepository>();
             //container.Register<IActionRepository, ActionRepository>();
             container.Register<ICacheHelper, CacheHelper>();
         }

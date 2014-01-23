@@ -1,6 +1,8 @@
 ﻿using System;
 using Locator.Mobile.BL.Client;
+using Locator.Mobile.BL.Exceptions;
 using Locator.Mobile.BL.ServiceClient;
+using Locator.Mobile.DAL;
 using Locator.Mobile.Presentation.Service;
 
 namespace Locator.Mobile.Presentation
@@ -12,14 +14,17 @@ namespace Locator.Mobile.Presentation
         protected readonly INavigation Navigation;
         protected readonly IDispatcher Dispatcher;
         protected readonly ICacheHelper CacheHelper;
+        protected readonly ISettingsRepository Settings;
 
-        public BasePresenter(IBaseView view, IServiceCommandFactory factory, IDispatcher dispatcher, INavigation navigation, ICacheHelper cacheHelper)
+        public BasePresenter(IBaseView view, IServiceCommandFactory factory, IDispatcher dispatcher, 
+            INavigation navigation, ICacheHelper cacheHelper, ISettingsRepository settings)
         {
             Factory = factory;
             Navigation = navigation;
             View = view;
             Dispatcher = dispatcher;
             CacheHelper = cacheHelper;
+            Settings = settings;
         }
 
         protected void ExecuteRequest<TResponse>(BaseServiceCommand<TResponse> command, Action<TResponse> callback, string busyText = "Loading...")
@@ -28,7 +33,16 @@ namespace Locator.Mobile.Presentation
             if (View != null)
 				View.ShowLockMessage(busyText);
             var serviceRequest = new ServiceRequest<TResponse>(Dispatcher, View, command, callback, CacheHelper);
-            serviceRequest.Request();
+            try
+            {
+                serviceRequest.Request();
+            }
+            catch (NotLoggedException ex)
+            {
+                Settings.Delete(RequestClient.AuthCookieName);
+                Navigation.Registration();
+            }
+            
         }
     }
 }

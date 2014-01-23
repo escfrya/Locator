@@ -7,7 +7,7 @@ namespace Locator.Mobile.DAL
 {
     public class LocalDbContext
     {
-        private const string DatabaseName = "CommitDogDB";
+        private const string DatabaseName = "Locator";
         private readonly SQLiteConnection db;
 
         public SQLiteConnection Db
@@ -34,7 +34,7 @@ namespace Locator.Mobile.DAL
         private void RegisterTables()
         {
             db.CreateTable<Requests>();
-            //db.CreateTable<LocatorAction>();
+            db.CreateTable<Settings>();
         }
 
         public void Dispose()

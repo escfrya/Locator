@@ -8,6 +8,8 @@
 
         void OpenLocation(long locationId);
 
+        void Registration();
+
         void GoBack();
     }
 }

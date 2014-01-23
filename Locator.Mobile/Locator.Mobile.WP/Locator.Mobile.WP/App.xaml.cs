@@ -68,13 +68,20 @@ namespace Locator.Mobile.WP
         // This code will not execute when the application is reactivated
         private void Application_Launching(object sender, LaunchingEventArgs e)
         {
+		}
+
+        private void AppInitialize()
+        {
             var container = Bootstrapper.Initialize();
             RegisterComponents(container);
             Container = container;
             dispatcher = container.Resolve<IDispatcher>();
             appController = container.Resolve<AppController>();
-            OpenPushChannel();
-		}
+            var isAuth = appController.AppStart();
+
+            if (isAuth)
+                OpenPushChannel();            
+        }
 
         public static TinyIoCContainer Container { get; set; }
 
@@ -201,6 +208,8 @@ namespace Locator.Mobile.WP
 
             // Ensure we don't initialize again
             phoneApplicationInitialized = true;
+
+            AppInitialize();
         }
 
         // Do not add any additional code to this method

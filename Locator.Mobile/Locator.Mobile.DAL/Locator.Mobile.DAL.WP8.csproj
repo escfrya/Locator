@@ -41,11 +41,15 @@
     </Compile>
     <Compile Include="RequestsRepository.cs">
     </Compile>
+    <Compile Include="SettingsRepository.cs">
+    </Compile>
     <Compile Include="SQLite.cs">
     </Compile>
     <Compile Include="Tables\MotivatorAction.cs">
     </Compile>
     <Compile Include="Tables\Requests.cs">
+    </Compile>
+    <Compile Include="Tables\Settings.cs">
     </Compile>
   </ItemGroup>
   <ItemGroup>

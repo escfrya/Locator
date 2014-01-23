@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Windows;
+using System.Windows.Navigation;
 using Locator.Entity.Entities;
 using Locator.Mobile.WP.Helpers;
 using Locator.ServiceContract.Models;
+using Xamarin.Auth;
 
 namespace Locator.Mobile.WP.ViewModels
 {
@@ -9,12 +12,13 @@ namespace Locator.Mobile.WP.ViewModels
     {
         partial void RegisterMethod(object o)
         {
-            Register(long.Parse(o.ToString()));
+            Register((Action<OAuth2Authenticator>) o);
         }
 
         public void Result(bool isAuthenticated)
         {
-            
+            if (!isAuthenticated)
+                MessageBox.Show("Auth error");
         }
     }
 

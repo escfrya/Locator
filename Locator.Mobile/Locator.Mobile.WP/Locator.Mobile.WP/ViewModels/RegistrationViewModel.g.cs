@@ -27,7 +27,7 @@ namespace Locator.Mobile.WP.ViewModels
             }
         }
 
-		public event System.Action<System.Int64> Register;
+		public event System.Action<System.Action<Xamarin.Auth.OAuth2Authenticator>> Register;
 		public ICommand RegisterCommand { get; private set; }
 		partial void RegisterMethod(object o);
 		

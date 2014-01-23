@@ -1,5 +1,6 @@
 ﻿using Locator.Mobile.BL.Client;
 using Locator.Mobile.BL.ServiceClient;
+using Locator.Mobile.DAL;
 
 namespace Locator.Mobile.Presentation
 {
@@ -7,9 +8,9 @@ namespace Locator.Mobile.Presentation
     {
         private readonly ILocationView view;
 
-        public LocationPresenter(ILocationView view, IServiceCommandFactory factory, IDispatcher dispatcher, 
-                                 INavigation navigation, ICacheHelper cacheHelper) 
-            : base(view, factory, dispatcher, navigation, cacheHelper)
+        public LocationPresenter(ILocationView view, IServiceCommandFactory factory, IDispatcher dispatcher,
+                                 INavigation navigation, ICacheHelper cacheHelper, ISettingsRepository settings) 
+            : base(view, factory, dispatcher, navigation, cacheHelper, settings)
         {
             this.view = view;
 

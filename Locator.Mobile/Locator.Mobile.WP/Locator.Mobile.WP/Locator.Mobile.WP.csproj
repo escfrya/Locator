@@ -248,6 +248,10 @@
       <Project>{BD5EB34D-1875-4E8C-867A-B18DD8BBD659}</Project>
       <Name>Motivator.ServiceContract.WP8</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Xamarin.Auth\Xamarin.Auth.WindowsPhone8\Xamarin.Auth.WindowsPhone.csproj">
+      <Project>{21DFDEA9-71AD-492B-A4D2-5138CC5DEEAB}</Project>
+      <Name>Xamarin.Auth.WindowsPhone</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Locator.Mobile.BL\Locator.Mobile.BL.WP8.csproj">
       <Project>{A5007BE4-6A3D-4159-9AC0-DAF4037380F5}</Project>
       <Name>Motivator.Mobile.BL.WP8</Name>

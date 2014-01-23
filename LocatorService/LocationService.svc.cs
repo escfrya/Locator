@@ -126,7 +126,7 @@ namespace LocatorService
         public RegistrationResponse Registration(RegistrationModel request)
         {
             var response = new RegistrationResponse();
-            if (ValidateFacebookToken(request.Token))
+            if (!ValidateFacebookToken(request.Token))
             {
                 response.Success = false;
                 return response;
