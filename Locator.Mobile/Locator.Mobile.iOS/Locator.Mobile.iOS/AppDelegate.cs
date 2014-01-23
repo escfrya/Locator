@@ -29,7 +29,7 @@ namespace Locator.Mobile.iOS
 		// class-level declarations
 		UIWindow window;
 		UINavigationController navigationController;
-		RegistrationController rootController;
+		RootController rootController;
 		Navigations navigations;
 		//
 		// This method is invoked when the application has loaded and is ready to run. In this 
@@ -49,16 +49,17 @@ namespace Locator.Mobile.iOS
 			AppDelegate.Container.Register<INavigation> (navigations);
 
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
-			rootController = new RegistrationController ();
-			navigationController.PushViewController(rootController, false);
+			rootController = new RootController ();
+			if (rootController.Initialize ()) {
 
-			ProcessNotification (options);
+				ProcessNotification (options);
 
-			// clear Badge number
-			UIApplication.SharedApplication.ApplicationIconBadgeNumber = 0;
+				// clear Badge number
+				UIApplication.SharedApplication.ApplicationIconBadgeNumber = 0;
 
-			UIApplication.SharedApplication.RegisterForRemoteNotificationTypes(UIRemoteNotificationType.Alert
+				UIApplication.SharedApplication.RegisterForRemoteNotificationTypes (UIRemoteNotificationType.Alert
 				| UIRemoteNotificationType.Badge | UIRemoteNotificationType.Sound);
+			}
 
 			window.RootViewController = navigationController;
 			window.MakeKeyAndVisible ();
@@ -68,8 +69,7 @@ namespace Locator.Mobile.iOS
 		public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
 		{
 			string token = deviceToken.Description.Replace("<", "").Replace(">", "").Replace(" ", "");
-			//TODO: fix
-//rootController.RegisterDevice (token);
+			rootController.RegisterDevice (token);
 		}
 
 		public override void ReceivedRemoteNotification(UIApplication application, NSDictionary userInfo)

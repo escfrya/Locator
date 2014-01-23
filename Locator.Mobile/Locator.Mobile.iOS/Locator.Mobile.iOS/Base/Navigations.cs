@@ -23,7 +23,7 @@ namespace Locator.Mobile.iOS.Base
 
 		public void Friends ()
 		{
-			var friendsController = new RootController ();
+			var friendsController = new HomeController ();
 			controller.SetViewControllers (new UIViewController[]{ friendsController }, true);
 			//controller.PushViewController (friendsController, true);
 		}
@@ -38,6 +38,12 @@ namespace Locator.Mobile.iOS.Base
 			var locationController = new LocationController ();
 			locationController.LocationId = locationId;
 			controller.PushViewController (locationController, true);
+		}
+
+		public void Registration ()
+		{
+			var regController = new RegistrationController ();
+			controller.SetViewControllers (new UIViewController[]{ regController }, true);
 		}
 
 		public void GoBack()

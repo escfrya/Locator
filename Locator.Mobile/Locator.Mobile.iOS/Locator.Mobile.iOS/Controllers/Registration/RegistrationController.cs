@@ -1,6 +1,6 @@
 using System;
 using VI.News.Client.iOS.Base.Controller;
-using Locator.Mobile.Presentation.Registration;
+using Locator.Mobile.Presentation;
 using XibFree;
 using MonoTouch.UIKit;
 using Xamarin.Auth;

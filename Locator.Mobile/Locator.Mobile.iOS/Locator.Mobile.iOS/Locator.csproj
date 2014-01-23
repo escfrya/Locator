@@ -148,6 +148,7 @@
     <Compile Include="Controllers\Location\LocationController.cs" />
     <Compile Include="Controllers\RootController.cs" />
     <Compile Include="Controllers\Registration\RegistrationController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

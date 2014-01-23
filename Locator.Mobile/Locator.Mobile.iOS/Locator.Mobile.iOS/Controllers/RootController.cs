@@ -8,30 +8,20 @@ using Locator.Entity.Entities;
 
 namespace Locator.Mobile.iOS
 {
-	public class RootController : UITabBarController, IDispatcher
+	public class RootController : UIViewController, IDispatcher
 	{
 		private readonly TinyIoCContainer container;
 		private AppController appController;
-		private UIViewController friendsTab, locationsTab;
-
-		public RootController ()
+		public RootController()
 		{
 			container = AppDelegate.Container.GetChildContainer();
 			container.Register<IDispatcher> (this);
 			appController = container.Resolve<AppController>();
+		}
 
-			friendsTab = new FriendsController();
-			friendsTab.Title = "Friends";
-
-			locationsTab= new LocationsController();
-			locationsTab.Title = "Locations";
-
-			var tabs = new UIViewController[] 
-			{
-				friendsTab, locationsTab
-			};
-
-			ViewControllers = tabs;
+		public bool Initialize()
+		{
+			return appController.AppStart ();
 		}
 
 		public void RegisterDevice(string token)
@@ -53,5 +43,6 @@ namespace Locator.Mobile.iOS
 
 		#endregion
 	}
+
 }
 
