@@ -20,8 +20,8 @@ namespace Locator.Mobile.Client.ClientImpl
         {
             this.settingsRepository = settingsRepository;
 
-            client = new RestClient("http://192.168.1.77/LocatorService/LocationService.svc");
-            //client = new RestClient("http://motivator.apphb.com/LocationService.svc");
+            //client = new RestClient("http://192.168.1.77/LocatorService/LocationService.svc");
+            client = new RestClient("http://motivator.apphb.com/LocationService.svc");
             
             //client.CookieContainer = new CookieContainer();
         }
