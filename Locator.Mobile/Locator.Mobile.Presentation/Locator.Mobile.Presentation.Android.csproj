@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{BE38AB60-54E2-4DC1-A545-70736E4DC69E}</ProjectGuid>
-<ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-<OutputType>Library</OutputType>
-<GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Locator.Mobile.Presentation</RootNamespace>
     <AssemblyName>Locator.Mobile.Presentation</AssemblyName>
-    
     <FileAlignment>512</FileAlignment>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,8 +21,7 @@
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>TRACE;DEBUG;XAMARIN</DefineConstants>
-<AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
-<AndroidLinkMode>None</AndroidLinkMode>
+    <AndroidLinkMode>None</AndroidLinkMode>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -31,72 +30,85 @@
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE;XAMARIN</DefineConstants>
-<AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
-<AndroidLinkMode>SdkOnly</AndroidLinkMode>
+    <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System"></Reference>
-    <Reference Include="System.Core"></Reference>
-    <Reference Include="System.Xml.Linq"></Reference>
-    
-    
-    <Reference Include="System.Data"></Reference>
-    <Reference Include="System.Xml"></Reference>
+    <Reference Include="System">
+    </Reference>
+    <Reference Include="System.Core">
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+    </Reference>
+    <Reference Include="System.Data">
+    </Reference>
+    <Reference Include="System.Xml">
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Base\BasePresenter.cs"></Compile>
-    <Compile Include="Base\IBaseView.cs"></Compile>
-    <Compile Include="Base\IDispatcher.cs"></Compile>
-    <Compile Include="Base\IMessageView.cs"></Compile>
-    <Compile Include="Base\INavigation.cs"></Compile>
-    <Compile Include="Base\IProgressView.cs"></Compile>
-    <Compile Include="Friends\FriendsPresenter.cs"></Compile>
-    <Compile Include="Friends\IFriendsView.cs"></Compile>
-    <Compile Include="Locations\ILocationsView.cs"></Compile>
-    <Compile Include="Locations\LocationsPresenter.cs"></Compile>
-    <Compile Include="AppController.cs"></Compile>
-    <Compile Include="Location\ILocationView.cs"></Compile>
-    <Compile Include="Location\LocationPresenter.cs"></Compile>
-    <Compile Include="Properties\AssemblyInfo.cs"></Compile>
-    <Compile Include="Registration\IRegistrationView.cs"></Compile>
-    <Compile Include="Registration\RegistrationPresenter.cs"></Compile>
-    <Compile Include="Service\ServiceRequest.cs"></Compile>
-    <Compile Include="Service\TaskQueue.cs"></Compile>
+    <Compile Include="Base\BasePresenter.cs">
+    </Compile>
+    <Compile Include="Base\IBaseView.cs">
+    </Compile>
+    <Compile Include="Base\IDispatcher.cs">
+    </Compile>
+    <Compile Include="Base\IMessageView.cs">
+    </Compile>
+    <Compile Include="Base\INavigation.cs">
+    </Compile>
+    <Compile Include="Base\IProgressView.cs">
+    </Compile>
+    <Compile Include="Friends\FriendsPresenter.cs">
+    </Compile>
+    <Compile Include="Friends\IFriendsView.cs">
+    </Compile>
+    <Compile Include="Locations\ILocationsView.cs">
+    </Compile>
+    <Compile Include="Locations\LocationsPresenter.cs">
+    </Compile>
+    <Compile Include="AppController.cs">
+    </Compile>
+    <Compile Include="Location\ILocationView.cs">
+    </Compile>
+    <Compile Include="Location\LocationPresenter.cs">
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+    </Compile>
+    <Compile Include="Registration\IRegistrationView.cs">
+    </Compile>
+    <Compile Include="Registration\RegistrationPresenter.cs">
+    </Compile>
+    <Compile Include="Service\ServiceRequest.cs">
+    </Compile>
+    <Compile Include="Service\TaskQueue.cs">
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Locator.Entity\Locator.Entity.Android.csproj">
-      <Project>{8b5c2664-525d-40bf-b25f-bb3e27888c97}</Project>
+      <Project>{8B5C2664-525D-40BF-B25F-BB3E27888C97}</Project>
       <Name>Locator.Entity.Android</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Locator.ServiceContract\Locator.ServiceContract.Android.csproj">
-      <Project>{bd5eb34d-1875-4e8c-867a-b18dd8bbd659}</Project>
+      <Project>{BD5EB34D-1875-4E8C-867A-B18DD8BBD659}</Project>
       <Name>Locator.ServiceContract.Android</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Xamarin.Auth\Xamarin.Auth\Xamarin.Auth.Android.csproj">
-      <Project>{c9ff1919-78dd-4084-976d-bdabc0a7e80b}</Project>
-      <Name>Xamarin.Auth.Android</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Locator.Mobile.BL\Locator.Mobile.BL.Android.csproj">
-      <Project>{a5007be4-6a3d-4159-9ac0-daf4037380f5}</Project>
+      <Project>{A5007BE4-6A3D-4159-9AC0-DAF4037380F5}</Project>
       <Name>Locator.Mobile.BL.Android</Name>
     </ProjectReference>
     <ProjectReference Include="..\Locator.Mobile.Client\Locator.Mobile.Client.Android.csproj">
-      <Project>{b085f057-5fcd-4595-a3bd-a64fdf062b09}</Project>
+      <Project>{B085F057-5FCD-4595-A3BD-A64FDF062B09}</Project>
       <Name>Locator.Mobile.Client.Android</Name>
     </ProjectReference>
     <ProjectReference Include="..\Locator.Mobile.DAL\Locator.Mobile.DAL.Android.csproj">
-      <Project>{0ae488fc-1a38-422f-9e68-bba72d784407}</Project>
+      <Project>{0AE488FC-1A38-422F-9E68-BBA72D784407}</Project>
       <Name>Locator.Mobile.DAL.Android</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Xamarin.Auth\Xamarin.Auth.Android\Xamarin.Auth.Android.csproj">
+      <Project>{FCF02C8C-6DD3-4C59-A8A2-58BC01A4BB21}</Project>
+      <Name>Xamarin.Auth.Android</Name>
+    </ProjectReference>
   </ItemGroup>
-  
-  <PropertyGroup>
-    <PostBuildEvent>$(ProjectDir)..\..\Tools\msxsl.exe $(ProjectPath) $(ProjectDir)..\..\Tools\WP8.xslt -o $(ProjectDir)$(ProjectName).WP8.csproj
-$(ProjectDir)..\..\Tools\msxsl.exe $(ProjectPath) $(ProjectDir)..\..\Tools\ios.xslt -o $(ProjectDir)$(ProjectName).iOS.csproj
-$(ProjectDir)..\..\Tools\msxsl.exe $(ProjectPath) $(ProjectDir)..\..\Tools\android.xslt -o $(ProjectDir)$(ProjectName).Android.csproj</PostBuildEvent>
-  </PropertyGroup>
-  
-<Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

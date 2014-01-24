@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Locator.Mobile.Presentation
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Locator.Mobile.Client.Android", "..\Locator.Mobile.Client\Locator.Mobile.Client.Android.csproj", "{B085F057-5FCD-4595-A3BD-A64FDF062B09}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.Auth.Android", "..\..\Xamarin.Auth\Xamarin.Auth.Android\Xamarin.Auth.Android.csproj", "{FCF02C8C-6DD3-4C59-A8A2-58BC01A4BB21}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 		{F0FF0D34-CF31-4208-9AED-4328E59D97D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F0FF0D34-CF31-4208-9AED-4328E59D97D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F0FF0D34-CF31-4208-9AED-4328E59D97D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCF02C8C-6DD3-4C59-A8A2-58BC01A4BB21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCF02C8C-6DD3-4C59-A8A2-58BC01A4BB21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCF02C8C-6DD3-4C59-A8A2-58BC01A4BB21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCF02C8C-6DD3-4C59-A8A2-58BC01A4BB21}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Locator.Mobile.Droid\Locator.Mobile.Droid.csproj

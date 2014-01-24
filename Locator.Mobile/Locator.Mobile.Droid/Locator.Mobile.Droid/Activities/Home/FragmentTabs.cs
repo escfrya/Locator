@@ -14,7 +14,7 @@ using Locator.Mobile.Client.Droid;
 
 namespace Locator.Mobile.Droid
 {
-	[Activity (Label = "Locator", MainLauncher = true)]
+	[Activity (Label = "Locator")]
 	public class FragmentTabs : BaseActivity
 	{
 		private const string SenderId = "674922511686";

@@ -33,7 +33,9 @@ namespace Locator.Mobile.Client.Droid
 
 		public void Friends ()
 		{
-			throw new NotImplementedException ();
+			var context = _getContext ();
+			var homeActivity = new Intent (context, typeof(FragmentTabs));
+			context.StartActivity (homeActivity); 
 		}
 
 		public void Locations ()
@@ -47,6 +49,13 @@ namespace Locator.Mobile.Client.Droid
 			var locationActivity = new Intent (context, typeof(LocationActivity));
 			locationActivity.PutExtra (BundleKeys.ObjectKey, locationId.ToString());
 			context.StartActivity (locationActivity); 
+		}
+
+		public void Registration ()
+		{
+			var context = _getContext ();
+			var regActivity = new Intent (context, typeof(RegistrationActivity));
+			context.StartActivity (regActivity); 
 		}
 
 		public void GoBack ()

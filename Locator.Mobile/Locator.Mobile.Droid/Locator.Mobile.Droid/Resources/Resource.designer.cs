@@ -92,7 +92,10 @@ namespace Locator.Mobile.Droid
 			public const int LocationsList = 2131099651;
 			
 			// aapt resource value: 0x7f060004
-			public const int TabContent = 2131099652;
+			public const int Login = 2131099652;
+			
+			// aapt resource value: 0x7f060005
+			public const int TabContent = 2131099653;
 			
 			static Id()
 			{
@@ -123,7 +126,10 @@ namespace Locator.Mobile.Droid
 			public const int Locations = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int TabsFragment = 2130903045;
+			public const int Registration = 2130903045;
+			
+			// aapt resource value: 0x7f030006
+			public const int TabsFragment = 2130903046;
 			
 			static Layout()
 			{

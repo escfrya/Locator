@@ -67,6 +67,8 @@
     <Compile Include="Activities\Locations\LocationsFragment.cs" />
     <Compile Include="Activities\Locations\LocationsAdapter.cs" />
     <Compile Include="Activities\Home\FragmentTabs.cs" />
+    <Compile Include="Activities\Registration\RegistrationActivity.cs" />
+    <Compile Include="Activities\RootActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -83,6 +85,7 @@
     <AndroidResource Include="Resources\layout\TabsFragment.axml" />
     <AndroidResource Include="Resources\values\Colors.xml" />
     <AndroidResource Include="Resources\layout\Location.axml" />
+    <AndroidResource Include="Resources\layout\Registration.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
@@ -110,6 +113,10 @@
       <Project>{B085F057-5FCD-4595-A3BD-A64FDF062B09}</Project>
       <Name>Locator.Mobile.Client.Android</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Xamarin.Auth\Xamarin.Auth.Android\Xamarin.Auth.Android.csproj">
+      <Project>{FCF02C8C-6DD3-4C59-A8A2-58BC01A4BB21}</Project>
+      <Name>Xamarin.Auth.Android</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Base\" />
@@ -119,5 +126,6 @@
     <Folder Include="Activities\Locations\" />
     <Folder Include="Activities\Location\" />
     <Folder Include="Activities\Home\" />
+    <Folder Include="Activities\Registration\" />
   </ItemGroup>
 </Project>

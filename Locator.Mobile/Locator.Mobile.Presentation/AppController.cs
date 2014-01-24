@@ -14,6 +14,11 @@ namespace Locator.Mobile.Presentation
         {
         }
 
+		public void LogOff()
+		{
+			Settings.Delete (RequestClient.AuthCookieName);
+		}
+
 		public void RegisterDevice(DeviceDto device)
         {
 			ExecuteRequest(Factory.RegisterDevice(new RegisterDeviceRequest { device = device }), result => { });
