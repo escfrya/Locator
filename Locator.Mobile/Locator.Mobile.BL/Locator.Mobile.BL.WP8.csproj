@@ -42,24 +42,37 @@
     
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Client\ExecuteParams.cs"></Compile>
-    <Compile Include="Client\IExecuteParams.cs"></Compile>
-    <Compile Include="Client\IRequestClient.cs"></Compile>
-    <Compile Include="Client\ISerializer.cs"></Compile>
-    <Compile Include="Client\RequestClient.cs"></Compile>
-    <Compile Include="Exceptions\HttpCodeException.cs"></Compile>
-    <Compile Include="Exceptions\NetworkException.cs"></Compile>
-    <Compile Include="Exceptions\NotLoggedException.cs"></Compile>
-    <Compile Include="HTTPType.cs"></Compile>
-    <Compile Include="Properties\AssemblyInfo.cs"></Compile>
+    <Compile Include="Client\ExecuteParams.cs">
+</Compile>
+    <Compile Include="Client\IExecuteParams.cs">
+</Compile>
+    <Compile Include="Client\IRequestClient.cs">
+</Compile>
+    <Compile Include="Client\ISerializer.cs">
+</Compile>
+    <Compile Include="Client\RequestClient.cs">
+</Compile>
+    <Compile Include="Exceptions\HttpCodeException.cs">
+</Compile>
+    <Compile Include="Exceptions\NetworkException.cs">
+</Compile>
+    <Compile Include="Exceptions\NotLoggedException.cs">
+</Compile>
+    <Compile Include="HTTPType.cs">
+</Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+</Compile>
     <Compile Include="Request\Requests1.g.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Requests.tt</DependentUpon>
     </Compile>
-    <Compile Include="Response\BaseResponse.cs"></Compile>
-    <Compile Include="Response\RequestResponse.cs"></Compile>
-    <Compile Include="ServiceClient\BaseClient.cs"></Compile>
+    <Compile Include="Response\BaseResponse.cs">
+</Compile>
+    <Compile Include="Response\RequestResponse.cs">
+</Compile>
+    <Compile Include="ServiceClient\BaseClient.cs">
+</Compile>
     <Compile Include="ServiceClient\IServiceCommandFactory1.g.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -70,9 +83,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ServiceCommandFactory.tt</DependentUpon>
     </Compile>
-    <Compile Include="UserSettings.cs"></Compile>
+    <Compile Include="UserSettings.cs">
+</Compile>
   </ItemGroup>
-  <ItemGroup></ItemGroup>
+  <ItemGroup>
+</ItemGroup>
   <ItemGroup>
     <None Include="Request\Requests.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -88,7 +103,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}"></Service>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}">
+</Service>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Locator.Entity\Locator.Entity.WP8.csproj">

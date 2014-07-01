@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{A5007BE4-6A3D-4159-9AC0-DAF4037380F5}</ProjectGuid>
-    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <OutputType>Library</OutputType>
-    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+<ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+<OutputType>Library</OutputType>
+<GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Locator.Mobile.BL</RootNamespace>
     <AssemblyName>Locator.Mobile.BL</AssemblyName>
+    
     <FileAlignment>512</FileAlignment>
-    <ProductVersion>10.0.0</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,7 +21,8 @@
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>TRACE;DEBUG;XAMARIN</DefineConstants>
-    <AndroidLinkMode>None</AndroidLinkMode>
+<AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
+<AndroidLinkMode>None</AndroidLinkMode>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -30,54 +31,57 @@
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE;XAMARIN</DefineConstants>
-    <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
+<AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
+<AndroidLinkMode>SdkOnly</AndroidLinkMode>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System">
-    </Reference>
+</Reference>
     <Reference Include="System.Core">
-    </Reference>
+</Reference>
     <Reference Include="System.Xml.Linq">
-    </Reference>
+</Reference>
+    
+    
     <Reference Include="System.Data">
-    </Reference>
+</Reference>
     <Reference Include="System.Xml">
-    </Reference>
+</Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Client\ExecuteParams.cs">
-    </Compile>
+</Compile>
     <Compile Include="Client\IExecuteParams.cs">
-    </Compile>
+</Compile>
     <Compile Include="Client\IRequestClient.cs">
-    </Compile>
+</Compile>
     <Compile Include="Client\ISerializer.cs">
-    </Compile>
+</Compile>
     <Compile Include="Client\RequestClient.cs">
-    </Compile>
+</Compile>
     <Compile Include="Exceptions\HttpCodeException.cs">
-    </Compile>
+</Compile>
     <Compile Include="Exceptions\NetworkException.cs">
-    </Compile>
+</Compile>
     <Compile Include="Exceptions\NotLoggedException.cs">
-    </Compile>
+</Compile>
     <Compile Include="HTTPType.cs">
-    </Compile>
+</Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
-    </Compile>
+</Compile>
     <Compile Include="Request\Requests1.g.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Requests.tt</DependentUpon>
     </Compile>
     <Compile Include="Response\BaseResponse.cs">
-    </Compile>
+</Compile>
     <Compile Include="Response\RequestResponse.cs">
-    </Compile>
+</Compile>
     <Compile Include="ServiceClient\BaseClient.cs">
-    </Compile>
+</Compile>
     <Compile Include="ServiceClient\IServiceCommandFactory1.g.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -89,10 +93,10 @@
       <DependentUpon>ServiceCommandFactory.tt</DependentUpon>
     </Compile>
     <Compile Include="UserSettings.cs">
-    </Compile>
+</Compile>
   </ItemGroup>
   <ItemGroup>
-  </ItemGroup>
+</ItemGroup>
   <ItemGroup>
     <None Include="Request\Requests.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -108,21 +112,29 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}">
+</Service>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Locator.Entity\Locator.Entity.Android.csproj">
-      <Project>{8B5C2664-525D-40BF-B25F-BB3E27888C97}</Project>
+      <Project>{8b5c2664-525d-40bf-b25f-bb3e27888c97}</Project>
       <Name>Locator.Entity.Android</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Locator.ServiceContract\Locator.ServiceContract.Android.csproj">
-      <Project>{BD5EB34D-1875-4E8C-867A-B18DD8BBD659}</Project>
+      <Project>{bd5eb34d-1875-4e8c-867a-b18dd8bbd659}</Project>
       <Name>Locator.ServiceContract.Android</Name>
     </ProjectReference>
     <ProjectReference Include="..\Locator.Mobile.DAL\Locator.Mobile.DAL.Android.csproj">
-      <Project>{0AE488FC-1A38-422F-9E68-BBA72D784407}</Project>
+      <Project>{0ae488fc-1a38-422f-9e68-bba72d784407}</Project>
       <Name>Locator.Mobile.DAL.Android</Name>
     </ProjectReference>
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  
+  <PropertyGroup>
+    <PostBuildEvent>$(ProjectDir)..\..\Tools\msxsl.exe $(ProjectPath) $(ProjectDir)..\..\Tools\WP8.xslt -o $(ProjectDir)$(ProjectName).WP8.csproj
+$(ProjectDir)..\..\Tools\msxsl.exe $(ProjectPath) $(ProjectDir)..\..\Tools\ios.xslt -o $(ProjectDir)$(ProjectName).iOS.csproj
+$(ProjectDir)..\..\Tools\msxsl.exe $(ProjectPath) $(ProjectDir)..\..\Tools\android.xslt -o $(ProjectDir)$(ProjectName).Android.csproj</PostBuildEvent>
+  </PropertyGroup>
+  
+<Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

@@ -7,13 +7,13 @@ namespace Locator.DAL.EF.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.0.0-beta1-20501")]
-    public sealed partial class PushChanges : IMigrationMetadata
+    public sealed partial class AddAvatarUrl : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(PushChanges));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddAvatarUrl));
         
         string IMigrationMetadata.Id
         {
-            get { return "201401121419041_PushChanges"; }
+            get { return "201407010944463_AddAvatarUrl"; }
         }
         
         string IMigrationMetadata.Source

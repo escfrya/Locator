@@ -14,7 +14,8 @@
     <AssemblyName>Locator.ServiceContract</AssemblyName>
     
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile></TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+</TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -45,11 +46,16 @@
     
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\LocationsModel.cs"></Compile>
-    <Compile Include="Models\FriendsModel.cs"></Compile>
-    <Compile Include="Models\RegistrationModel.cs"></Compile>
-    <Compile Include="NotificationDto.cs"></Compile>
-    <Compile Include="Properties\AssemblyInfo.cs"></Compile>
+    <Compile Include="Models\LocationsModel.cs">
+</Compile>
+    <Compile Include="Models\FriendsModel.cs">
+</Compile>
+    <Compile Include="Models\RegistrationModel.cs">
+</Compile>
+    <Compile Include="NotificationDto.cs">
+</Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+</Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Locator.Entity\Locator.Entity.WP8.csproj">

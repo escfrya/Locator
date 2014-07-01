@@ -23,13 +23,15 @@ namespace Locator.DAL.EF.Migrations
                 c => new
                     {
                         ID = c.Long(nullable: false, identity: true),
-                        UserID = c.Long(nullable: false),
-                        PhoneID = c.String(nullable: false),
-                        PushUrl = c.String(),
+                        IsActive = c.Boolean(nullable: false),
+                        UserId = c.Long(nullable: false),
+                        DeviceAppId = c.String(nullable: false),
+                        ClientVersion = c.String(),
+                        PlatformType = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.ID)
-                .ForeignKey("dbo.Users", t => t.UserID)
-                .Index(t => t.UserID);
+                .ForeignKey("dbo.Users", t => t.UserId)
+                .Index(t => t.UserId);
             
             CreateTable(
                 "dbo.Locations",
@@ -40,7 +42,6 @@ namespace Locator.DAL.EF.Migrations
                         ToUserId = c.Long(nullable: false),
                         Message = c.String(),
                         Description = c.String(),
-                        Date = c.DateTime(nullable: false),
                         Latitude = c.Double(nullable: false),
                         Longitude = c.Double(nullable: false),
                     })

@@ -3,16 +3,16 @@ namespace Locator.DAL.EF.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class DeleteDate : DbMigration
+    public partial class AddAvatarUrl : DbMigration
     {
         public override void Up()
         {
-            DropColumn("dbo.Locations", "Date");
+            AddColumn("dbo.Users", "AvatarUrl", c => c.String());
         }
         
         public override void Down()
         {
-            AddColumn("dbo.Locations", "Date", c => c.DateTime(nullable: false));
+            DropColumn("dbo.Users", "AvatarUrl");
         }
     }
 }

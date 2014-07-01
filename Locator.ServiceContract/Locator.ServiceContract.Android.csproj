@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{BD5EB34D-1875-4E8C-867A-B18DD8BBD659}</ProjectGuid>
-    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <OutputType>Library</OutputType>
-    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+<ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+<OutputType>Library</OutputType>
+<GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Locator.ServiceContract</RootNamespace>
     <AssemblyName>Locator.ServiceContract</AssemblyName>
+    
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile>
-    </TargetFrameworkProfile>
-    <ProductVersion>10.0.0</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
+</TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -23,7 +23,8 @@
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>TRACE;DEBUG;XAMARIN</DefineConstants>
-    <AndroidLinkMode>None</AndroidLinkMode>
+<AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
+<AndroidLinkMode>None</AndroidLinkMode>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
@@ -33,40 +34,50 @@
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE;XAMARIN</DefineConstants>
-    <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
+<AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
+<AndroidLinkMode>SdkOnly</AndroidLinkMode>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System">
-    </Reference>
+</Reference>
     <Reference Include="System.Core">
-    </Reference>
+</Reference>
     <Reference Include="System.Xml.Linq">
-    </Reference>
+</Reference>
+    
+    
     <Reference Include="System.Data">
-    </Reference>
+</Reference>
     <Reference Include="System.Xml">
-    </Reference>
+</Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\LocationsModel.cs">
-    </Compile>
+</Compile>
     <Compile Include="Models\FriendsModel.cs">
-    </Compile>
+</Compile>
     <Compile Include="Models\RegistrationModel.cs">
-    </Compile>
+</Compile>
     <Compile Include="NotificationDto.cs">
-    </Compile>
+</Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
-    </Compile>
+</Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Locator.Entity\Locator.Entity.Android.csproj">
-      <Project>{8B5C2664-525D-40BF-B25F-BB3E27888C97}</Project>
+      <Project>{8b5c2664-525d-40bf-b25f-bb3e27888c97}</Project>
       <Name>Locator.Entity.Android</Name>
     </ProjectReference>
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  
+  <PropertyGroup>
+    <PostBuildEvent>$(ProjectDir)..\Tools\msxsl.exe $(ProjectPath) $(ProjectDir)..\Tools\WP8.xslt -o $(ProjectDir)$(ProjectName).WP8.csproj
+$(ProjectDir)..\Tools\msxsl.exe $(ProjectPath) $(ProjectDir)..\Tools\ios.xslt -o $(ProjectDir)$(ProjectName).iOS.csproj
+$(ProjectDir)..\Tools\msxsl.exe $(ProjectPath) $(ProjectDir)..\Tools\android.xslt -o $(ProjectDir)$(ProjectName).Android.csproj</PostBuildEvent>
+  </PropertyGroup>
+  
+<Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

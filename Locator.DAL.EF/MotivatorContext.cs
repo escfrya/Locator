@@ -1,10 +1,17 @@
 ﻿using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using Locator.Entity.Entities;
 
 namespace Locator.DAL.EF
 {
     public class LocatorContext : DbContext
     {
+        public LocatorContext()
+        {
+            //Database.SetInitializer<LocatorContext>(new LocatorInitializer());
+            //Database.Initialize(true);
+        }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

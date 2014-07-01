@@ -1,16 +1,18 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{0AE488FC-1A38-422F-9E68-BBA72D784407}</ProjectGuid>
-    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <TargetFrameworkIdentifier>WindowsPhone</TargetFrameworkIdentifier>
-    <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
+<ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+<TargetFrameworkIdentifier>WindowsPhone</TargetFrameworkIdentifier>
+<TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Locator.Mobile.DAL</RootNamespace>
     <AssemblyName>Locator.Mobile.DAL</AssemblyName>
+    
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -31,34 +33,43 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="ActionRepository.cs">
-    </Compile>
-    <Compile Include="IBaseRepository.cs">
-    </Compile>
-    <Compile Include="LocalDbContext.cs">
-    </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs">
-    </Compile>
-    <Compile Include="RequestsRepository.cs">
-    </Compile>
-    <Compile Include="SettingsRepository.cs">
-    </Compile>
-    <Compile Include="SQLite.cs">
-    </Compile>
-    <Compile Include="Tables\MotivatorAction.cs">
-    </Compile>
-    <Compile Include="Tables\Requests.cs">
-    </Compile>
-    <Compile Include="Tables\Settings.cs">
-    </Compile>
+    
+    
+    
+    
+    
+    
+    
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Community.CsharpSqlite.WinPhone">
-      <HintPath>..\..\Libs\Community.CsharpSqlite.WinPhone.dll</HintPath>
-    </Reference>
+    <Compile Include="ActionRepository.cs">
+</Compile>
+    <Compile Include="IBaseRepository.cs">
+</Compile>
+    <Compile Include="LocalDbContext.cs">
+</Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+</Compile>
+    <Compile Include="RequestsRepository.cs">
+</Compile>
+    <Compile Include="SettingsRepository.cs">
+</Compile>
+    <Compile Include="SQLite.cs">
+</Compile>
+    <Compile Include="Tables\MotivatorAction.cs">
+</Compile>
+    <Compile Include="Tables\Requests.cs">
+</Compile>
+    <Compile Include="Tables\Settings.cs">
+</Compile>
   </ItemGroup>
+  <ItemGroup>
+</ItemGroup>
+  
   <PropertyGroup>
+    
   </PropertyGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
-  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
+  
+<Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
+<Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
 </Project>

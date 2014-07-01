@@ -2,7 +2,7 @@
 
 namespace Locator.DAL.EF
 {
-    public class LocatorInitializer : DropCreateDatabaseIfModelChanges<LocatorContext>
+    public class LocatorInitializer : DropCreateDatabaseAlways<LocatorContext>
     {
         protected override void Seed(LocatorContext context)
         {

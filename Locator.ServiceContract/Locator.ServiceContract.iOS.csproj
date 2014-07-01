@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')"></Import>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')">
+</Import>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -12,7 +13,8 @@
     <AssemblyName>Locator.ServiceContract</AssemblyName>
     
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile></TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+</TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -34,20 +36,32 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System"></Reference>
-    <Reference Include="System.Core"></Reference>
-    <Reference Include="System.Xml.Linq"></Reference>
-    <Reference Include="System.Data.DataSetExtensions"></Reference>
-    <Reference Include="Microsoft.CSharp"></Reference>
-    <Reference Include="System.Data"></Reference>
-    <Reference Include="System.Xml"></Reference>
+    <Reference Include="System">
+</Reference>
+    <Reference Include="System.Core">
+</Reference>
+    <Reference Include="System.Xml.Linq">
+</Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+</Reference>
+    <Reference Include="Microsoft.CSharp">
+</Reference>
+    <Reference Include="System.Data">
+</Reference>
+    <Reference Include="System.Xml">
+</Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\LocationsModel.cs"></Compile>
-    <Compile Include="Models\FriendsModel.cs"></Compile>
-    <Compile Include="Models\RegistrationModel.cs"></Compile>
-    <Compile Include="NotificationDto.cs"></Compile>
-    <Compile Include="Properties\AssemblyInfo.cs"></Compile>
+    <Compile Include="Models\LocationsModel.cs">
+</Compile>
+    <Compile Include="Models\FriendsModel.cs">
+</Compile>
+    <Compile Include="Models\RegistrationModel.cs">
+</Compile>
+    <Compile Include="NotificationDto.cs">
+</Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+</Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Locator.Entity\Locator.Entity.iOS.csproj">
@@ -55,7 +69,8 @@
       <Name>Locator.Entity.iOS</Name>
     </ProjectReference>
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"></Import>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets">
+</Import>
   <PropertyGroup>
     <PostBuildEvent>$(ProjectDir)..\Tools\msxsl.exe $(ProjectPath) $(ProjectDir)..\Tools\WP8.xslt -o $(ProjectDir)$(ProjectName).WP8.csproj
 $(ProjectDir)..\Tools\msxsl.exe $(ProjectPath) $(ProjectDir)..\Tools\ios.xslt -o $(ProjectDir)$(ProjectName).iOS.csproj

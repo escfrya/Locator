@@ -63,7 +63,7 @@ namespace LocatorService
             if (device == null || string.IsNullOrEmpty(device.DeviceAppId))
                 throw new ArgumentException("Не указан идентификатор устройства");
 
-            var deviceToken = device.OldDeviceAppId ?? device.DeviceAppId;
+            var deviceToken = !string.IsNullOrEmpty(device.OldDeviceAppId) ? device.OldDeviceAppId : device.DeviceAppId;
             var userDeviceMap = userPushRepository.GetByFilter(up => up.DeviceAppId == deviceToken).FirstOrDefault();
             if (userDeviceMap == null)
             {

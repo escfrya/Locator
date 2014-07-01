@@ -48,17 +48,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201401112015064_Init.cs" />
-    <Compile Include="Migrations\201401112015064_Init.Designer.cs">
-      <DependentUpon>201401112015064_Init.cs</DependentUpon>
+    <Compile Include="Migrations\201406291954049_Init.cs" />
+    <Compile Include="Migrations\201406291954049_Init.Designer.cs">
+      <DependentUpon>201406291954049_Init.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201401120028014_DeleteDate.cs" />
-    <Compile Include="Migrations\201401120028014_DeleteDate.Designer.cs">
-      <DependentUpon>201401120028014_DeleteDate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201401121419041_PushChanges.cs" />
-    <Compile Include="Migrations\201401121419041_PushChanges.Designer.cs">
-      <DependentUpon>201401121419041_PushChanges.cs</DependentUpon>
+    <Compile Include="Migrations\201407010944463_AddAvatarUrl.cs" />
+    <Compile Include="Migrations\201407010944463_AddAvatarUrl.Designer.cs">
+      <DependentUpon>201407010944463_AddAvatarUrl.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MotivatorContext.cs" />
@@ -107,14 +103,11 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201401112015064_Init.resx">
-      <DependentUpon>201401112015064_Init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201406291954049_Init.resx">
+      <DependentUpon>201406291954049_Init.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201401120028014_DeleteDate.resx">
-      <DependentUpon>201401120028014_DeleteDate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201401121419041_PushChanges.resx">
-      <DependentUpon>201401121419041_PushChanges.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201407010944463_AddAvatarUrl.resx">
+      <DependentUpon>201407010944463_AddAvatarUrl.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

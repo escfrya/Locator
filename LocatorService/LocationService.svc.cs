@@ -54,12 +54,13 @@ namespace LocatorService
 
         [Authorization]
         [Cache(0)]
-        public LocationsModel GetLocations()
+        public LocationsModel GetLocations(string userId)
         {
-            var userId = GetCurrentUserId();
+            var toUserId = GetCurrentUserId();
+            var fromUserId = long.Parse(userId);
             return new LocationsModel
                 {
-                    Locations = locationRepository.GetByFilter(f => f.ToUserId == userId).OrderByDescending(l => l.ID).ToList()
+                    Locations = locationRepository.GetByFilter(f => f.ToUserId == toUserId && f.FromUserId == fromUserId).OrderByDescending(l => l.ID).ToList()
                 };
         }
 
@@ -86,6 +87,7 @@ namespace LocatorService
                 };
         }
 
+        [Cache(0)]
         [Authorization]
         public void SendLocation(Location location)
         {
@@ -105,7 +107,7 @@ namespace LocatorService
                                     Message = location.Description,
                                     Count = 1,
                                     UserId = location.ToUserId,
-                                    ObjectId = location.ID.ToString()
+                                    ObjectId = location.FromUserId.ToString()
                                 }
                         }
                 });
@@ -123,22 +125,25 @@ namespace LocatorService
             return ((CustomUser)HttpContext.Current.User).CurrentUser.ID;
         }
 
+        [Cache(0)]
         public RegistrationResponse Registration(RegistrationModel request)
         {
             var response = new RegistrationResponse();
-            if (!ValidateFacebookToken(request.Token))
+            User fbUser = ValidateFacebookToken(request.Token);
+            if (fbUser == null)
             {
                 response.Success = false;
                 return response;
             }
-            var user = userRepository.GetByFilter(u => u.Login == request.User.Login).FirstOrDefault();
+            var user = userRepository.GetByFilter(u => u.Login == fbUser.Login).FirstOrDefault();
             if (user == null)
             {
                 user = userRepository.Add(new User
                     {
-                        DisplayName = request.User.DisplayName,
-                        Login = request.User.Login,
-                        Password = request.User.Password
+                        DisplayName = fbUser.DisplayName,
+                        Login = fbUser.Login,
+                        AvatarUrl = fbUser.AvatarUrl,
+                        Password = ""
                     });
             }
             AuthService.CreateToken(user);
@@ -146,21 +151,26 @@ namespace LocatorService
             return response;
         }
 
-        private bool ValidateFacebookToken(string token)
+
+        private User ValidateFacebookToken(string token)
         {
-            bool isValid = true;
             try
             {
                 var client = new FacebookClient(token);
-                dynamic result = client.Get("me/friends");
+                dynamic me = client.Get("me");
+                return new User
+                {
+                    Login = me.email,
+                    DisplayName = me.name,
+                    AvatarUrl = string.Format("https://graph.facebook.com/{0}/picture?type=large&height=100&width=100", me.username)
+                };
             }
             catch (FacebookOAuthException)
             {
                 // Our access token is invalid or expired
-                isValid = false;
             }
 
-            return isValid;
+            return null;
         }
     }
 }

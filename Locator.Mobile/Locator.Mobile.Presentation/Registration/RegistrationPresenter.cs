@@ -38,7 +38,7 @@ namespace Locator.Mobile.Presentation
 				            request = new RegistrationModel
 				                {
                                     Token = eventArgs.Account.Properties["access_token"],
-									User = new User { Login = "egor@test.ru", Password = "test", DisplayName = "Egor" }
+									//User = new User { Login = "egor@test.ru", Password = "test", DisplayName = "Egor" }
 				                }
 				        };
                     ExecuteRequest(Factory.Registration(request), res =>

@@ -7,13 +7,13 @@ namespace Locator.DAL.EF.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.0.0-beta1-20501")]
-    public sealed partial class DeleteDate : IMigrationMetadata
+    public sealed partial class Init : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(DeleteDate));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Init));
         
         string IMigrationMetadata.Id
         {
-            get { return "201401120028014_DeleteDate"; }
+            get { return "201406291954049_Init"; }
         }
         
         string IMigrationMetadata.Source

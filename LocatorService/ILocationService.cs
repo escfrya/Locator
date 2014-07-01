@@ -10,11 +10,11 @@ namespace LocatorService
     public interface ILocatorService
     {
         [OperationContract]
-        [WebGet(UriTemplate = "/locations/", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        LocationsModel GetLocations();
+        [WebGet(UriTemplate = "/locations/user/{userId}/", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        LocationsModel GetLocations(string userId);
 
         [OperationContract]
-        [WebGet(UriTemplate = "/locations/{locationId}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        [WebGet(UriTemplate = "/locations/{locationId}/", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         Location GetLocation(string locationId);
 
         [OperationContract]
@@ -23,15 +23,15 @@ namespace LocatorService
 
         [OperationContract]
         [WebInvoke(Method = "POST", UriTemplate = "/location/", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.WrappedRequest)]
-        void SendLocation(Location location);
+        void SendLocation(Location request);
 
-        [OperationContract]
-        [WebInvoke(Method = "POST", UriTemplate = "/users/", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.WrappedRequest)]
-        User AddUser(User user);
+        //[OperationContract]
+        //[WebInvoke(Method = "POST", UriTemplate = "/users/", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.WrappedRequest)]
+        //User AddUser(User user);
 
         [OperationContract]
         [WebInvoke(Method = "POST", UriTemplate = "/user_push/", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.WrappedRequest)]
-        void RegisterDevice(DeviceDto device);
+        void RegisterDevice(DeviceDto request);
 
         //[OperationContract]
         //[WebInvoke(Method = "POST", UriTemplate = "/users/{userId}/friends/", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.WrappedRequest)]
