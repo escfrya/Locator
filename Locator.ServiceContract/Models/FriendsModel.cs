@@ -5,6 +5,7 @@ namespace Locator.ServiceContract.Models
 {
     public class FriendsModel
     {
-        public List<User> Friends { get; set; } 
+        public List<User> Friends { get; set; }
+        public long CurrentUserId { get; set; }
     }
 }

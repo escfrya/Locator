@@ -79,11 +79,13 @@ namespace LocatorService
         [Cache(0)]
         public FriendsModel GetFriends()
         {
+            var userId = GetCurrentUserId();
             // TODO: get only friends
             var userFriends = userRepository.GetAll();
             return new FriendsModel
                 {
-                    Friends = userFriends.ToList()
+                    Friends = userFriends.ToList(),
+                    CurrentUserId = userId
                 };
         }
 
