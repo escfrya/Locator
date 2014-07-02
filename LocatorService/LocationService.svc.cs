@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.ServiceModel;
 using System.ServiceModel.Activation;
 using System.Web;
+using System.Xml.Linq;
 using Facebook;
 using Locator.DAL.EF;
 using Locator.DAL.Repositories;
@@ -79,13 +81,11 @@ namespace LocatorService
         [Cache(0)]
         public FriendsModel GetFriends()
         {
-            var userId = GetCurrentUserId();
             // TODO: get only friends
             var userFriends = userRepository.GetAll();
             return new FriendsModel
                 {
-                    Friends = userFriends.ToList(),
-                    CurrentUserId = userId
+                    Friends = userFriends.ToList()
                 };
         }
 
@@ -94,9 +94,9 @@ namespace LocatorService
         public void SendLocation(Location location)
         {
             var userId = GetCurrentUserId();
-            var fromUser = userRepository.Get(userId);
+            //var fromUser = userRepository.Get(userId);
             location.FromUserId = userId;
-            location.Description = string.Format("{0} - {1}", fromUser.DisplayName, DateTime.Now.ToString("d"));
+            location.Description = string.Format("{0} {1}", DateTime.Now.ToString("dd.MM"), GetLocationDesc(location));
             locationRepository.Add(location);
 
             pushService.SendNotification(new NotificationPackage
@@ -113,6 +113,28 @@ namespace LocatorService
                                 }
                         }
                 });
+        }
+
+        private string GetLocationDesc(Location location)
+        {
+            var desc = string.Empty;
+            try
+            {
+                var requestUri = string.Format("http://maps.google.com/maps/api/geocode/xml?latlng={0},{1}&sensor=false", location.Latitude.ToString().Replace(',', '.'), location.Longitude.ToString().Replace(',', '.'));
+                var request = WebRequest.Create(requestUri);
+                var response = request.GetResponse();
+                var xdoc = XDocument.Load(response.GetResponseStream());
+                var result = xdoc.Element("GeocodeResponse").Elements("result").FirstOrDefault();
+                if (result != null)
+                {
+                    var element = result.Element("formatted_address");
+                    desc = element != null ? element.Value : "";
+                }
+            }
+            catch (Exception exc)
+            {
+            }
+            return desc;
         }
 
         [Cache(0)]
@@ -150,6 +172,7 @@ namespace LocatorService
             }
             AuthService.CreateToken(user);
             response.Success = true;
+            response.CurrentUser = user;
             return response;
         }
 

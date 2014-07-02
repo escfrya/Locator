@@ -1,4 +1,6 @@
-﻿namespace Locator.ServiceContract.Models
+﻿using Locator.Entity.Entities;
+
+namespace Locator.ServiceContract.Models
 {
     public class RegistrationModel
     {
@@ -14,5 +16,6 @@
     public class RegistrationResponse
     {
         public bool Success { get; set; }
+        public User CurrentUser { get; set; }
     }
 }
