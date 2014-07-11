@@ -13,9 +13,9 @@ namespace LocatorService
         [WebGet(UriTemplate = "/locations/user/{userId}/", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         LocationsModel GetLocations(string userId);
 
-        [OperationContract]
-        [WebGet(UriTemplate = "/locations/{locationId}/", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        Location GetLocation(string locationId);
+        //[OperationContract]
+        //[WebGet(UriTemplate = "/locations/{locationId}/", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        //Location GetLocation(string locationId);
 
         [OperationContract]
         [WebGet(UriTemplate = "/friends/", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]

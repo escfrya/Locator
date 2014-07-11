@@ -5,6 +5,7 @@ using PushNotifications.NotificationsProvider;
 using PushSharp;
 using PushSharp.Core;
 using PushSharp.WindowsPhone;
+using PushSharp.Apple;
 
 namespace PushNotifications
 {
@@ -69,6 +70,7 @@ namespace PushNotifications
         private void NotificationFailed(object sender, INotification notification, Exception error)
         {
             var er = error as WindowsPhoneNotificationSendFailureException;
+            var er1 = error as NotificationFailureException;
             //_log.Error("NotificationFailed", error);
         }
 

@@ -8,7 +8,7 @@ namespace PushNotifications.NotificationsProvider
 {
     public class ApplePushProvider : IPushProvider
     {
-        private const bool IsProduction = false;
+        private const bool IsProduction = true;
         private const string AppleSound = "sound.caf";
         private readonly PushBroker broker;
         public ApplePushProvider(PushBroker broker)
