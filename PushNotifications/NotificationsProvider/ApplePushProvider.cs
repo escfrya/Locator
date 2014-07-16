@@ -28,29 +28,29 @@ namespace PushNotifications.NotificationsProvider
         public void SendNotification(NotificationData data)
         {
             var notify = new AppleNotification();
-                
-            //if (data.ContentAvailable)
-            //{
-            notify.WithContentAvailable(1).ForDeviceToken(data.DeviceAppId);
-                      //.WithAlert("remote alert")
-                      //.WithSound("default");
-            //}
-            //else
-            //{
-            //    notify
-            //        .WithAlert(data.Message)
-            //        .WithSound(AppleSound);
 
-            //    if (data.Badge != null)
-            //        notify.WithBadge(data.Badge.Value);
-            //}
+            if (data.ContentAvailable)
+            {
+            notify.WithContentAvailable(1)
+                      .WithAlert("remote alert")
+                      .WithSound("default");
+            }
+            else
+            {
+                notify
+                    .WithAlert(data.Message)
+                    .WithSound(AppleSound);
 
-            //notify.ForDeviceToken(data.DeviceAppId)
-            //    .WithCustomItem("Type", data.NotificationType.ToString());
+                if (data.Badge != null)
+                    notify.WithBadge(data.Badge.Value);
+            }
 
-            //if (data.Items != null)
-            //    foreach (var item in data.Items)
-            //        notify.WithCustomItem(item.Key, item.Value);
+            notify.ForDeviceToken(data.DeviceAppId)
+                .WithCustomItem("Type", data.NotificationType.ToString());
+
+            if (data.Items != null)
+                foreach (var item in data.Items)
+                    notify.WithCustomItem(item.Key, item.Value);
 
             broker.QueueNotification(notify);
         }
