@@ -46,7 +46,8 @@ namespace LocatorService
                             DeviceAppId = device.DeviceAppId,
                             NotificationType = notification.NotificationType,
                             PlatformType = device.PlatformType,
-                            FromUserName = user.DisplayName
+                            FromUserName = user.DisplayName,
+                            ContentAvailable = notification.ContentAvailable
                         };
 
                         if (!string.IsNullOrEmpty(notification.ObjectId))

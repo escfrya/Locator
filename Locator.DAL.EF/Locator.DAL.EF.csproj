@@ -56,6 +56,10 @@
     <Compile Include="Migrations\201407010944463_AddAvatarUrl.Designer.cs">
       <DependentUpon>201407010944463_AddAvatarUrl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201407141519429_AddDate.cs" />
+    <Compile Include="Migrations\201407141519429_AddDate.Designer.cs">
+      <DependentUpon>201407141519429_AddDate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MotivatorContext.cs" />
     <Compile Include="MotivatorInitializer.cs" />
@@ -108,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201407010944463_AddAvatarUrl.resx">
       <DependentUpon>201407010944463_AddAvatarUrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407141519429_AddDate.resx">
+      <DependentUpon>201407141519429_AddDate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

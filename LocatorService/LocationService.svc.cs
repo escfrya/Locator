@@ -60,9 +60,13 @@ namespace LocatorService
         {
             var toUserId = GetCurrentUserId();
             var fromUserId = long.Parse(userId);
+            var locs = locationRepository.GetByFilter(f => 
+                        (f.ToUserId == toUserId && f.FromUserId == fromUserId) ||
+                        (f.ToUserId == fromUserId && f.FromUserId == toUserId)
+                        ).OrderByDescending(l => l.ID).ToList();
             return new LocationsModel
                 {
-                    Locations = locationRepository.GetByFilter(f => f.ToUserId == toUserId && f.FromUserId == fromUserId).OrderByDescending(l => l.ID).ToList()
+                    Locations = locs
                 };
         }
 
@@ -95,8 +99,9 @@ namespace LocatorService
         {
             var userId = GetCurrentUserId();
             //var fromUser = userRepository.Get(userId);
+            location.Date = DateTime.Now.ToString("hh:mm dd.MM");
             location.FromUserId = userId;
-            location.Description = string.Format("{0} {1}", DateTime.Now.ToString("dd.MM"), GetLocationDesc(location));
+            location.Description = string.Format("{0}", GetLocationDesc(location));
             locationRepository.Add(location);
 
             pushService.SendNotification(new NotificationPackage
@@ -113,6 +118,27 @@ namespace LocatorService
                                 }
                         }
                 });
+        }
+
+        [Cache(0)]
+        [Authorization]
+        public void RequestLocation(RequestLocation request)
+        {
+            var userId = GetCurrentUserId();
+            pushService.SendNotification(new NotificationPackage
+            {
+                Notifications = new List<NotificationDto>
+                        {
+                            new NotificationDto
+                                {
+                                    NotificationType = NotificationType.RequestLocation,
+                                    Message = "",
+                                    UserId = request.UserId,
+                                    ObjectId = userId.ToString(),
+                                    ContentAvailable = true
+                                }
+                        }
+            });
         }
 
         private string GetLocationDesc(Location location)

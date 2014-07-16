@@ -32,6 +32,8 @@ namespace Locator.ServiceContract
         /// Количество объектов
         /// </summary>
         public int Count { get; set; }
+
+        public bool ContentAvailable { get; set; }
     }
 
 
@@ -54,6 +56,11 @@ namespace Locator.ServiceContract
         /// Отправка местоположения
         /// </summary>
         Location = 0,
+
+        /// <summary>
+        /// Запрос позиции
+        /// </summary>
+        RequestLocation,
 
         /// <summary>
         /// Приложение обновлено
@@ -85,5 +92,10 @@ namespace Locator.ServiceContract
         /// Тип платформы
         /// </summary>
         public PlatformType PlatformType { get; set; }
+    }
+
+    public class RequestLocation
+    {
+        public int UserId { get; set; }
     }
 }

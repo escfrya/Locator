@@ -25,6 +25,10 @@ namespace LocatorService
         [WebInvoke(Method = "POST", UriTemplate = "/location/", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.WrappedRequest)]
         void SendLocation(Location request);
 
+        [OperationContract]
+        [WebInvoke(Method = "POST", UriTemplate = "/location/request/", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.WrappedRequest)]
+        void RequestLocation(RequestLocation request);
+
         //[OperationContract]
         //[WebInvoke(Method = "POST", UriTemplate = "/users/", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.WrappedRequest)]
         //User AddUser(User user);
