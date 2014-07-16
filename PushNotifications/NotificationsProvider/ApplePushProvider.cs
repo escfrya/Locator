@@ -27,13 +27,18 @@ namespace PushNotifications.NotificationsProvider
 
         public void SendNotification(NotificationData data)
         {
-            var notify = new AppleNotification();
+            var notify = new AppleNotification(data.DeviceAppId);
+
+
 
             if (data.ContentAvailable)
             {
-            notify.WithContentAvailable(1)
-                      .WithAlert("remote alert")
+                notify.WithContentAvailable(int.Parse(data.Items["objectId"]))
+                      //.WithAlert("remote alert")
                       .WithSound("default");
+                //notify.Payload.AddCustom("objectId", data.Items["objectId"]);
+                broker.QueueNotification(notify);
+                return;
             }
             else
             {
@@ -46,7 +51,7 @@ namespace PushNotifications.NotificationsProvider
             }
 
             notify.ForDeviceToken(data.DeviceAppId)
-                .WithCustomItem("Type", data.NotificationType.ToString());
+                  .WithCustomItem("type", data.NotificationType.ToString());
 
             if (data.Items != null)
                 foreach (var item in data.Items)
